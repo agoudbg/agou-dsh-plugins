@@ -28,6 +28,14 @@ pnpm install
 
 Each plugin is self-contained plain ESM JavaScript with no build step. Edit the files under `packages/<name>`, then reinstall the bundle to try the change in your DSH profile.
 
+Every push runs `scripts/check-packages.mjs`, which validates manifests, export targets, entry syntax, and the `npm pack` file list of every package.
+
+## Releasing
+
+Releases need no commands: push a `version` bump in a package's `package.json` to `main`, and CI publishes every package whose version is newer than the one on npm. CI then tags `<package>@<version>` and opens a GitHub Release with generated notes.
+
+The pushed version bump is the release confirmation. A version that already exists on npm is skipped, and a version that is not newer than npm's latest fails the run.
+
 ## License
 
 [MIT](LICENSE)
