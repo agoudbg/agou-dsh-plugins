@@ -1,0 +1,61 @@
+{
+  "format": 1,
+  "title": {
+    "en": "agou DSH plugins",
+    "zh": "agou 的 DSH 插件"
+  },
+  "description": {
+    "en": "DSH (DeepSeek Harness) plugins by agoudbg.",
+    "zh": "agoudbg 制作的 DeepSeek Harness（DSH）插件。"
+  },
+  "metadata": {
+    "categories": {},
+    "labels": {},
+    "sortKeys": {}
+  },
+  "plugins": [
+    {
+      "name": "dsh-auto-permission-default",
+      "title": {
+        "en": "Auto Permission Default",
+        "zh": "自动审查默认权限"
+      },
+      "description": {
+        "en": "Selects the Auto review permission preset for every new interactive session.",
+        "zh": "让每个新建交互会话默认使用“自动审查”权限预设。"
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTZhMzRhIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CiAgPHBhdGggZD0iTTEyIDNsOCAzdjVjMCA1LTMuNSA4LjUtOCAxMC00LjUtMS41LTgtNS04LTEwVjZ6Ii8+CiAgPHBhdGggZD0iTTguNSAxMmwyLjUgMi41IDQuNS00LjUiLz4KPC9zdmc+Cg==",
+      "author": "agoudbg",
+      "homepage": "https://github.com/agoudbg/agou-dsh-plugins#readme",
+      "repository": {
+        "url": "https://github.com/agoudbg/agou-dsh-plugins",
+        "directory": "packages/dsh-auto-permission-default"
+      },
+      "metadata": {
+        "keywords": [
+          "dsh",
+          "dsh-plugin",
+          "deepseek-harness",
+          "permission-presets"
+        ],
+        "labels": [],
+        "sortKeys": {}
+      },
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishTimestamp": 1793350895,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/agoudbg/agou-dsh-plugins",
+            "commit": "900348bc8211d529c6a2338af7107c9399eded3d",
+            "path": "packages/dsh-auto-permission-default"
+          },
+          "engines": {
+            "dsh": ">=0.2.1-rc.5"
+          }
+        }
+      ]
+    }
+  ]
+}
