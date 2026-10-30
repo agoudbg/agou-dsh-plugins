@@ -39,4 +39,4 @@ There is no automated test suite. CI runs both check scripts on every push and P
 
 ## Releasing
 
-Releases need no commands: a maintainer pushes a `version` bump to `main`, and CI publishes the package to npm, tags `<package>@<version>`, and opens a GitHub Release with generated notes.
+Releases need no commands: a maintainer pushes a `version` bump to `main`, and CI stages the package on npm (`npm stage publish`), tags `<package>@<version>`, and opens a GitHub Release with generated notes. The version goes public when a maintainer approves it on npmjs.com (Staged Packages tab, 2FA).

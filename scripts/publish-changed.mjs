@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 /**
- * Publishes every package whose version does not exist on npm yet and is
- * newer than the registry's latest. Intended to run in CI on every push to
- * main; a pushed version bump is the release confirmation. `--dry-run`
- * reports the decisions without publishing or tagging.
+ * Stages every package whose version does not exist on npm yet and is
+ * newer than the registry's latest, then tags and opens a GitHub Release.
+ * Intended to run in CI on every push to main; a pushed version bump is the
+ * release confirmation. A maintainer approves the staged versions on npmjs.com
+ * (Staged Packages tab, 2FA) to make them public. `--dry-run`
+ * reports the decisions without staging or tagging.
  *
  * After publishing (or when there is nothing to publish), the plugin market
  * index is regenerated from manifests, locales, icons, and git history, and
@@ -108,9 +110,9 @@ for (const dirName of dirs) {
         `${name}: local version ${version} is not newer than npm latest ${latest.stdout.trim()}`,
       );
     }
-    console.log(`publish ${name}@${version} (npm latest: ${latest.stdout.trim()})`);
+    console.log(`stage ${name}@${version} (npm latest: ${latest.stdout.trim()})`);
   } else {
-    console.log(`publish ${name}@${version} (new package)`);
+    console.log(`stage ${name}@${version} (new package)`);
   }
   pending.push({ dirName, name, version });
 }
@@ -121,17 +123,19 @@ if (pending.length === 0) {
 
 if (!dryRun && !process.env.NODE_AUTH_TOKEN) {
   console.error(
-    `error: NPM_TOKEN secret is not set, cannot publish: ${pending
+    `error: NPM_TOKEN secret is not set, cannot stage: ${pending
       .map((item) => `${item.name}@${item.version}`)
       .join(', ')}`,
   );
   process.exit(1);
 }
 
-let publishedCount = 0;
+let stagedCount = 0;
 for (const { dirName, name, version } of pending) {
   if (dryRun) break;
-  run('npm', ['publish', '--access', 'public'], { cwd: path.join(packagesDir, dirName) });
+  // Staged, not live: the version goes public when a maintainer approves it
+  // with 2FA. Tags and Releases are created here, ahead of that approval.
+  run('npm', ['stage', 'publish', '--access', 'public'], { cwd: path.join(packagesDir, dirName) });
   publishRecord.push({ name, version, publishTimestamp: Math.floor(Date.now() / 1000) });
   const tag = `${name}@${version}`;
   run('git', ['tag', tag]);
@@ -141,12 +145,12 @@ for (const { dirName, name, version } of pending) {
     ['release', 'create', tag, '--title', `${name} ${version}`, '--generate-notes'],
     { env: { ...process.env, GH_TOKEN: process.env.GITHUB_TOKEN } },
   );
-  console.log(`released ${tag}`);
-  publishedCount += 1;
+  console.log(`staged ${tag} (tag and Release created; live after stage approval)`);
+  stagedCount += 1;
 }
 
 console.log(
-  `\n${dryRun ? `dry run: ${pending.length} package(s) would publish.` : `${publishedCount} package(s) published.`}`,
+  `\n${dryRun ? `dry run: ${pending.length} package(s) would be staged.` : `${stagedCount} package(s) staged, awaiting approval on npmjs.com.`}`,
 );
 
 if (dryRun) {

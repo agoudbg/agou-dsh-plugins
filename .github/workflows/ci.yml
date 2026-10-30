@@ -42,6 +42,8 @@ jobs:
           node-version: 22
           registry-url: https://registry.npmjs.org
       - run: corepack enable
+      - name: Upgrade npm for staged publishing
+        run: npm install -g npm@^11.15
       - name: Install toolchain dependencies
         run: pnpm install --frozen-lockfile
       - name: Publish version bumps
