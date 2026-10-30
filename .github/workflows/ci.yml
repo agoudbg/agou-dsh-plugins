@@ -30,6 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write # push version tags, create Releases, commit index refreshes
+      id-token: write # npm trusted publishing (OIDC); token secret stays as fallback
     concurrency:
       group: npm-publish
       cancel-in-progress: false
