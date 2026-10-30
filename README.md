@@ -7,6 +7,7 @@ DSH (DeepSeek Harness) plugins by [agoudbg](https://github.com/agoudbg).
 | Package | Description |
 | --- | --- |
 | [`dsh-auto-permission-default`](packages/dsh-auto-permission-default) | Selects the Auto review permission preset for every new interactive session. |
+| [`dsh-session-workspace-label`](packages/dsh-session-workspace-label) | Shows the workspace name below each session title in the sidebar's single-list view. |
 | [`dsh-sidebar-scroll-flow`](packages/dsh-sidebar-scroll-flow) | Scrolls the web sidebar as one column: panel rows scroll away with the session list while brand, New Session, and foot stay pinned. |
 
 ## Install

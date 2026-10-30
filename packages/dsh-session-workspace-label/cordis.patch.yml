@@ -1,0 +1,4 @@
+- insert:
+    - id: session-workspace-label
+      name: dsh-session-workspace-label
+      config: {}
