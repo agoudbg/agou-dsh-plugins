@@ -36,6 +36,8 @@ Releases need no commands: push a `version` bump in a package's `package.json` t
 
 The pushed version bump is the release confirmation. A version that already exists on npm is skipped, and a version that is not newer than npm's latest fails the run.
 
+Pull requests that edit `version` in `packages/*/package.json` are flagged by the *PR Version Guard* check: external contributors fail it (maintainers cut releases), while maintainer PRs pass with a notice of what merging will publish.
+
 ## License
 
 [MIT](LICENSE)

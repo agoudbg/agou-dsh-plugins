@@ -1,0 +1,25 @@
+name: PR Version Guard
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check-version-bump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Flag version changes
+        env:
+          BASE_REF: origin/${{ github.base_ref }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          ALLOWED_AUTHORS: ${{ github.repository_owner }}
+        run: node scripts/check-pr-versions.mjs
