@@ -1,0 +1,13 @@
+{
+  "name": "agou-dsh-plugins",
+  "version": "0.0.0",
+  "private": true,
+  "description": "DSH (DeepSeek Harness) plugins by agoudbg",
+  "license": "MIT",
+  "author": "agoudbg",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agoudbg/agou-dsh-plugins.git"
+  },
+  "packageManager": "pnpm@9.15.0"
+}

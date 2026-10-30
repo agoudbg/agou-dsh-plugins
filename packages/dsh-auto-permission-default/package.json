@@ -1,0 +1,38 @@
+{
+  "name": "dsh-auto-permission-default",
+  "version": "1.0.0",
+  "description": "Selects the Auto review permission preset for every new interactive DSH session.",
+  "type": "module",
+  "license": "MIT",
+  "author": "agoudbg",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agoudbg/agou-dsh-plugins.git",
+    "directory": "packages/dsh-auto-permission-default"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "permission-presets"
+  ],
+  "engines": {
+    "dsh": ">=0.2.1-rc.5"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

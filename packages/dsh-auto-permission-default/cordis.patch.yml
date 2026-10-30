@@ -1,0 +1,5 @@
+# Insert the auto-permission-default Host plugin.
+- insert:
+    - id: auto-permission-default
+      name: dsh-auto-permission-default
+      config: {}
