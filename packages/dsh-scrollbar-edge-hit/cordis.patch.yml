@@ -1,0 +1,5 @@
+# Insert the scrollbar-edge-hit Client plugin (style-only web overlay).
+- insert:
+    - id: scrollbar-edge-hit
+      name: dsh-scrollbar-edge-hit
+      config: {}
