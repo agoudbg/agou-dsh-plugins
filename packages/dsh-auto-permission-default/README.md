@@ -36,4 +36,4 @@ R:\path\to\agou-dsh-plugins\packages\dsh-auto-permission-default
 
 ## License
 
-[MIT](../../LICENSE)
+[MIT](./LICENSE)
