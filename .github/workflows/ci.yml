@@ -16,24 +16,34 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - run: corepack enable
+      - name: Install toolchain dependencies
+        run: pnpm install --frozen-lockfile
       - name: Check packages
         run: node scripts/check-packages.mjs
+      - name: Check market index
+        run: node scripts/check-market-index.mjs
 
   publish:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: check
     runs-on: ubuntu-latest
     permissions:
-      contents: write # push version tags and create Releases
+      contents: write # push version tags, create Releases, commit index refreshes
     concurrency:
       group: npm-publish
       cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # market index generation walks full history
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           registry-url: https://registry.npmjs.org
+      - run: corepack enable
+      - name: Install toolchain dependencies
+        run: pnpm install --frozen-lockfile
       - name: Publish version bumps
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

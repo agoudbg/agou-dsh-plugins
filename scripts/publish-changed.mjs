@@ -4,15 +4,31 @@
  * newer than the registry's latest. Intended to run in CI on every push to
  * main; a pushed version bump is the release confirmation. `--dry-run`
  * reports the decisions without publishing or tagging.
+ *
+ * After publishing (or when there is nothing to publish), the plugin market
+ * index is regenerated from manifests, locales, icons, and git history, and
+ * committed back to main when it changed. Published versions are recorded in
+ * market/published.json and listed with an npm install source.
  */
-import { readdirSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { buildMarketIndex } from './build-market-index.mjs';
 
 const dryRun = process.argv.includes('--dry-run');
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const packagesDir = path.join(root, 'packages');
+const publishRecordPath = path.join(root, 'market', 'published.json');
+
+let publishRecord = [];
+if (existsSync(publishRecordPath)) {
+  const parsed = JSON.parse(readFileSync(publishRecordPath, 'utf8'));
+  if (!Array.isArray(parsed.records)) {
+    throw new Error('market/published.json must be { "records": [...] }');
+  }
+  publishRecord = parsed.records;
+}
 
 const run = (command, args, options = {}) => {
   const result = spawnSync(command, args, {
@@ -101,7 +117,6 @@ for (const dirName of dirs) {
 
 if (pending.length === 0) {
   console.log('\nnothing to publish.');
-  process.exit(0);
 }
 
 if (!dryRun && !process.env.NODE_AUTH_TOKEN) {
@@ -113,10 +128,11 @@ if (!dryRun && !process.env.NODE_AUTH_TOKEN) {
   process.exit(1);
 }
 
-let published = 0;
+let publishedCount = 0;
 for (const { dirName, name, version } of pending) {
   if (dryRun) break;
   run('npm', ['publish', '--access', 'public'], { cwd: path.join(packagesDir, dirName) });
+  publishRecord.push({ name, version, publishTimestamp: Math.floor(Date.now() / 1000) });
   const tag = `${name}@${version}`;
   run('git', ['tag', tag]);
   run('git', ['push', 'origin', 'refs/tags/' + tag]);
@@ -126,9 +142,67 @@ for (const { dirName, name, version } of pending) {
     { env: { ...process.env, GH_TOKEN: process.env.GITHUB_TOKEN } },
   );
   console.log(`released ${tag}`);
-  published += 1;
+  publishedCount += 1;
 }
 
 console.log(
-  `\n${dryRun ? `dry run: ${pending.length} package(s) would publish.` : `${published} package(s) published.`}`,
+  `\n${dryRun ? `dry run: ${pending.length} package(s) would publish.` : `${publishedCount} package(s) published.`}`,
 );
+
+if (dryRun) {
+  console.log('dry run: market index refresh skipped.');
+} else {
+  if (publishRecord.length > 0) {
+    publishRecord.sort((a, b) => a.publishTimestamp - b.publishTimestamp);
+    writeFileSync(publishRecordPath, `${JSON.stringify({ records: publishRecord }, null, 2)}\n`);
+  }
+  await refreshMarketIndex();
+}
+
+async function refreshMarketIndex() {
+  const summary = await buildMarketIndex();
+  // Same validation a DSH client runs; refuses to commit a broken index.
+  const { MarketIndexError, parseMarketIndex } = await import(
+    '@deepseek-ai/dsh-plugin-market-index'
+  );
+  const raw = JSON.parse(readFileSync(path.join(root, 'market', 'index.json'), 'utf8'));
+  try {
+    parseMarketIndex(raw, summary.url);
+  } catch (err) {
+    if (err instanceof MarketIndexError) throw new Error(`refreshed market index is invalid: ${err.message}`);
+    throw err;
+  }
+  const status = spawnSync('git', ['status', '--porcelain', 'market'], {
+    cwd: root,
+    encoding: 'utf8',
+  });
+  if (status.status !== 0) throw new Error(`git status failed: ${status.stderr}`);
+  if (!status.stdout.trim()) {
+    console.log('market index is up to date.');
+    return;
+  }
+  console.log('market index changed; committing it back to main.');
+  const git = (args) => run('git', args);
+  git(['add', 'market']);
+  git([
+    '-c',
+    'user.name=github-actions[bot]',
+    '-c',
+    'user.email=41898282+github-actions[bot]@users.noreply.github.com',
+    'commit',
+    '-m',
+    'chore: refresh market index',
+  ]);
+  const push = spawnSync('git', ['push', 'origin', 'HEAD:refs/heads/main'], {
+    cwd: root,
+    encoding: 'utf8',
+  });
+  if (push.status !== 0) {
+    // Non-fatal: whatever pushed in between refreshes the index on its own run.
+    console.warn(
+      `warning: index refresh not pushed (self-heals on the next push): ${(push.stderr || '').trim()}`,
+    );
+  } else {
+    console.log('pushed market index refresh.');
+  }
+}
