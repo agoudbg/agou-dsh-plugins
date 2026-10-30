@@ -44,12 +44,146 @@
       "versions": [
         {
           "version": "1.0.0",
-          "publishTimestamp": 1793350895,
+          "publishTimestamp": 1793402043,
+          "source": {
+            "type": "npm"
+          },
+          "engines": {
+            "dsh": ">=0.2.1-rc.5"
+          }
+        }
+      ]
+    },
+    {
+      "name": "dsh-scrollbar-edge-hit",
+      "title": {
+        "en": "Edge-Reachable Scrollbar",
+        "zh": "滚动条贴边可用"
+      },
+      "description": {
+        "en": "Makes the scrollbar usable with the mouse at the screen edge.",
+        "zh": "让滚动条在鼠标位于屏幕边缘时可用。"
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3QgeD0iOCIgeT0iOCIgd2lkdGg9IjQ4IiBoZWlnaHQ9IjQ4IiByeD0iMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzViNjQ3MiIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgPGxpbmUgeDE9IjQ3IiB5MT0iMTQiIHgyPSI0NyIgeTI9IjUwIiBzdHJva2U9IiM1YjY0NzIiIHN0cm9rZS13aWR0aD0iMyIvPgogIDxsaW5lIHgxPSI0NyIgeTE9IjIzIiB4Mj0iNDciIHkyPSIzNyIgc3Ryb2tlPSIjMjQ3YmJmIiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxwYXRoIGQ9Ik0xOCAzMGgyMm0wIDAtNy03bTcgNy03IDciIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI0N2JiZiIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==",
+      "author": "agoudbg",
+      "homepage": "https://github.com/agoudbg/agou-dsh-plugins#readme",
+      "repository": {
+        "url": "https://github.com/agoudbg/agou-dsh-plugins",
+        "directory": "packages/dsh-scrollbar-edge-hit"
+      },
+      "metadata": {
+        "keywords": [
+          "dsh",
+          "dsh-plugin",
+          "deepseek-harness",
+          "web-ui",
+          "scrollbar"
+        ],
+        "labels": [],
+        "sortKeys": {}
+      },
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishTimestamp": 1793402047,
+          "source": {
+            "type": "npm"
+          },
+          "engines": {
+            "dsh": ">=0.2.1-rc.5"
+          }
+        }
+      ]
+    },
+    {
+      "name": "dsh-session-workspace-label",
+      "title": {
+        "en": "Session workspace labels",
+        "zh": "会话工作区标签"
+      },
+      "description": {
+        "en": "Displays workspace names by group in single-list mode.",
+        "zh": "在单列表模式分组显示工作区名称。"
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMzNTY0ZDgiLz4KICA8cGF0aCBkPSJNMTUgMThoMzRNMTUgMzloMzQiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8cGF0aCBkPSJNMTYgMjVoMTBsMyA0aDE3djdIMTZ6TTE2IDQ2aDEwbDMgNGgxN3Y3SDE2eiIgZmlsbD0iI2M5ZDhmZiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAtMikgc2NhbGUoMSAuOSkiLz4KPC9zdmc+Cg==",
+      "author": "agoudbg",
+      "homepage": "https://github.com/agoudbg/agou-dsh-plugins#readme",
+      "repository": {
+        "url": "https://github.com/agoudbg/agou-dsh-plugins",
+        "directory": "packages/dsh-session-workspace-label"
+      },
+      "metadata": {
+        "keywords": [
+          "dsh",
+          "dsh-plugin",
+          "deepseek-harness",
+          "web-ui",
+          "sidebar",
+          "workspace"
+        ],
+        "labels": [],
+        "sortKeys": {}
+      },
+      "versions": [
+        {
+          "version": "1.0.1",
+          "publishTimestamp": 1793402052,
+          "source": {
+            "type": "npm"
+          },
+          "engines": {
+            "dsh": ">=0.2.1-rc.5"
+          }
+        },
+        {
+          "version": "1.0.0",
+          "publishTimestamp": 1793394351,
           "source": {
             "type": "git",
             "url": "https://github.com/agoudbg/agou-dsh-plugins",
-            "commit": "900348bc8211d529c6a2338af7107c9399eded3d",
-            "path": "packages/dsh-auto-permission-default"
+            "commit": "439d9de2f71ebb3b6a203ef9c236fe8d59ef6f01",
+            "path": "packages/dsh-session-workspace-label"
+          },
+          "engines": {
+            "dsh": ">=0.2.1-rc.5"
+          }
+        }
+      ]
+    },
+    {
+      "name": "dsh-sidebar-scroll-flow",
+      "title": {
+        "en": "Sidebar Scroll Flow",
+        "zh": "侧边栏整体滚动"
+      },
+      "description": {
+        "en": "Lets the sidebar panel rows (Temporary tasks, Plugins, Automated tasks, More) scroll together with the session list instead of staying fixed.",
+        "zh": "让侧边栏的面板行（临时任务、插件、自动化任务、更多）随会话列表一起滚动，不再固定在顶部。"
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3QgeD0iOCIgeT0iOCIgd2lkdGg9IjQ4IiBoZWlnaHQ9IjQ4IiByeD0iMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzViNjQ3MiIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgPGxpbmUgeDE9IjI2IiB5MT0iOCIgeDI9IjI2IiB5Mj0iNTYiIHN0cm9rZT0iIzViNjQ3MiIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgPHBhdGggZD0iTTE0IDIzaDZNMTQgMzFoNk0xNCAzOWg2IiBzdHJva2U9IiMyNDdiYmYiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTQwIDI0djE2bTAgMC03LTdtNyA3IDctNyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjQ3YmJmIiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K",
+      "author": "agoudbg",
+      "homepage": "https://github.com/agoudbg/agou-dsh-plugins#readme",
+      "repository": {
+        "url": "https://github.com/agoudbg/agou-dsh-plugins",
+        "directory": "packages/dsh-sidebar-scroll-flow"
+      },
+      "metadata": {
+        "keywords": [
+          "dsh",
+          "dsh-plugin",
+          "deepseek-harness",
+          "web-ui",
+          "sidebar"
+        ],
+        "labels": [],
+        "sortKeys": {}
+      },
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishTimestamp": 1793402056,
+          "source": {
+            "type": "npm"
           },
           "engines": {
             "dsh": ">=0.2.1-rc.5"

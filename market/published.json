@@ -1,0 +1,24 @@
+{
+  "records": [
+    {
+      "name": "dsh-auto-permission-default",
+      "version": "1.0.0",
+      "publishTimestamp": 1793402043
+    },
+    {
+      "name": "dsh-scrollbar-edge-hit",
+      "version": "1.0.0",
+      "publishTimestamp": 1793402047
+    },
+    {
+      "name": "dsh-session-workspace-label",
+      "version": "1.0.1",
+      "publishTimestamp": 1793402052
+    },
+    {
+      "name": "dsh-sidebar-scroll-flow",
+      "version": "1.0.0",
+      "publishTimestamp": 1793402056
+    }
+  ]
+}
