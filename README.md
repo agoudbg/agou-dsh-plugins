@@ -10,13 +10,19 @@ DSH (DeepSeek Harness) plugins by [agoudbg](https://github.com/agoudbg).
 
 ## Install
 
-Each directory under `packages/` is an installable DSH bundle. From a local clone of this repository, install one through the DSH Plugin Manager by its absolute package directory, for example:
+Each package under `packages/` is an installable DSH bundle, published to npm on release. Install one into the profile you boot with the DSH CLI (`dsh plugin` forwards its arguments to pnpm in the profile directory):
+
+```sh
+dsh plugin --profile <profile> add <package>
+```
+
+For example: `dsh plugin --profile web add dsh-auto-permission-default`.
+
+From a local clone of this repository, you can also install a package directory through the DSH Plugin Manager by its absolute path, for example:
 
 ```
 R:\path\to\agou-dsh-plugins\packages\dsh-auto-permission-default
 ```
-
-Once a package is published to npm or listed in a plugin market index, you can install it from there by name instead.
 
 ## Development
 

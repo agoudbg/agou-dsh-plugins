@@ -16,7 +16,19 @@ The permission-presets service deliberately cannot name the runtime-registered `
 
 ## Install
 
-From a local clone of [agou-dsh-plugins](https://github.com/agoudbg/agou-dsh-plugins), install this package directory through the DSH Plugin Manager:
+From npm, into the profile you boot:
+
+```sh
+dsh plugin --profile <profile> add dsh-auto-permission-default
+```
+
+Remove it the same way:
+
+```sh
+dsh plugin --profile <profile> remove dsh-auto-permission-default
+```
+
+From a local clone of [agou-dsh-plugins](https://github.com/agoudbg/agou-dsh-plugins), install this package directory through the DSH Plugin Manager instead:
 
 ```
 R:\path\to\agou-dsh-plugins\packages\dsh-auto-permission-default
