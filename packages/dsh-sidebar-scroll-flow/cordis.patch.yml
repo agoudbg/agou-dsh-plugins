@@ -1,0 +1,5 @@
+# Insert the sidebar-scroll-flow Client plugin (style-only web overlay).
+- insert:
+    - id: sidebar-scroll-flow
+      name: dsh-sidebar-scroll-flow
+      config: {}

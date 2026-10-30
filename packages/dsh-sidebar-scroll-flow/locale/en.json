@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Sidebar Scroll Flow",
+    "description": "Lets the sidebar panel rows (Temporary tasks, Plugins, Automated tasks, More) scroll together with the session list instead of staying fixed."
+  }
+}
