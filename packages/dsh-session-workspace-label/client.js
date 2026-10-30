@@ -10,7 +10,9 @@ window.__ModuleLoader__.load({
 
     // The row action seat is always mounted, including on active and archived
     // rows. Keep its label visible at rest while the original buttons keep
-    // their hover behavior. Scope layout changes to rows containing our label.
+    // their hover behavior. Remove idle buttons from layout: invisible buttons
+    // in a zero-width strip still contribute overflow to ancestor scrollports.
+    // Scope layout changes to rows containing our label.
     const CSS = `
 .${LABEL} { display: none; }
 ${ROW} {
@@ -23,13 +25,11 @@ ${ROW} {
 ${ROW} > [class*="_rowActions"] {
   display: inline-flex;
 }
-${ROW}:not(:hover):not([class*="_menuOpen"]) > [class*="_rowActions"] {
-  visibility: hidden;
-  width: 0;
-  gap: 0;
+${ROW}:not(:hover):not([class*="_menuOpen"]) > [class*="_rowActions"] > :not([data-slot="${SLOT}"]),
+${ROW}:not(:hover):not([class*="_menuOpen"]) > [class*="_rowActions"] > [data-slot="${SLOT}"] > :not(.${LABEL}) {
+  display: none;
 }
 ${ROW} .${LABEL} {
-  visibility: visible;
   position: absolute;
   inset-inline: 28px 8px;
   bottom: 4px;
