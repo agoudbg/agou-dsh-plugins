@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "title": "Pasted Text Attachment",
+    "description": "Converts pastes longer than 5000 characters into a text file, with a link to restore the text to the composer."
+  },
+  "fileName": "Pasted text.txt",
+  "numberedFileName": "Pasted text ({number}).txt",
+  "restore": "Paste into text box",
+  "remove": "Remove {name}",
+  "retry": "Retry upload",
+  "uploading": "Uploading…",
+  "ready": "Ready",
+  "uploadFailed": "Upload failed",
+  "notAttached": "Couldn't attach pasted text. You can restore it to the text box.",
+  "restoreFailed": "Couldn't insert the text. Try again when the composer is editable.",
+  "drop": "Drop files to attach",
+  "dropBlocked": "Files can't be attached right now",
+  "attachments": "Attachments"
+}

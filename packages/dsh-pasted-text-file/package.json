@@ -1,0 +1,35 @@
+{
+  "name": "dsh-pasted-text-file",
+  "version": "1.0.0",
+  "description": "Turns pasted text longer than 5000 characters into a reversible text attachment.",
+  "type": "module",
+  "license": "MIT",
+  "author": "agoudbg",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agoudbg/agou-dsh-plugins.git",
+    "directory": "packages/dsh-pasted-text-file"
+  },
+  "keywords": ["dsh", "dsh-plugin", "deepseek-harness", "web-ui", "clipboard", "attachments"],
+  "engines": { "dsh": ">=0.2.1-rc.5" },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "scripts": {
+    "build": "node scripts/build-locales.mjs",
+    "prepack": "node scripts/build-locales.mjs",
+    "test": "node --test"
+  },
+  "files": ["index.js", "client.js", "client.locales.js", "scripts/build-locales.mjs", "cordis.patch.yml", "locale/*.json", "icon.svg"],
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": ["@deepseek-ai/dsh-client-ui-conversation", "@deepseek-ai/dsh-client-ui-attachment"]
+    }
+  }
+}

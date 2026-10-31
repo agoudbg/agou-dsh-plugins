@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "title": "长文本粘贴附件",
+    "description": "超过 5000 字符的粘贴自动转为文本附件，点击链接可恢复到输入框。"
+  },
+  "fileName": "粘贴的文本.txt",
+  "numberedFileName": "粘贴的文本 ({number}).txt",
+  "restore": "粘贴到文本框",
+  "remove": "移除 {name}",
+  "retry": "重试上传",
+  "uploading": "正在上传…",
+  "ready": "上传完成",
+  "uploadFailed": "上传失败",
+  "notAttached": "粘贴文本未能添加为附件，可以恢复到文本框。",
+  "restoreFailed": "文本未能插入，请在输入框可编辑时重试。",
+  "drop": "拖放文件以添加附件",
+  "dropBlocked": "现在无法添加附件",
+  "attachments": "附件"
+}

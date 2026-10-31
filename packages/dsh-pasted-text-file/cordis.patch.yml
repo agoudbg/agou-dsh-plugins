@@ -1,0 +1,4 @@
+- insert:
+    - id: pasted-text-file
+      name: dsh-pasted-text-file
+      config: {}
