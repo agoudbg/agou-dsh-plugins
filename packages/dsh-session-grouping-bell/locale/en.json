@@ -5,5 +5,7 @@
   },
   "showFlat": "Show all sessions in one list",
   "showWorkspace": "Group sessions by workspace",
-  "showWorkspaceTree": "Group sessions by workspace tree"
+  "showWorkspaceTree": "Group sessions by workspace tree",
+  "unread": "Unread conversations",
+  "waiting": "Conversations awaiting action"
 }

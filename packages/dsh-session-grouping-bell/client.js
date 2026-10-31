@@ -30,6 +30,7 @@ span:has(> .${PREFIX}-heading):not([class*="sectionLabelHidden"]) {
 }
 .${PREFIX}-button {
   display: inline-flex;
+  position: relative;
   flex: none;
   align-items: center;
   justify-content: center;
@@ -51,6 +52,21 @@ span:has(> .${PREFIX}-heading):not([class*="sectionLabelHidden"]) {
 .${PREFIX}-button:focus-visible {
   outline: 2px solid var(--dsw-alias-brand-primary);
   outline-offset: -2px;
+}
+.${PREFIX}-badge {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  display: block;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+}
+.${PREFIX}-badge-unread {
+  color: var(--dsw-alias-state-success-primary);
+}
+.${PREFIX}-badge-waiting {
+  color: var(--dsw-alias-state-warn-primary);
 }
 `;
 
@@ -83,11 +99,15 @@ span:has(> .${PREFIX}-heading):not([class*="sectionLabelHidden"]) {
           showFlat: 'Show all sessions in one list',
           showWorkspace: 'Group sessions by workspace',
           showWorkspaceTree: 'Group sessions by workspace tree',
+          unread: 'Unread conversations',
+          waiting: 'Conversations awaiting action',
         }));
         ctx.effect(() => ctx.locale.register(NS, 'zh', {
           showFlat: '切换到单列表',
           showWorkspace: '切换到按工作区分组',
           showWorkspaceTree: '切换到按工作区树分组',
+          unread: '有未读对话',
+          waiting: '有等待操作的对话',
         }));
         const translate = ctx.locale.bind(NS);
         const wrappers = new WeakSet();
@@ -101,6 +121,34 @@ span:has(> .${PREFIX}-heading):not([class*="sectionLabelHidden"]) {
           } catch (error) {
             console.warn(`[${PREFIX}] Could not save grouping; keeping it for this page:`, error);
           }
+        }
+
+        function BellButton({ flat, hint, onClick, useSessions, useSessionStatus, useWorkspaces }) {
+          const list = useSessions((state) => state);
+          const archivedSessionIds = useWorkspaces((state) => state.archivedSessionIds);
+          const attention = useSessionStatus((statuses) => {
+            const archived = new Set(archivedSessionIds);
+            let waiting = false;
+            for (const id of list.ids) {
+              const session = list.byId[id];
+              if (session === undefined || session.origin === 'subagent' || archived.has(id)
+                || (session.blank && (session.retainedBy.mainView ?? 0) === 0)) continue;
+              const status = statuses.get(id);
+              if (status?.completionUnread === true) return 'unread';
+              const kind = status?.pendingInteraction?.kind;
+              if (kind === 'approval' || kind === 'plan-review' || kind === 'question') waiting = true;
+            }
+            return waiting ? 'waiting' : undefined;
+          });
+          const label = attention === undefined ? hint : `${hint} · ${translate(attention)}`;
+          return h('button', {
+            type: 'button', className: `${PREFIX}-button`,
+            'aria-label': label, 'aria-pressed': flat, title: hint, onClick,
+          }, bell, attention === undefined ? null : h('svg', {
+            className: `${PREFIX}-badge ${PREFIX}-badge-${attention}`,
+            width: 10, height: 10, viewBox: '0 0 10 10',
+            'aria-hidden': true, focusable: false,
+          }, h('circle', { cx: 5, cy: 5, r: 3, fill: 'currentColor' })));
         }
 
         ctx.slots.inject(SLOT, () => {
@@ -177,11 +225,12 @@ span:has(> .${PREFIX}-heading):not([class*="sectionLabelHidden"]) {
                 headerChildren[0] = React.cloneElement(heading, {},
                   h('span', { className: `${PREFIX}-heading` },
                     h('span', { className: `${PREFIX}-label` }, heading.props.children),
-                    h('button', {
-                      type: 'button', className: `${PREFIX}-button`,
-                      'aria-label': hint, 'aria-pressed': flat, title: hint,
-                      onClick: toggle,
-                    }, bell)));
+                    h(BellButton, {
+                      flat, hint, onClick: toggle,
+                      useSessions: props.useSessions,
+                      useSessionStatus: props.useSessionStatus,
+                      useWorkspaces: props.useWorkspaces,
+                    })));
                 children[0] = React.cloneElement(header, {}, headerChildren);
                 return h(React.Fragment, null,
                   h('style', { 'data-plugin': PREFIX }, CSS),

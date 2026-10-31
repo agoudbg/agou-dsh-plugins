@@ -5,5 +5,7 @@
   },
   "showFlat": "切换到单列表",
   "showWorkspace": "切换到按工作区分组",
-  "showWorkspaceTree": "切换到按工作区树分组"
+  "showWorkspaceTree": "切换到按工作区树分组",
+  "unread": "有未读对话",
+  "waiting": "有等待操作的对话"
 }

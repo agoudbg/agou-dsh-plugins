@@ -1,6 +1,6 @@
 {
   "name": "dsh-session-grouping-bell",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Quickly switch to the single-list view.",
   "type": "module",
   "license": "MIT",

@@ -20,8 +20,6 @@ importers:
 
   packages/dsh-plugin-installed-order: {}
 
-  packages/dsh-reasoning-effort-memory: {}
-
   packages/dsh-scrollbar-edge-hit: {}
 
   packages/dsh-session-grouping-bell: {}
