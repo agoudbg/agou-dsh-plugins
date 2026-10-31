@@ -1,6 +1,8 @@
 # dsh-pasted-text-file
 
-When you paste more than 5000 characters into the DSH composer, this plugin adds the text as a UTF-8 attachment. The filename follows the interface language: `Pasted text.txt` in English or `粘贴的文本.txt` in Chinese. You can keep editing your message and send the attachment with it.
+Paste long text as an attachment.
+
+Attachments use UTF-8. The filename follows the interface language: `Pasted text.txt` in English or `粘贴的文本.txt` in Chinese. You can keep editing your message and send the attachment with it.
 
 ## Install
 
@@ -29,6 +31,8 @@ This plugin supplies the composer attachment rail and uses the existing DSH file
 The restore link belongs to unsent draft attachments. Browser reloads discard these attachments, following DSH's normal draft-attachment behavior. Disabling the plugin returns the standard attachment rail.
 
 ## 中文
+
+将长文本粘贴为附件。
 
 在对话输入框粘贴超过 5000 个字符的文本，会生成 UTF-8 附件。文件名跟随界面语言，中文界面生成 `粘贴的文本.txt`，英文界面生成 `Pasted text.txt`。原有草稿保持不变，你可以继续编辑消息，再连同附件一起发送。5000 个字符以内正常粘贴，中文字符和单个码点的表情各计一个字符。
 

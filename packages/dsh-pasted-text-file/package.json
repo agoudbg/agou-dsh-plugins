@@ -1,7 +1,7 @@
 {
   "name": "dsh-pasted-text-file",
   "version": "1.0.0",
-  "description": "Turns pasted text longer than 5000 characters into a reversible text attachment.",
+  "description": "Paste long text as an attachment.",
   "type": "module",
   "license": "MIT",
   "author": "agoudbg",

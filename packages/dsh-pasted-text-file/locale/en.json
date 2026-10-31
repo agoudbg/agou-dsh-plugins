@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Pasted Text Attachment",
-    "description": "Converts pastes longer than 5000 characters into a text file, with a link to restore the text to the composer."
+    "description": "Paste long text as an attachment."
   },
   "fileName": "Pasted text.txt",
   "numberedFileName": "Pasted text ({number}).txt",

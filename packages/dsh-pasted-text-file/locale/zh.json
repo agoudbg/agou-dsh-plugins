@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "长文本粘贴附件",
-    "description": "超过 5000 字符的粘贴自动转为文本附件，点击链接可恢复到输入框。"
+    "description": "将长文本粘贴为附件。"
   },
   "fileName": "粘贴的文本.txt",
   "numberedFileName": "粘贴的文本 ({number}).txt",

@@ -7,7 +7,7 @@ DSH (DeepSeek Harness) plugins by [agoudbg](https://github.com/agoudbg).
 | Package | Description |
 | --- | --- |
 | [`dsh-auto-permission-default`](packages/dsh-auto-permission-default) | Selects the Auto review permission preset for every new interactive session. |
-| [`dsh-pasted-text-file`](packages/dsh-pasted-text-file) | Converts pastes longer than 5000 characters into text attachments with a link to restore the text. |
+| [`dsh-pasted-text-file`](packages/dsh-pasted-text-file) | Paste long text as an attachment. |
 | [`dsh-plugin-installed-order`](packages/dsh-plugin-installed-order) | Shows installed plugins before built-in experimental plugins on the Installed tab. |
 | [`dsh-scrollbar-edge-hit`](packages/dsh-scrollbar-edge-hit) | Makes the conversation and Files panel scrollbars draggable at the window's right edge. |
 | [`dsh-session-grouping-bell`](packages/dsh-session-grouping-bell) | Adds a bell that toggles the session list between a single list and the last workspace grouping. |
