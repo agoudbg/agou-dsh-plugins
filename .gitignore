@@ -16,3 +16,6 @@ Thumbs.db
 
 # Local browser verification
 .playwright-cli/
+
+# Local verification artifacts
+.tmp/

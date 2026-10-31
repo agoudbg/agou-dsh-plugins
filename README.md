@@ -10,6 +10,7 @@ DSH (DeepSeek Harness) plugins by [agoudbg](https://github.com/agoudbg).
 | [`dsh-pasted-text-file`](packages/dsh-pasted-text-file) | Converts pastes longer than 5000 characters into text attachments with a link to restore the text. |
 | [`dsh-plugin-installed-order`](packages/dsh-plugin-installed-order) | Shows installed plugins before built-in experimental plugins on the Installed tab. |
 | [`dsh-scrollbar-edge-hit`](packages/dsh-scrollbar-edge-hit) | Makes the conversation and Files panel scrollbars draggable at the window's right edge. |
+| [`dsh-session-grouping-bell`](packages/dsh-session-grouping-bell) | Adds a bell that toggles the session list between a single list and the last workspace grouping. |
 | [`dsh-session-workspace-label`](packages/dsh-session-workspace-label) | Shows the workspace name below each session title in the sidebar's single-list view. |
 | [`dsh-sidebar-scroll-flow`](packages/dsh-sidebar-scroll-flow) | Scrolls the web sidebar as one column: panel rows scroll away with the session list while brand, New Session, and foot stay pinned. |
 

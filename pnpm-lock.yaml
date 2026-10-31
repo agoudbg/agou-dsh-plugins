@@ -14,9 +14,21 @@ importers:
 
   packages/dsh-auto-permission-default: {}
 
+  packages/dsh-model-effort-memory: {}
+
   packages/dsh-pasted-text-file: {}
 
   packages/dsh-plugin-installed-order: {}
+
+  packages/dsh-reasoning-effort-memory: {}
+
+  packages/dsh-scrollbar-edge-hit: {}
+
+  packages/dsh-session-grouping-bell: {}
+
+  packages/dsh-session-workspace-label: {}
+
+  packages/dsh-sidebar-scroll-flow: {}
 
 packages:
 

@@ -1,0 +1,4 @@
+- insert:
+    - id: session-grouping-bell
+      name: dsh-session-grouping-bell
+      config: {}

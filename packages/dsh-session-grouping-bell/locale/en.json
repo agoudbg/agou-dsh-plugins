@@ -1,0 +1,9 @@
+{
+  "meta": {
+    "title": "Session grouping bell",
+    "description": "Quickly switch to the single-list view."
+  },
+  "showFlat": "Show all sessions in one list",
+  "showWorkspace": "Group sessions by workspace",
+  "showWorkspaceTree": "Group sessions by workspace tree"
+}

@@ -1,0 +1,9 @@
+{
+  "meta": {
+    "title": "会话分组铃铛",
+    "description": "快速切换到单列表视图。"
+  },
+  "showFlat": "切换到单列表",
+  "showWorkspace": "切换到按工作区分组",
+  "showWorkspaceTree": "切换到按工作区树分组"
+}
