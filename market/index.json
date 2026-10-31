@@ -55,14 +55,56 @@
       ]
     },
     {
+      "name": "dsh-model-effort-memory",
+      "title": {
+        "en": "Remember Model Effort",
+        "zh": "记住模型推理强度"
+      },
+      "description": {
+        "en": "Keeps each model's last selected reasoning effort when switching models.",
+        "zh": "切换模型时恢复每个模型上次选择的推理强度。"
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3QgeD0iOCIgeT0iOCIgd2lkdGg9IjQ4IiBoZWlnaHQ9IjQ4IiByeD0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNTM2MzZjIiBzdHJva2Utd2lkdGg9IjMiLz4KICA8cGF0aCBkPSJNMjAgMjNoMjRNMjAgMzJoMjRNMjAgNDFoMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzUzNjM2YyIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8Y2lyY2xlIGN4PSIzMyIgY3k9IjIzIiByPSI1IiBmaWxsPSIjZjVmOWZhIiBzdHJva2U9IiMxNzhiODkiIHN0cm9rZS13aWR0aD0iMyIvPgogIDxjaXJjbGUgY3g9IjQwIiBjeT0iMzIiIHI9IjUiIGZpbGw9IiNmNWY5ZmEiIHN0cm9rZT0iIzE3OGI4OSIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgPGNpcmNsZSBjeD0iMjciIGN5PSI0MSIgcj0iNSIgZmlsbD0iI2Y1ZjlmYSIgc3Ryb2tlPSIjMTc4Yjg5IiBzdHJva2Utd2lkdGg9IjMiLz4KPC9zdmc+Cg==",
+      "author": "agoudbg",
+      "homepage": "https://github.com/agoudbg/agou-dsh-plugins#readme",
+      "repository": {
+        "url": "https://github.com/agoudbg/agou-dsh-plugins",
+        "directory": "packages/dsh-model-effort-memory"
+      },
+      "metadata": {
+        "keywords": [
+          "dsh",
+          "dsh-plugin",
+          "deepseek-harness",
+          "web-ui",
+          "model",
+          "reasoning-effort"
+        ],
+        "labels": [],
+        "sortKeys": {}
+      },
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishTimestamp": 1793471965,
+          "source": {
+            "type": "npm"
+          },
+          "engines": {
+            "dsh": ">=0.2.1-rc.5"
+          }
+        }
+      ]
+    },
+    {
       "name": "dsh-pasted-text-file",
       "title": {
         "en": "Pasted Text Attachment",
         "zh": "长文本粘贴附件"
       },
       "description": {
-        "en": "Converts pastes longer than 5000 characters into a text file, with a link to restore the text to the composer.",
-        "zh": "超过 5000 字符的粘贴自动转为文本附件，点击链接可恢复到输入框。"
+        "en": "Paste long text as an attachment.",
+        "zh": "将长文本粘贴为附件。"
       },
       "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSI+CiAgPHJlY3QgeD0iNCIgeT0iNCIgd2lkdGg9IjU2IiBoZWlnaHQ9IjU2IiByeD0iMTYiIGZpbGw9IiNFN0VFRjkiLz4KICA8cGF0aCBkPSJNMTkgMTNoMTlsOSA5djI5SDE5eiIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMzU2NUE2IiBzdHJva2Utd2lkdGg9IjIuNSIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogIDxwYXRoIGQ9Ik0zOCAxM3YxMGg5TTI1IDI5aDE1TTI1IDM1aDEyIiBzdHJva2U9IiMzNTY1QTYiIHN0cm9rZS13aWR0aD0iMi41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KICA8cGF0aCBkPSJtMzAgNDAtNSA1IDUgNU0yNiA0NWgxMGE3IDcgMCAwIDAgNy03IiBzdHJva2U9IiMyQzhCNzEiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=",
       "author": "agoudbg",
@@ -87,6 +129,47 @@
         {
           "version": "1.0.0",
           "publishTimestamp": 1793443983,
+          "source": {
+            "type": "npm"
+          },
+          "engines": {
+            "dsh": ">=0.2.1-rc.5"
+          }
+        }
+      ]
+    },
+    {
+      "name": "dsh-plugin-installed-order",
+      "title": {
+        "en": "Installed Plugins First",
+        "zh": "已安装插件优先"
+      },
+      "description": {
+        "en": "Shows installed plugins before built-in experimental plugins on the Installed tab.",
+        "zh": "在插件管理的“已安装”页面中，将“已安装插件”排在内置实验性插件前面。"
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0IiBmaWxsPSJub25lIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iY2FyZHMiIHgxPSI4IiB5MT0iOCIgeDI9IjQ3IiB5Mj0iNTYiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzAwOEZDNyIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM2NDU3RDkiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHg9IjYiIHk9IjgiIHdpZHRoPSIzOCIgaGVpZ2h0PSIyMCIgcng9IjYiIGZpbGw9InVybCgjY2FyZHMpIi8+CiAgPHJlY3QgeD0iNiIgeT0iMzYiIHdpZHRoPSIzOCIgaGVpZ2h0PSIyMCIgcng9IjYiIGZpbGw9InVybCgjY2FyZHMpIiBvcGFjaXR5PSIuNSIvPgogIDxwYXRoIGQ9Ik0xNSAxOGgyME0xNSA0NmgyMCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8cGF0aCBkPSJNNTQgNDVWMTltLTYgNiA2LTYgNiA2IiBzdHJva2U9IiMwMDhGQzciIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=",
+      "author": "agoudbg",
+      "homepage": "https://github.com/agoudbg/agou-dsh-plugins#readme",
+      "repository": {
+        "url": "https://github.com/agoudbg/agou-dsh-plugins",
+        "directory": "packages/dsh-plugin-installed-order"
+      },
+      "metadata": {
+        "keywords": [
+          "dsh",
+          "dsh-plugin",
+          "deepseek-harness",
+          "web-ui",
+          "plugin-manager"
+        ],
+        "labels": [],
+        "sortKeys": {}
+      },
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishTimestamp": 1793471969,
           "source": {
             "type": "npm"
           },
@@ -130,6 +213,61 @@
           "publishTimestamp": 1793402047,
           "source": {
             "type": "npm"
+          },
+          "engines": {
+            "dsh": ">=0.2.1-rc.5"
+          }
+        }
+      ]
+    },
+    {
+      "name": "dsh-session-grouping-bell",
+      "title": {
+        "en": "Session grouping bell",
+        "zh": "会话分组铃铛"
+      },
+      "description": {
+        "en": "Quickly switch to the single-list view.",
+        "zh": "快速切换到单列表视图。"
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTYiIGZpbGw9IiMzMDMyMzgiLz4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMiAxMSkgc2NhbGUoMS42NjY3KSIgc3Ryb2tlPSIjZjFmMmY0IiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KICAgIDxwYXRoIGQ9Ik0xMC4yNjggMjFhMiAyIDAgMCAwIDMuNDY0IDAiLz4KICAgIDxwYXRoIGQ9Ik0zLjI2MiAxNS4zMjZBMSAxIDAgMCAwIDQgMTdoMTZhMSAxIDAgMCAwIC43NC0xLjY3M0MxOS40MSAxMy45NTYgMTggMTIuNDk5IDE4IDhBNiA2IDAgMCAwIDYgOGMwIDQuNDk5LTEuNDExIDUuOTU2LTIuNzM4IDcuMzI2Ii8+CiAgPC9nPgo8L3N2Zz4K",
+      "author": "agoudbg",
+      "homepage": "https://github.com/agoudbg/agou-dsh-plugins#readme",
+      "repository": {
+        "url": "https://github.com/agoudbg/agou-dsh-plugins",
+        "directory": "packages/dsh-session-grouping-bell"
+      },
+      "metadata": {
+        "keywords": [
+          "dsh",
+          "dsh-plugin",
+          "deepseek-harness",
+          "web-ui",
+          "sidebar",
+          "sessions"
+        ],
+        "labels": [],
+        "sortKeys": {}
+      },
+      "versions": [
+        {
+          "version": "1.1.0",
+          "publishTimestamp": 1793471974,
+          "source": {
+            "type": "npm"
+          },
+          "engines": {
+            "dsh": ">=0.2.1-rc.5"
+          }
+        },
+        {
+          "version": "1.0.0",
+          "publishTimestamp": 1793470686,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/agoudbg/agou-dsh-plugins",
+            "commit": "69a0caa8b6cdf1bfaaaf0a236e45f4a7bc7cfddb",
+            "path": "packages/dsh-session-grouping-bell"
           },
           "engines": {
             "dsh": ">=0.2.1-rc.5"
