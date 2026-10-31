@@ -55,6 +55,48 @@
       ]
     },
     {
+      "name": "dsh-pasted-text-file",
+      "title": {
+        "en": "Pasted Text Attachment",
+        "zh": "长文本粘贴附件"
+      },
+      "description": {
+        "en": "Converts pastes longer than 5000 characters into a text file, with a link to restore the text to the composer.",
+        "zh": "超过 5000 字符的粘贴自动转为文本附件，点击链接可恢复到输入框。"
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSI+CiAgPHJlY3QgeD0iNCIgeT0iNCIgd2lkdGg9IjU2IiBoZWlnaHQ9IjU2IiByeD0iMTYiIGZpbGw9IiNFN0VFRjkiLz4KICA8cGF0aCBkPSJNMTkgMTNoMTlsOSA5djI5SDE5eiIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMzU2NUE2IiBzdHJva2Utd2lkdGg9IjIuNSIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogIDxwYXRoIGQ9Ik0zOCAxM3YxMGg5TTI1IDI5aDE1TTI1IDM1aDEyIiBzdHJva2U9IiMzNTY1QTYiIHN0cm9rZS13aWR0aD0iMi41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KICA8cGF0aCBkPSJtMzAgNDAtNSA1IDUgNU0yNiA0NWgxMGE3IDcgMCAwIDAgNy03IiBzdHJva2U9IiMyQzhCNzEiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=",
+      "author": "agoudbg",
+      "homepage": "https://github.com/agoudbg/agou-dsh-plugins#readme",
+      "repository": {
+        "url": "https://github.com/agoudbg/agou-dsh-plugins",
+        "directory": "packages/dsh-pasted-text-file"
+      },
+      "metadata": {
+        "keywords": [
+          "dsh",
+          "dsh-plugin",
+          "deepseek-harness",
+          "web-ui",
+          "clipboard",
+          "attachments"
+        ],
+        "labels": [],
+        "sortKeys": {}
+      },
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishTimestamp": 1793443983,
+          "source": {
+            "type": "npm"
+          },
+          "engines": {
+            "dsh": ">=0.2.1-rc.5"
+          }
+        }
+      ]
+    },
+    {
       "name": "dsh-scrollbar-edge-hit",
       "title": {
         "en": "Edge-Reachable Scrollbar",
@@ -157,8 +199,8 @@
         "zh": "侧边栏整体滚动"
       },
       "description": {
-        "en": "Lets the sidebar panel rows (Temporary tasks, Plugins, Automated tasks, More) scroll together with the session list instead of staying fixed.",
-        "zh": "让侧边栏的面板行（临时任务、插件、自动化任务、更多）随会话列表一起滚动，不再固定在顶部。"
+        "en": "Increases the display area for the conversation list in the sidebar.",
+        "zh": "增大对话列表在侧边栏的显示区域。"
       },
       "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3QgeD0iOCIgeT0iOCIgd2lkdGg9IjQ4IiBoZWlnaHQ9IjQ4IiByeD0iMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzViNjQ3MiIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgPGxpbmUgeDE9IjI2IiB5MT0iOCIgeDI9IjI2IiB5Mj0iNTYiIHN0cm9rZT0iIzViNjQ3MiIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgPHBhdGggZD0iTTE0IDIzaDZNMTQgMzFoNk0xNCAzOWg2IiBzdHJva2U9IiMyNDdiYmYiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTQwIDI0djE2bTAgMC03LTdtNyA3IDctNyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjQ3YmJmIiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K",
       "author": "agoudbg",

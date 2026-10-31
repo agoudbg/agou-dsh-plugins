@@ -19,6 +19,11 @@
       "name": "dsh-sidebar-scroll-flow",
       "version": "1.0.0",
       "publishTimestamp": 1793402056
+    },
+    {
+      "name": "dsh-pasted-text-file",
+      "version": "1.0.0",
+      "publishTimestamp": 1793443983
     }
   ]
 }
