@@ -1,7 +1,7 @@
 {
   "name": "dsh-sidebar-scroll-flow",
   "version": "1.0.0",
-  "description": "Scrolls the web sidebar as one column: the panel rows scroll away with the session list while brand, New Session, and foot stay pinned.",
+  "description": "Increases the display area for the conversation list in the sidebar.",
   "type": "module",
   "license": "MIT",
   "author": "agoudbg",
