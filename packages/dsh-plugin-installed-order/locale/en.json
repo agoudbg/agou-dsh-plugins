@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Installed Plugins First",
+    "description": "Shows installed plugins before built-in experimental plugins on the Installed tab."
+  }
+}

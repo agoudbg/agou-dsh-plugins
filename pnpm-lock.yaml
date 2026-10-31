@@ -16,6 +16,8 @@ importers:
 
   packages/dsh-pasted-text-file: {}
 
+  packages/dsh-plugin-installed-order: {}
+
 packages:
 
   '@deepseek-ai/cordis@4.0.5':
