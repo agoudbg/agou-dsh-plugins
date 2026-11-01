@@ -163,6 +163,11 @@ export function registerManagementTool(ctx, host) {
 export function registerHostEvents(ctx, host) {
   ctx.on('session/event', (session, event) => {
     host.observe(session, event);
+    if (event.type === 'turn/end') host.requestCleanup();
+  });
+  ctx.on('domain/changed', change => {
+    if (change.domain !== 'workspace') return;
+    host.requestCleanup();
   });
   ctx.on('agent/created', async ({ agent, signal }) => {
     host.reconciled.delete(agent.id);

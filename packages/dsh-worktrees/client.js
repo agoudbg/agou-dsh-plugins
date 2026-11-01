@@ -30,11 +30,31 @@ window.__ModuleLoader__.load({
 .${PREFIX}-seatLabel { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .${PREFIX}-seatIcon { flex: none; }
 .${PREFIX}-chevron { color: var(--dsw-alias-label-caption); flex: none; }
+.${PREFIX}-section { min-width: 0; color: var(--dsw-alias-label-primary); }
+.${PREFIX}-setting { border-bottom: .5px solid var(--dsw-alias-border-l2); display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 16px 0; }
+.${PREFIX}-settingLabel { min-width: 0; flex: 1; }
+.${PREFIX}-title { font-size: 14px; line-height: 20px; }
 .${PREFIX}-help { color: var(--dsw-alias-label-secondary); margin-top: 4px; font-size: 12px; line-height: 18px; }
+.${PREFIX}-field { display: flex; align-items: center; gap: 8px; min-width: 0; width: min(52%,360px); }
+.${PREFIX}-field > button { flex-shrink: 0; white-space: nowrap; }
+.${PREFIX}-input { box-sizing: border-box; border: 1px solid var(--dsw-alias-border-l2); border-radius: var(--dsw-radius-sm); background: transparent; color: var(--dsw-alias-label-primary); min-width: 0; width: 100%; padding: 6px 8px; font: inherit; font-size: 13px; line-height: 20px; }
+.${PREFIX}-number { width: 76px; flex: none; }
+.${PREFIX}-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin: 24px 0 8px; }
+.${PREFIX}-repo { margin: 24px 0 0; font-size: 14px; line-height: 20px; font-weight: 500; overflow-wrap: anywhere; }
+.${PREFIX}-record { border-bottom: .5px solid var(--dsw-alias-border-l2); padding: 16px 0; }
+.${PREFIX}-recordHead { display: flex; align-items: baseline; gap: 8px; }
+.${PREFIX}-recordTitle { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 14px; line-height: 20px; }
+.${PREFIX}-status { flex: none; color: var(--dsw-alias-label-secondary); font-size: 12px; line-height: 18px; }
 .${PREFIX}-path { color: var(--dsw-alias-label-secondary); overflow-wrap: anywhere; font-size: 12px; line-height: 18px; margin-top: 4px; }
+.${PREFIX}-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 12px; }
+.${PREFIX}-error { color: var(--dsw-alias-state-error-primary); white-space: pre-wrap; overflow-wrap: anywhere; font-size: 12px; line-height: 18px; margin-top: 8px; }
 .${PREFIX}-rawError { margin: 0; max-height: 50vh; overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; font-family: var(--ds-font-family-code); font-size: 12px; line-height: 18px; }
 .${PREFIX}-modalAction { min-width: 72px; }
 .${PREFIX}-dialogText { white-space: pre-wrap; overflow-wrap: anywhere; }
+@media (max-width: 600px) {
+  .${PREFIX}-setting { align-items: stretch; flex-direction: column; gap: 12px; }
+  .${PREFIX}-field { width: 100%; }
+}
 `;
 
     // BEGIN GENERATED COPY: edit locale/*.json, then run pnpm locales.
@@ -623,6 +643,169 @@ window.__ModuleLoader__.load({
             current?.path ? h('div', { className: `${PREFIX}-path` }, current.path) : null)));
     }
 
+    function statusLabel(record, statuses, pinned, t) {
+      const labels = [];
+      if (record.sessionIds.some((id) => statuses.get(id)?.running)) labels.push(t('active'));
+      if (record.sessionIds.some((id) => pinned.has(id))) labels.push(t('pinned'));
+      if (record.protected && labels.length === 0 && record.status === 'ready') labels.push(t('protected'));
+      if (record.status !== 'ready' || labels.length === 0) labels.push(t(record.status));
+      return labels.join(' · ');
+    }
+
+    function RecordRow({ record, sessions, statuses, pinned, archived, controller, openSession, close, t }) {
+      const [menuOpen, setMenuOpen] = React.useState(false);
+      const [busy, setBusy] = React.useState(false);
+      const protectedRecord = record.protected || record.sessionIds.some((id) => pinned.has(id) || statuses.get(id)?.running);
+      const transitioning = TRANSITIONAL.has(record.status);
+      const title = record.sessionIds.map((id) => sessions[id]?.title || sessions[id]?.displayTitle).find(Boolean) || t('untitled');
+      const act = async (action) => {
+        setBusy(true);
+        try { await controller.recordAction(action, record); }
+        finally { setBusy(false); }
+      };
+      return h('article', { className: `${PREFIX}-record` },
+        h('div', { className: `${PREFIX}-recordHead` },
+          h('div', { className: `${PREFIX}-recordTitle`, title }, title),
+          h('span', { className: `${PREFIX}-status` }, statusLabel(record, statuses, pinned, t))),
+        h('div', { className: `${PREFIX}-path` }, record.path),
+        record.baseRef ? h('div', { className: `${PREFIX}-help` }, t('basedOn', { branch: branchLabel(record.baseRef) })) : null,
+        record.error ? h('div', { className: `${PREFIX}-error` }, record.error) : null,
+        h('div', { className: `${PREFIX}-actions` },
+          h(Menu, {
+            open: menuOpen, onClose: () => setMenuOpen(false), portal: true, align: 'start',
+            items: record.sessionIds.map((id) => ({
+              id, disabled: archived.has(id),
+              label: h('span', { title: archived.has(id) ? t('archivedHelp') : sessions[id]?.displayTitle || id },
+                sessions[id]?.title || sessions[id]?.displayTitle || t('untitled'), archived.has(id) ? ` · ${t('archived')}` : ''),
+            })),
+            onSelect: (id) => { setMenuOpen(false); close(); openSession(id); },
+            anchor: h(Button, {
+              variant: 'outline', size: 'sm', disabled: record.sessionIds.length === 0,
+              'aria-haspopup': 'menu', 'aria-expanded': menuOpen, onClick: () => setMenuOpen(!menuOpen),
+            }, t('openSessions')),
+          }),
+          record.snapshotRef && (CLEANED.has(record.status) || record.status === 'error' || record.status === 'restoring') ? h(Button, {
+            variant: 'outline', size: 'sm', disabled: busy || transitioning, onClick: () => { void act('restore'); },
+          }, t('restore')) : null,
+          !CLEANED.has(record.status) || record.archivePending ? h('span', { title: protectedRecord ? t('deleteProtected') : undefined },
+            h(Button, {
+              variant: 'outline', size: 'sm', disabled: busy || transitioning || protectedRecord,
+              onClick: () => { void act('delete'); },
+            }, t('delete'))) : null));
+    }
+
+    function SettingsSection({ controller, useSessions, useSessionStatus, useWorkspaces, openSession, pickDirectory, close, t }) {
+      const state = useStore(controller.data);
+      const sessions = useSessions((snapshot) => snapshot.byId);
+      const statuses = useSessionStatus((snapshot) => snapshot);
+      const workspace = useWorkspaces((snapshot) => snapshot);
+      const pinned = React.useMemo(() => new Set(workspace.pinnedSessionIds), [workspace.pinnedSessionIds]);
+      const archived = React.useMemo(() => new Set(workspace.archivedSessionIds), [workspace.archivedSessionIds]);
+      const [directory, setDirectory] = React.useState('');
+      const [maximum, setMaximum] = React.useState('15');
+      const [busy, setBusy] = React.useState(false);
+      const [error, setError] = React.useState(null);
+      const saving = React.useRef(false);
+      const directoryDirty = React.useRef(false);
+      const maximumDirty = React.useRef(false);
+      const fieldId = React.useId();
+      React.useEffect(() => {
+        if (!state.config) return;
+        if (!directoryDirty.current) setDirectory(state.config.directory);
+        if (!maximumDirty.current) setMaximum(String(state.config.maxRetained));
+      }, [state.config]);
+      React.useEffect(() => {
+        void controller.refresh(true);
+        // Only the visible management page periodically checks external Git changes.
+        const timer = window.setInterval(() => {
+          if (document.visibilityState === 'visible') void controller.refresh(true);
+        }, 30000);
+        return () => window.clearInterval(timer);
+      }, [controller]);
+      const save = async (field, picked) => {
+        if (saving.current || !state.config) return;
+        const next = field === 'directory' ? (picked ?? directory).trim() : Number(maximum);
+        if (field === 'directory' ? next === '' : !Number.isSafeInteger(next) || next < 1) {
+          setError(t(field === 'directory' ? 'directoryRequired' : 'invalidMaximum'));
+          return;
+        }
+        setError(null);
+        if (field === 'directory') setDirectory(next);
+        else setMaximum(String(next));
+        if (next === state.config[field]) {
+          if (field === 'directory') directoryDirty.current = false;
+          else maximumDirty.current = false;
+          return;
+        }
+        saving.current = true;
+        setBusy(true);
+        setError(null);
+        try {
+          await controller.call('configure', { [field]: next, expectedRevision: controller.data.getSnapshot().revision });
+          if (field === 'directory') directoryDirty.current = false;
+          else maximumDirty.current = false;
+          await controller.refresh(true);
+        } catch (reason) {
+          setError(messageOf(reason));
+        } finally {
+          saving.current = false;
+          setBusy(false);
+        }
+      };
+      const groups = React.useMemo(() => {
+        const result = new Map();
+        for (const record of state.records) {
+          const key = record.repositoryRoot || record.sourceRoot;
+          if (!result.has(key)) result.set(key, []);
+          result.get(key).push(record);
+        }
+        return [...result];
+      }, [state.records]);
+      const canPick = state.directoryPickerKind === 'native' || typeof globalThis.__DSH_DIRECTORY_PICKER__?.pick === 'function';
+      return h('div', { className: `${PREFIX}-section` },
+        h('div', { className: `${PREFIX}-setting` },
+          h('div', { className: `${PREFIX}-settingLabel` },
+            h('label', { className: `${PREFIX}-title`, htmlFor: `${fieldId}-directory` }, t('directory')),
+            h('div', { className: `${PREFIX}-help`, id: `${fieldId}-directory-help` }, t('directoryHelp'))),
+          h('div', { className: `${PREFIX}-field` },
+            h('input', {
+              id: `${fieldId}-directory`, className: `${PREFIX}-input`, value: directory,
+              disabled: busy || !state.config, 'aria-describedby': `${fieldId}-directory-help`,
+              onChange: (event) => { directoryDirty.current = true; setDirectory(event.target.value); },
+              onBlur: () => { void save('directory'); },
+              onKeyDown: (event) => { if (event.key === 'Enter') { event.preventDefault(); void save('directory'); } },
+            }),
+            canPick ? h(Button, {
+              variant: 'outline', size: 'sm', disabled: busy || !state.config,
+              onClick: async () => {
+                setError(null);
+                try {
+                  const path = await pickDirectory();
+                  if (path !== null) { directoryDirty.current = true; setDirectory(path); await save('directory', path); }
+                } catch (reason) { setError(messageOf(reason)); }
+              },
+            }, t('chooseDirectory')) : null)),
+        h('div', { className: `${PREFIX}-setting` },
+          h('div', { className: `${PREFIX}-settingLabel` },
+            h('label', { className: `${PREFIX}-title`, htmlFor: `${fieldId}-maximum` }, t('maxRetained')),
+            h('div', { className: `${PREFIX}-help`, id: `${fieldId}-maximum-help` }, t('retentionHelp'))),
+          h('input', {
+            id: `${fieldId}-maximum`, className: `${PREFIX}-input ${PREFIX}-number`, value: maximum,
+            type: 'number', min: 1, step: 1, disabled: busy || !state.config,
+            'aria-describedby': `${fieldId}-maximum-help`,
+            onChange: (event) => { maximumDirty.current = true; setMaximum(event.target.value); },
+            onBlur: () => { void save('maxRetained'); },
+            onKeyDown: (event) => { if (event.key === 'Enter') { event.preventDefault(); void save('maxRetained'); } },
+          })),
+        error || state.error ? h('div', { className: `${PREFIX}-error`, role: 'alert' }, error || state.error) : null,
+        h('div', { className: `${PREFIX}-toolbar` }, h('div', { className: `${PREFIX}-title` }, t('managed')),
+          h(Button, { variant: 'outline', size: 'sm', disabled: state.phase === 'loading', onClick: () => { void controller.refresh(true); } }, t('refresh'))),
+        state.records.length === 0 ? h('div', { className: `${PREFIX}-help`, role: 'status' }, t(state.phase === 'loading' ? 'loading' : 'empty')) : null,
+        groups.map(([repository, records]) => h('section', { key: repository },
+          h('h3', { className: `${PREFIX}-repo`, title: repository }, basename(repository)),
+          records.map((record) => h(RecordRow, { key: record.id, record, sessions, statuses, pinned, archived, controller, openSession, close, t })))));
+    }
+
     return {
       inject: ['slots', 'locale', 'connection', 'conversation', 'uiWorkspace', 'workspaces'],
       apply(ctx) {
@@ -641,6 +824,15 @@ window.__ModuleLoader__.load({
         ctx.slots.inject('shell.overlay', () => ctx.slots.register({
           name: 'shell.overlay', id: `${PREFIX}-dialogs`, order: 1100, locale: NS, inject: injected,
         }, GlobalOverlay));
+        ctx.slots.inject('settings.section', () => ctx.slots.register({
+          name: 'settings.section', id: 'worktrees', order: 250, label: () => t('nav'), locale: NS,
+          inject: () => ({
+            controller,
+            openSession: (sessionId) => ctx.get('uiWorkspace').openSession(sessionId),
+            pickDirectory: () => globalThis.__DSH_DIRECTORY_PICKER__?.pick
+              ? globalThis.__DSH_DIRECTORY_PICKER__.pick() : ctx.get('uiWorkspace').pickDirectory(),
+          }),
+        }, SettingsSection));
       },
     };
   },

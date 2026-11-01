@@ -221,6 +221,7 @@ export class WorktreeHost {
         path: prepared.worktree.path,
         snapshotRef: prepared.worktree.snapshotRef,
       };
+      this.requestCleanup();
       return { ready: true, actualDirectory: this.ctx.workingDirectory.get(agent.session), ...(prepared.worktree ? { worktreeId: prepared.worktree.id } : {}) };
     } catch (error) {
       await this.settle(request, peer).catch(settleError => this.report(settleError));
@@ -239,6 +240,7 @@ export class WorktreeHost {
       reservation.unsubscribe();
       reservation.release();
     }
+    this.requestCleanup();
     return { settled: true };
   }
 
@@ -270,11 +272,13 @@ export class WorktreeHost {
 
   async restore(worktreeId, signal) {
     const record = await this.manager.restore(worktreeId, signal);
+    this.requestCleanup();
     return { worktreeId: record.id, path: record.path };
   }
 
   async remove(worktreeId, signal) {
     const record = await this.manager.remove(worktreeId, signal);
+    this.requestCleanup();
     return { worktreeId: record.id, status: record.status };
   }
 
@@ -282,6 +286,7 @@ export class WorktreeHost {
     const { expectedRevision, ...patch } = schemas.configure.parse(request);
     if (patch.directory && !path.isAbsolute(patch.directory)) throw new Error('Worktree directory must be an absolute path on the Host.');
     await this.ctx.settings.update('worktrees', patch, expectedRevision);
+    this.requestCleanup();
     return { config: this.configuration(), revision: this.descriptor().revision };
   }
 
@@ -354,6 +359,7 @@ export class WorktreeHost {
       } catch (error) { this.report(error); }
     }
     await this.manager.refresh(this.controller.signal);
+    this.requestCleanup();
   }
 
   context(agent) {
