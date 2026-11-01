@@ -14,16 +14,29 @@
   "engines": { "node": ">=22", "dsh": "0.2.1-rc.5" },
   "exports": {
     ".": "./index.js",
+    "./client": "./client.js",
     "./locale/*.json": "./locale/*.json",
     "./icon": "./icon.svg"
   },
-  "scripts": { "test": "node --test" },
-  "files": ["index.js", "host.js", "transport.js", "lib/*.js", "cordis.patch.yml", "locale/*.json", "icon.svg", "LICENSE"],
+  "scripts": {
+    "test": "node --test",
+    "locales": "node scripts/sync-locales.mjs",
+    "locales:check": "node scripts/sync-locales.mjs --check"
+  },
+  "files": ["index.js", "host.js", "transport.js", "client.js", "lib/*.js", "cordis.patch.yml", "locale/*.json", "icon.svg", "LICENSE"],
   "dependencies": {
     "@deepseek-ai/schemastery": "3.18.5",
     "zod": "^4.6.7"
   },
   "dsh": {
-    "bundle": { "patch": "./cordis.patch.yml" }
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-workspace"
+      ]
+    }
   }
 }
