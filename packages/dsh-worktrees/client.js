@@ -6,6 +6,10 @@ window.__ModuleLoader__.load({
     const h = React.createElement;
     const NS = 'worktrees';
     const PREFIX = 'dsh-worktrees';
+    const ACTION_SLOT = 'sidebar.workspaces.session.row.action';
+    const MARKER = `${PREFIX}-marker`;
+    const ROW = `[data-row-key^="session:"]:has(.${MARKER})`;
+    const FLAT_ROW = `[class*="_flatList"] ${ROW}`;
     const TRANSITIONAL = new Set(['creating', 'snapshotting', 'removing', 'restoring']);
     const CLEANED = new Set(['removed', 'missing']);
     const EMPTY_ARRAY = Object.freeze([]);
@@ -51,6 +55,19 @@ window.__ModuleLoader__.load({
 .${PREFIX}-rawError { margin: 0; max-height: 50vh; overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; font-family: var(--ds-font-family-code); font-size: 12px; line-height: 18px; }
 .${PREFIX}-modalAction { min-width: 72px; }
 .${PREFIX}-dialogText { white-space: pre-wrap; overflow-wrap: anywhere; }
+.${PREFIX}-hover { color: var(--dsw-alias-label-secondary); font-size: 12px; line-height: 18px; overflow-wrap: anywhere; }
+.${PREFIX}-hoverLine + .${PREFIX}-hoverLine { margin-top: 4px; }
+.${MARKER} { color: var(--dsw-alias-label-tertiary); flex: none; display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 20px; pointer-events: none; }
+.${PREFIX}-rowInfo { display: none; }
+${ROW} > [class*="_rowActions"] { display: inline-flex; }
+${ROW}:not(:hover):not([class*="_menuOpen"]) > [class*="_rowActions"] > :not([data-slot="${ACTION_SLOT}"]),
+${ROW}:not(:hover):not([class*="_menuOpen"]) > [class*="_rowActions"] > [data-slot="${ACTION_SLOT}"] > :not(.${MARKER}):not(.dsh-session-workspace-label) { display: none; }
+${FLAT_ROW} { position: relative; box-sizing: border-box; height: 48px; padding-top: 4px; padding-bottom: 24px; }
+${FLAT_ROW} .${PREFIX}-rowInfo { position: absolute; inset-inline: 28px 8px; bottom: 4px; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; line-height: 17px; font-weight: 400; }
+${FLAT_ROW}:has(.dsh-session-workspace-label) { height: 65px; padding-bottom: 41px; }
+${FLAT_ROW} .dsh-session-workspace-label { bottom: 21px; }
+/* The workspace-label plugin hides other action children at rest. Override only our marker. */
+${FLAT_ROW}:not(:hover):not([class*="_menuOpen"]) > [class*="_rowActions"] > [data-slot="${ACTION_SLOT}"] > .${MARKER}.${MARKER} { display: inline-flex; }
 @media (max-width: 600px) {
   .${PREFIX}-setting { align-items: stretch; flex-direction: column; gap: 12px; }
   .${PREFIX}-field { width: 100%; }
@@ -237,7 +254,7 @@ window.__ModuleLoader__.load({
       const data = createStore({
         phase: 'idle', error: null, records: EMPTY_ARRAY, bindings: EMPTY_ARRAY,
         preferences: EMPTY_ARRAY, config: null, revision: undefined,
-        recordById: new Map(), bindingBySession: new Map(), preferenceByWorkspace: new Map(),
+        recordById: new Map(), bindingBySession: new Map(), observedBySession: new Map(), preferenceByWorkspace: new Map(),
         directoryPickerKind: null,
       });
       const drafts = createStore(0);
@@ -280,6 +297,7 @@ window.__ModuleLoader__.load({
         data.set({ ...data.getSnapshot(), phase: 'loading', error: null });
         listPending = call('list', { refresh: force }).then((value) => {
           if (!value || !Array.isArray(value.records) || !Array.isArray(value.bindings)
+            || (value.observed !== undefined && !Array.isArray(value.observed))
             || !Array.isArray(value.preferences) || typeof value.config?.directory !== 'string'
             || !Number.isInteger(value.config.maxRetained) || value.config.maxRetained < 1
             || !Number.isSafeInteger(value.revision)) throw new Error(t('invalidResponse'));
@@ -288,6 +306,7 @@ window.__ModuleLoader__.load({
             ...value, phase: 'ready', error: null,
             recordById: new Map(value.records.map((record) => [record.id, record])),
             bindingBySession: new Map(value.bindings.map((binding) => [binding.sessionId, binding])),
+            observedBySession: new Map((value.observed ?? EMPTY_ARRAY).flatMap(record => record.sessionIds.map(id => [id, record]))),
             preferenceByWorkspace: new Map(value.preferences.map((preference) => [preference.workspaceId, preference])),
           });
           return true;
@@ -643,6 +662,40 @@ window.__ModuleLoader__.load({
             current?.path ? h('div', { className: `${PREFIX}-path` }, current.path) : null)));
     }
 
+    function useSessionWorktree(controller, sessionId) {
+      return useSelected(controller.data, React.useCallback(state => {
+        const binding = state.bindingBySession.get(sessionId);
+        return binding?.mode === 'new' ? state.recordById.get(binding.worktreeId) : state.observedBySession.get(sessionId);
+      }, [sessionId]));
+    }
+
+    function WorktreeMarker({ sessionId, controller, t }) {
+      const record = useSessionWorktree(controller, sessionId);
+      if (!record) return null;
+      const base = branchLabel(record.baseRef);
+      const label = CLEANED.has(record.status) ? `${t('rowWorktree')} · ${t(record.status)}`
+        : record.external ? `${t('rowWorktree')} · ${record.currentBranch || t('detached')}`
+          : base ? t('rowBase', { branch: base }) : t('rowWorktree');
+      return h('span', { className: MARKER, role: 'img', 'aria-label': label, title: label },
+        h(IconBranchOutlineRegular, { size: 14 }),
+        h('span', { className: `${PREFIX}-rowInfo`, 'aria-hidden': true }, label));
+    }
+
+    function WorktreeHover({ sessionId, controller, t }) {
+      const record = useSessionWorktree(controller, sessionId);
+      if (!record) return null;
+      const base = branchLabel(record.baseRef);
+      const lines = [
+        CLEANED.has(record.status) ? `${t('worktree')} · ${t(record.status)}` : t('worktree'),
+        base ? t('basedOn', { branch: base }) : null,
+        t('hoverPath', { path: record.path }),
+        record.status === 'ready' && Object.hasOwn(record, 'currentBranch')
+          ? t('hoverBranch', { branch: record.currentBranch || t('detached') }) : null,
+      ];
+      return h('div', { className: `${PREFIX}-hover` }, lines.filter(Boolean).map((line, index) =>
+        h('div', { className: `${PREFIX}-hoverLine`, key: index }, line)));
+    }
+
     function statusLabel(record, statuses, pinned, t) {
       const labels = [];
       if (record.sessionIds.some((id) => statuses.get(id)?.running)) labels.push(t('active'));
@@ -824,6 +877,12 @@ window.__ModuleLoader__.load({
         ctx.slots.inject('shell.overlay', () => ctx.slots.register({
           name: 'shell.overlay', id: `${PREFIX}-dialogs`, order: 1100, locale: NS, inject: injected,
         }, GlobalOverlay));
+        ctx.slots.inject(ACTION_SLOT, () => ctx.slots.register({
+          name: ACTION_SLOT, id: `${PREFIX}-marker`, order: 1100, locale: NS, inject: injected,
+        }, WorktreeMarker));
+        ctx.slots.inject('sidebar.session.row.hover', () => ctx.slots.register({
+          name: 'sidebar.session.row.hover', id: `${PREFIX}-info`, order: 100, locale: NS, inject: injected,
+        }, WorktreeHover));
         ctx.slots.inject('settings.section', () => ctx.slots.register({
           name: 'settings.section', id: 'worktrees', order: 250, label: () => t('nav'), locale: NS,
           inject: () => ({

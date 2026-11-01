@@ -698,6 +698,22 @@ test('overlapping sends use separate operation IDs and settle only their own com
   assertSettled(fixture, 1, 0);
 });
 
+test('existing worktrees decorate the sidebar without creating bindings or managed inventory entries', async (t) => {
+  const observed = { id: 'external:checkout', path: 'R:/external/checkout', currentBranch: 'feature/existing', baseRef: null, status: 'ready', external: true, sessionIds: [session.sessionId] };
+  const fixture = harness(t, { list: listValue({ observed: [observed] }) });
+  await fixture.controller.refresh(true);
+  const state = fixture.controller.data.getSnapshot();
+  assert.equal(state.records.length, 0);
+  assert.equal(state.bindingBySession.size, 0);
+  assert.equal(state.observedBySession.get(session.sessionId).path, observed.path);
+  const marker = fixture.renderSlot('sidebar.workspaces.session.row.action');
+  assert.match(marker.props['aria-label'], /feature\/existing/);
+  const hover = textOf(fixture.renderSlot('sidebar.session.row.hover'));
+  assert.match(hover, /R:\/external\/checkout/);
+  assert.match(hover, /feature\/existing/);
+  assert.doesNotMatch(hover, /Based on/);
+});
+
 test('background status refresh pauses while hidden and removes browser listeners on disposal', async (t) => {
   const fixture = harness(t);
   fixture.renderSlot('shell.overlay');

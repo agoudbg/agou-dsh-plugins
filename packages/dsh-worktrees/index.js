@@ -164,10 +164,12 @@ export function registerHostEvents(ctx, host) {
   ctx.on('session/event', (session, event) => {
     host.observe(session, event);
     if (event.type === 'turn/end') host.requestCleanup();
+    if (event.type === 'working-directory/change') host.requestDiscovery(true);
   });
   ctx.on('domain/changed', change => {
     if (change.domain !== 'workspace') return;
     host.requestCleanup();
+    host.requestDiscovery(true);
   });
   ctx.on('agent/created', async ({ agent, signal }) => {
     host.reconciled.delete(agent.id);

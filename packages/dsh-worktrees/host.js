@@ -2,6 +2,7 @@ import path from 'node:path';
 import { stat } from 'node:fs/promises';
 import { z } from 'zod';
 import { WorktreeManager } from './lib/manager.js';
+import { LinkedWorktreeDiscovery } from './discovery.js';
 
 const id = z.string().min(1).max(256);
 const schemas = {
@@ -57,6 +58,10 @@ export class WorktreeHost {
     this.reservations = new Map();
     this.accepting = new Map();
     this.reconciled = new Map();
+    this.discovery = new LinkedWorktreeDiscovery(ctx);
+    this.discoveryPending = null;
+    this.discoveryNext = 0;
+    this.discoveryDiagnostics = '';
     this.cleanupTimer = null;
     this.cleanupRunning = false;
     this.cleanupRequested = false;
@@ -250,8 +255,31 @@ export class WorktreeHost {
     return descriptor;
   }
 
+  requestDiscovery(invalidate = false) {
+    if (this.controller.signal.aborted) return;
+    if (invalidate) {
+      this.discovery.invalidate();
+      this.discoveryNext = 0;
+    }
+    if (this.discoveryPending || Date.now() < this.discoveryNext) return;
+    this.discoveryNext = Date.now() + 30_000;
+    this.discoveryPending = this.track(this.discovery.refresh(this.manager.list(), this.controller.signal).then(value => {
+      const diagnostics = JSON.stringify(value.diagnostics);
+      if (diagnostics !== this.discoveryDiagnostics) {
+        this.discoveryDiagnostics = diagnostics;
+        for (const item of value.diagnostics) this.report(new Error(`Worktree discovery: ${item.message}`));
+      }
+    }).catch(error => {
+      if (error.code !== 'DISCOVERY_INVALIDATED') this.report(error);
+    }).finally(() => {
+      this.discoveryPending = null;
+      if (this.discoveryNext === 0) this.requestDiscovery();
+    }));
+  }
+
   async list(refresh, signal) {
     if (refresh) await this.manager.refresh(signal);
+    this.requestDiscovery();
     const state = this.manager.list();
     const records = [];
     for (const record of Object.values(state.worktrees)) {
@@ -262,6 +290,7 @@ export class WorktreeHost {
     }
     return {
       records,
+      observed: this.discovery.snapshot().records,
       bindings: Object.values(state.bindings),
       preferences: Object.entries(state.preferences).map(([workspaceId, choice]) => ({ workspaceId, ...choice })),
       config: this.configuration(),
@@ -359,6 +388,7 @@ export class WorktreeHost {
       } catch (error) { this.report(error); }
     }
     await this.manager.refresh(this.controller.signal);
+    this.requestDiscovery();
     this.requestCleanup();
   }
 
@@ -371,6 +401,7 @@ export class WorktreeHost {
 
   async dispose() {
     this.controller.abort(new Error('Worktree plugin disposed.'));
+    this.discovery.dispose();
     if (this.cleanupTimer) clearTimeout(this.cleanupTimer);
     this.cleanupTimer = null;
     for (const reservation of this.reservations.values()) reservation.unsubscribe();
