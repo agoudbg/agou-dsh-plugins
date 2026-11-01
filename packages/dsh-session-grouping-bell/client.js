@@ -79,6 +79,23 @@ span:has(> .${PREFIX}-heading):not([class*="sectionLabelHidden"]) {
     h('path', { d: 'M10.268 21a2 2 0 0 0 3.464 0' }),
     h('path', { d: 'M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326' }));
 
+    // Reuse the Search control's Tooltip component through the browser's
+    // rendered elements; do not import private Harness client modules.
+    function findHeaderTooltip(element) {
+      if (!React.isValidElement(element)) return undefined;
+      const children = React.Children.toArray(element.props.children);
+      if (typeof element.type !== 'string'
+        && typeof element.props.label === 'string'
+        && element.props.side === 'bottom'
+        && typeof element.props.delayMs === 'number'
+        && children.length === 1 && children[0]?.type === 'button') return element;
+      for (const child of children) {
+        const tooltip = findHeaderTooltip(child);
+        if (tooltip !== undefined) return tooltip;
+      }
+      return undefined;
+    }
+
     function readLastGrouped() {
       try {
         const saved = window.localStorage.getItem(STORAGE_KEY);
@@ -122,7 +139,7 @@ span:has(> .${PREFIX}-heading):not([class*="sectionLabelHidden"]) {
           }
         }
 
-        function BellButton({ flat, hint, onClick, useSessions, useSessionStatus, useWorkspaces }) {
+        function BellButton({ flat, hint, tooltip, onClick, useSessions, useSessionStatus, useWorkspaces }) {
           const list = useSessions((state) => state);
           const archivedSessionIds = useWorkspaces((state) => state.archivedSessionIds);
           const attention = useSessionStatus((statuses) => {
@@ -140,14 +157,20 @@ span:has(> .${PREFIX}-heading):not([class*="sectionLabelHidden"]) {
             return waiting ? 'waiting' : undefined;
           });
           const label = attention === undefined ? hint : `${hint} · ${translate(attention)}`;
-          return h('button', {
+          const button = h('button', {
             type: 'button', className: `${PREFIX}-button`,
-            'aria-label': label, 'aria-pressed': flat, title: hint, onClick,
+            'aria-label': label, 'aria-pressed': flat, onClick,
           }, bell, attention === undefined ? null : h('svg', {
             className: `${PREFIX}-badge ${PREFIX}-badge-${attention}`,
             width: 10, height: 10, viewBox: '0 0 10 10',
             'aria-hidden': true, focusable: false,
           }, h('circle', { cx: 5, cy: 5, r: 3, fill: 'currentColor' })));
+          return h(tooltip.type, {
+            label: hint,
+            side: tooltip.props.side,
+            delayMs: tooltip.props.delayMs,
+            disabled: tooltip.props.disabled,
+          }, button);
         }
 
         ctx.slots.inject(SLOT, () => {
@@ -219,13 +242,17 @@ span:has(> .${PREFIX}-heading):not([class*="sectionLabelHidden"]) {
                 if (!React.isValidElement(heading) || heading.type !== 'span') {
                   throw new Error('Unsupported workspace browser header.');
                 }
+                const tooltip = findHeaderTooltip(headerChildren[1]);
+                if (tooltip === undefined) {
+                  throw new Error('Unsupported workspace browser tooltip.');
+                }
                 const hint = translate(!flat ? 'showFlat'
                   : lastGrouped === 'workspace-tree' ? 'showWorkspaceTree' : 'showWorkspace');
                 headerChildren[0] = React.cloneElement(heading, {},
                   h('span', { className: `${PREFIX}-heading` },
                     h('span', { className: `${PREFIX}-label` }, heading.props.children),
                     h(BellButton, {
-                      flat, hint, onClick: toggle,
+                      flat, hint, tooltip, onClick: toggle,
                       useSessions: props.useSessions,
                       useSessionStatus: props.useSessionStatus,
                       useWorkspaces: props.useWorkspaces,

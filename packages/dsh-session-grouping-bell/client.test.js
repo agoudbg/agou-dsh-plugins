@@ -17,10 +17,11 @@ const react = {
 
 // The ModuleLoader, Slot registry, and selector hooks are external boundaries.
 // Record element output without a browser; the production component owns all status decisions.
-function fixture({ rows = [{ id: 'a' }, { id: 'b' }], statuses = [], archived = [], locale = 'en' } = {}) {
+function fixture({ rows = [{ id: 'a' }, { id: 'b' }], statuses = [], archived = [], locale = 'en', tooltipDelay = 500 } = {}) {
   let plugin;
   let wrapper;
   let groupBy = 'workspace';
+  const NativeTooltip = ({ children }) => react.Children.toArray(children)[0];
   const state = {
     list: {
       ids: rows.map((row) => row.id),
@@ -28,13 +29,20 @@ function fixture({ rows = [{ id: 'a' }, { id: 'b' }], statuses = [], archived = 
     },
     statuses: new Map(statuses),
     workspaces: { archivedSessionIds: archived },
+    searchExpanded: false,
   };
   const actions = { setGroupBy: (mode) => { groupBy = mode; } };
   const view = { actions, getSnapshot: () => ({ groupBy }) };
   const entry = {
     locale: 'workspace', options: { priority: 0 }, children: [], inject: {},
     store: { spec: { persist: 'dsh.workspace.view.v5' }, create: () => view },
-    component: () => node('section', {}, node('header', {}, node('span', {}, 'Workspaces'))),
+    component: () => node('section', {}, node('header', {},
+      node('span', {}, 'Workspaces'),
+      node('div', {}, node('div', {}, node(NativeTooltip, {
+        label: 'Search sessions', side: 'bottom', delayMs: tooltipDelay,
+        shortcutKeys: ['Ctrl', 'Alt', 'K'], disabled: state.searchExpanded,
+      }, node('button', { 'aria-label': 'Search sessions' }))))),
+    ),
   };
   const dictionaries = {};
   runInNewContext(source, {
@@ -68,8 +76,8 @@ function fixture({ rows = [{ id: 'a' }, { id: 'b' }], statuses = [], archived = 
     const elements = [];
     function visit(element) {
       if (!react.isValidElement(element)) return;
-      if (typeof element.type === 'function') return visit(element.type(element.props));
       elements.push(element);
+      if (typeof element.type === 'function') return visit(element.type(element.props));
       for (const child of react.Children.toArray(element.props.children)) visit(child);
     }
     visit(wrapper({
@@ -79,10 +87,13 @@ function fixture({ rows = [{ id: 'a' }, { id: 'b' }], statuses = [], archived = 
       useSessionStatus: (select) => select(state.statuses),
       useWorkspaces: (select) => select(state.workspaces),
     }));
-    const button = elements.find((element) => element.type === 'button');
+    const button = elements.find((element) => element.props.className === 'dsh-session-grouping-bell-button');
     assert.ok(button, 'The grouping button still renders');
     const badge = elements.find((element) => element.props.className?.includes('-badge '));
-    return { button, badge };
+    const tooltip = elements.find((element) => element.type === NativeTooltip
+      && react.Children.toArray(element.props.children)[0] === button);
+    assert.ok(tooltip, 'The bell uses the supplied native Tooltip component');
+    return { button, badge, tooltip };
   }
   return { state, render };
 }
@@ -126,8 +137,9 @@ const cases = [
 
 for (const [name, input, expected] of cases) {
   test(`bell attention: ${name}`, () => {
-    const { button, badge } = fixture(input).render();
-    assert.equal(button.props.title, 'Show all sessions in one list');
+    const { button, badge, tooltip } = fixture(input).render();
+    assert.equal(button.props.title, undefined);
+    assert.equal(tooltip.props.label, 'Show all sessions in one list');
     if (expected === undefined) {
       assert.equal(badge, undefined);
       assert.equal(button.props['aria-label'], 'Show all sessions in one list');
@@ -162,20 +174,39 @@ test('view toggles preserve conversation reminders and keep status out of Chines
   const { state, render } = fixture({
     locale: 'zh', statuses: [['a', unread], ['b', pending('question')]],
   });
-  assert.equal(render().button.props.title, '切换到单列表');
+  assert.equal(render().tooltip.props.label, '切换到单列表');
   assert.equal(render().button.props['aria-label'], '切换到单列表 · 有未读对话');
   render().button.props.onClick();
   assert.equal(render().button.props['aria-pressed'], true);
   assert.ok(render().badge.props.className.endsWith('-unread'));
-  assert.equal(render().button.props.title, '切换到按工作区分组');
+  assert.equal(render().tooltip.props.label, '切换到按工作区分组');
   assert.equal(render().button.props['aria-label'], '切换到按工作区分组 · 有未读对话');
   state.statuses.set('a', { completionUnread: false });
   assert.ok(render().badge.props.className.endsWith('-waiting'));
   assert.equal(render().button.props['aria-pressed'], true);
-  assert.equal(render().button.props.title, '切换到按工作区分组');
+  assert.equal(render().tooltip.props.label, '切换到按工作区分组');
   assert.equal(render().button.props['aria-label'], '切换到按工作区分组 · 有等待操作的对话');
   render().button.props.onClick();
   assert.equal(render().button.props['aria-pressed'], false);
   assert.ok(render().badge.props.className.endsWith('-waiting'));
-  assert.equal(render().button.props.title, '切换到单列表');
+  assert.equal(render().tooltip.props.label, '切换到单列表');
+});
+
+test('native tooltip inherits placement and delay without Search shortcuts', () => {
+  const { button, tooltip } = fixture({ tooltipDelay: 750 }).render();
+  assert.equal(tooltip.props.side, 'bottom');
+  assert.equal(tooltip.props.delayMs, 750);
+  assert.equal(tooltip.props.disabled, false);
+  assert.equal(tooltip.props.shortcutKeys, undefined);
+  assert.equal(button.props['aria-keyshortcuts'], undefined);
+  assert.equal(button.props.title, undefined);
+});
+
+test('search expansion disables the bell tooltip with the native Search tooltip', () => {
+  const { state, render } = fixture();
+  assert.equal(render().tooltip.props.disabled, false);
+  state.searchExpanded = true;
+  assert.equal(render().tooltip.props.disabled, true);
+  state.searchExpanded = false;
+  assert.equal(render().tooltip.props.disabled, false);
 });
