@@ -46,8 +46,7 @@ span:has(> .${PREFIX}-heading):not([class*="sectionLabelHidden"]) {
 }
 .${PREFIX}-button:hover,
 .${PREFIX}-button[aria-pressed="true"] {
-  color: var(--dsw-alias-label-primary);
-  background: var(--dsw-alias-bg-layer-2);
+  background: var(--dsw-alias-interactive-bg-hover);
 }
 .${PREFIX}-button:focus-visible {
   outline: 2px solid var(--dsw-alias-brand-primary);
