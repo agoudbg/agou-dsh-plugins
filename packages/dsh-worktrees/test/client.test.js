@@ -14,7 +14,7 @@ const missing = {
   snapshotRef: 'refs/dsh-worktrees/snapshots/tree-1',
 };
 const primitives = Object.fromEntries([
-  'Button', 'Menu', 'Modal', 'IconBranchOutlineRegular', 'IconChevronDownOutlineRegular',
+  'Button', 'Menu', 'Modal', 'IconBranchOutlineRegular', 'IconFollowsystemOutlineRegular', 'IconChevronDownOutlineRegular',
 ].map((name) => [name, Symbol(name)]));
 const ok = (value) => ({ ok: true, value });
 const plain = (value) => JSON.parse(JSON.stringify(value));

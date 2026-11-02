@@ -2,7 +2,7 @@ window.__ModuleLoader__.load({
   id: 'dsh-worktrees',
   factory(require) {
     const React = require('react');
-    const { Button, Menu, Modal, IconBranchOutlineRegular, IconChevronDownOutlineRegular } = require('@deepseek-ai/dsh-client-ui-primitives');
+    const { Button, Menu, Modal, IconFollowsystemOutlineRegular, IconBranchOutlineRegular, IconChevronDownOutlineRegular } = require('@deepseek-ai/dsh-client-ui-primitives');
     const h = React.createElement;
     const NS = 'worktrees';
     const PREFIX = 'dsh-worktrees';
@@ -586,7 +586,7 @@ ${FLAT_ROW}:not(:hover):not([class*="_menuOpen"]) > [class*="_rowActions"] > [da
       });
     }
 
-    function NativeSelector({ label, title, disabled, items, selectedId, onSelect, open, setOpen, ariaLabel }) {
+    function NativeSelector({ icon: Icon = IconBranchOutlineRegular, label, title, disabled, items, selectedId, onSelect, open, setOpen, ariaLabel }) {
       return h(Menu, {
         open: open && !disabled, onClose: () => setOpen(false), items, selectedId,
         onSelect: (id) => { setOpen(false); onSelect(id); }, align: 'start', portal: true,
@@ -598,7 +598,7 @@ ${FLAT_ROW}:not(:hover):not([class*="_menuOpen"]) > [class*="_rowActions"] > [da
           onKeyDown: (event) => {
             if (event.key === 'ArrowDown' || event.key === 'ArrowUp') { event.preventDefault(); setOpen(true); }
           },
-        }, h(IconBranchOutlineRegular, { size: 16, className: `${PREFIX}-seatIcon` }),
+        }, h(Icon, { size: 16, className: `${PREFIX}-seatIcon` }),
         h('span', { className: `${PREFIX}-seatLabel` }, label),
         h(IconChevronDownOutlineRegular, { size: 12, className: `${PREFIX}-chevron` })),
       });
@@ -655,13 +655,14 @@ ${FLAT_ROW}:not(:hover):not([class*="_menuOpen"]) > [class*="_rowActions"] > [da
       };
       return h(React.Fragment, null,
         h(NativeSelector, {
+          icon: choice.mode === 'new' ? IconBranchOutlineRegular : IconFollowsystemOutlineRegular,
           label: choice.mode === 'new' ? t('new') : t('local'), ariaLabel: t('worktree'),
           title: binding ? t('locked') : unavailable || t(choice.mode === 'new' ? 'newHint' : 'localHint'),
           disabled: loading || state.busy || !!unavailable || !!binding, open: worktreeOpen,
           setOpen: (value) => { setBranchOpen(false); setWorktreeOpen(value); },
           items: [
-            { id: 'local', label: t('local') },
-            { id: 'new', label: h('span', { title: unavailable || t('newHint') }, t('new')), disabled: !!unavailable },
+            { id: 'local', label: t('local'), icon: h(IconFollowsystemOutlineRegular, { size: 16 }) },
+            { id: 'new', label: h('span', { title: unavailable || t('newHint') }, t('new')), icon: h(IconBranchOutlineRegular, { size: 16 }), disabled: !!unavailable },
           ], selectedId: choice.mode, onSelect: setMode,
         }),
         h(NativeSelector, {
@@ -669,7 +670,7 @@ ${FLAT_ROW}:not(:hover):not([class*="_menuOpen"]) > [class*="_rowActions"] > [da
           title: binding?.mode === 'new' ? t('locked') : unavailable || (branches.length === 0 ? t('noBranches') : t(choice.mode === 'new' ? 'baseHint' : 'localHint')),
           disabled: loading || state.busy || !!unavailable || branches.length === 0 || binding?.mode === 'new',
           open: branchOpen, setOpen: (value) => { setWorktreeOpen(false); setBranchOpen(value); },
-          items: branches.map((item) => ({ id: item.ref, label: item.name })), selectedId: selectedBranch,
+          items: branches.map((item) => ({ id: item.ref, label: item.name, icon: h(IconBranchOutlineRegular, { size: 16 }) })), selectedId: selectedBranch,
           onSelect: (ref) => {
             if (choice.mode === 'new') controller.choose(sessionId, { mode: 'new', baseRef: ref });
             else {

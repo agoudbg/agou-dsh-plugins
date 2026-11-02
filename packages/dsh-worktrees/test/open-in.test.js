@@ -18,7 +18,7 @@ const SOURCE = 'R:/source';
 const FIRST = 'session-1';
 const SECOND = 'session-2';
 const primitives = Object.fromEntries([
-  'Button', 'Menu', 'Modal', 'Toast', 'Tooltip', 'IconBranchOutlineRegular',
+  'Button', 'Menu', 'Modal', 'Toast', 'Tooltip', 'IconBranchOutlineRegular', 'IconFollowsystemOutlineRegular',
   'IconChevronDownOutlineRegular', 'IconWarningOutlineRegular',
   'IconRightUpOutlineRegular', 'IconFolderOpenOutlineRegular',
 ].map(name => [name, Symbol(name)]));
