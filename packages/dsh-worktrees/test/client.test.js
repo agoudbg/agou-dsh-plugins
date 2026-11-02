@@ -708,10 +708,13 @@ test('existing worktrees decorate the sidebar without creating bindings or manag
   assert.equal(state.observedBySession.get(session.sessionId).path, observed.path);
   const marker = fixture.renderSlot('sidebar.workspaces.session.row.action');
   assert.match(marker.props['aria-label'], /feature\/existing/);
-  const hover = textOf(fixture.renderSlot('sidebar.session.row.hover'));
-  assert.match(hover, /R:\/external\/checkout/);
-  assert.match(hover, /feature\/existing/);
-  assert.doesNotMatch(hover, /Based on/);
+  assert.equal(textOf(marker), 'feature/existing');
+  assert.equal(nodesOf(marker, primitives.IconBranchOutlineRegular).length, 1);
+  const hover = fixture.renderSlot('sidebar.session.row.hover');
+  assert.deepEqual(plain(hover.props.children.map(textOf)), [
+    'Worktree path: R:/external/checkout',
+    'Worktree branch: feature/existing',
+  ]);
 });
 
 test('background status refresh pauses while hidden and removes browser listeners on disposal', async (t) => {

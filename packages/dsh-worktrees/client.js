@@ -55,15 +55,18 @@ window.__ModuleLoader__.load({
 .${PREFIX}-rawError { margin: 0; max-height: 50vh; overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; font-family: var(--ds-font-family-code); font-size: 12px; line-height: 18px; }
 .${PREFIX}-modalAction { min-width: 72px; }
 .${PREFIX}-dialogText { white-space: pre-wrap; overflow-wrap: anywhere; }
-.${PREFIX}-hover { color: var(--dsw-alias-label-secondary); font-size: 12px; line-height: 18px; overflow-wrap: anywhere; }
+/* Match the native hover path/time foreground on the dark card. */
+.${PREFIX}-hover { color: #cfd3d6; font-size: 12px; line-height: 18px; overflow-wrap: anywhere; }
 .${PREFIX}-hoverLine + .${PREFIX}-hoverLine { margin-top: 4px; }
 .${MARKER} { color: var(--dsw-alias-label-tertiary); flex: none; display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 20px; pointer-events: none; }
+.${PREFIX}-rowIcon { flex: none; }
 .${PREFIX}-rowInfo { display: none; }
 ${ROW} > [class*="_rowActions"] { display: inline-flex; }
 ${ROW}:not(:hover):not([class*="_menuOpen"]) > [class*="_rowActions"] > :not([data-slot="${ACTION_SLOT}"]),
 ${ROW}:not(:hover):not([class*="_menuOpen"]) > [class*="_rowActions"] > [data-slot="${ACTION_SLOT}"] > :not(.${MARKER}):not(.dsh-session-workspace-label) { display: none; }
 ${FLAT_ROW} { position: relative; box-sizing: border-box; height: 48px; padding-top: 4px; padding-bottom: 24px; }
-${FLAT_ROW} .${PREFIX}-rowInfo { position: absolute; inset-inline: 28px 8px; bottom: 4px; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; line-height: 17px; font-weight: 400; }
+${FLAT_ROW} .${MARKER} { position: absolute; inset-inline: 28px 8px; bottom: 4px; width: auto; height: 17px; justify-content: flex-start; gap: 4px; min-width: 0; color: var(--dsw-alias-label-secondary); font-size: 12px; line-height: 17px; font-weight: 400; }
+${FLAT_ROW} .${PREFIX}-rowInfo { display: block; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 ${FLAT_ROW}:has(.dsh-session-workspace-label) { height: 65px; padding-bottom: 41px; }
 ${FLAT_ROW} .dsh-session-workspace-label { bottom: 21px; }
 /* The workspace-label plugin hides other action children at rest. Override only our marker. */
@@ -107,10 +110,9 @@ ${FLAT_ROW}:not(:hover):not([class*="_menuOpen"]) > [class*="_rowActions"] > [da
         "openSessions": "Open session",
         "archived": "Archived",
         "basedOn": "Based on {branch}",
-        "rowBase": "Worktree · Based on {branch}",
         "rowWorktree": "Worktree",
-        "hoverPath": "Path: {path}",
-        "hoverBranch": "Current branch: {branch}",
+        "hoverPath": "Worktree path: {path}",
+        "hoverBranch": "Worktree branch: {branch}",
         "ready": "Ready",
         "active": "Active",
         "pinned": "Pinned",
@@ -169,10 +171,9 @@ ${FLAT_ROW}:not(:hover):not([class*="_menuOpen"]) > [class*="_rowActions"] > [da
         "openSessions": "打开会话",
         "archived": "已归档",
         "basedOn": "基于 {branch}",
-        "rowBase": "工作树 · 基于 {branch}",
         "rowWorktree": "工作树",
-        "hoverPath": "路径：{path}",
-        "hoverBranch": "实际分支：{branch}",
+        "hoverPath": "工作树路径：{path}",
+        "hoverBranch": "工作树分支：{branch}",
         "ready": "就绪",
         "active": "运行中",
         "pinned": "已置顶",
@@ -673,21 +674,20 @@ ${FLAT_ROW}:not(:hover):not([class*="_menuOpen"]) > [class*="_rowActions"] > [da
       const record = useSessionWorktree(controller, sessionId);
       if (!record) return null;
       const base = branchLabel(record.baseRef);
-      const label = CLEANED.has(record.status) ? `${t('rowWorktree')} · ${t(record.status)}`
-        : record.external ? `${t('rowWorktree')} · ${record.currentBranch || t('detached')}`
-          : base ? t('rowBase', { branch: base }) : t('rowWorktree');
+      const detail = CLEANED.has(record.status) ? t(record.status)
+        : record.external ? record.currentBranch || t('detached')
+          : base ? t('basedOn', { branch: base }) : t('rowWorktree');
+      const label = detail === t('rowWorktree') ? detail : `${t('rowWorktree')} · ${detail}`;
       return h('span', { className: MARKER, role: 'img', 'aria-label': label, title: label },
-        h(IconBranchOutlineRegular, { size: 14 }),
-        h('span', { className: `${PREFIX}-rowInfo`, 'aria-hidden': true }, label));
+        h(IconBranchOutlineRegular, { size: 14, className: `${PREFIX}-rowIcon` }),
+        h('span', { className: `${PREFIX}-rowInfo`, 'aria-hidden': true }, detail));
     }
 
     function WorktreeHover({ sessionId, controller, t }) {
       const record = useSessionWorktree(controller, sessionId);
       if (!record) return null;
-      const base = branchLabel(record.baseRef);
       const lines = [
-        CLEANED.has(record.status) ? `${t('worktree')} · ${t(record.status)}` : t('worktree'),
-        base ? t('basedOn', { branch: base }) : null,
+        CLEANED.has(record.status) ? t(record.status) : null,
         t('hoverPath', { path: record.path }),
         record.status === 'ready' && Object.hasOwn(record, 'currentBranch')
           ? t('hoverBranch', { branch: record.currentBranch || t('detached') }) : null,
