@@ -717,6 +717,31 @@ test('existing worktrees decorate the sidebar without creating bindings or manag
   ]);
 });
 
+for (const [reason, isGit, message] of [
+  ['not-git', false, 'This workspace is not a Git repository.'],
+  ['git-unavailable', false, 'Git is unavailable. Local sessions can still use this workspace.'],
+  ['unborn-head', true, 'Create a commit in this repository before creating a worktree.'],
+]) {
+  test(`${reason} disables Git selectors while preserving Local sends`, async (t) => {
+    const fixture = harness(t, {
+      workspace: workspaceValue({ isGit, reason, head: null, currentBranch: null, defaultBase: null, branches: [] }),
+    });
+    fixture.renderSlot('conversation.hero.options');
+    await eventually(() => fixture.controller.workspaceState('workspace-1').store.getSnapshot().phase === 'ready', 'workspace should finish loading');
+    const menus = nodesOf(fixture.renderSlot('conversation.hero.options'), primitives.Menu);
+    assert.equal(menus.length, 2);
+    for (const menu of menus) {
+      assert.equal(menu.props.anchor.props.disabled, true);
+      assert.ok(menu.props.anchor.props.title.includes(message));
+      assert.equal(menu.props.open, false);
+    }
+    assert.equal(textOf(menus[0].props.anchor), 'Local');
+    assert.equal(await fixture.send(session, 'local conversation', [], 'queue'), success);
+    assert.equal(fixture.nativeCalls.length, 1);
+    assert.equal(fixture.calls('prepare')[0].payload.choice, undefined);
+  });
+}
+
 test('background status refresh pauses while hidden and removes browser listeners on disposal', async (t) => {
   const fixture = harness(t);
   fixture.renderSlot('shell.overlay');

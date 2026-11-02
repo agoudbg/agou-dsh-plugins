@@ -599,7 +599,7 @@ ${FLAT_ROW}:not(:hover):not([class*="_menuOpen"]) > [class*="_rowActions"] > [da
         h(NativeSelector, {
           label: choice.mode === 'new' ? t('new') : t('local'), ariaLabel: t('worktree'),
           title: binding ? t('locked') : unavailable || t(choice.mode === 'new' ? 'newHint' : 'localHint'),
-          disabled: loading || state.busy || !!binding, open: worktreeOpen,
+          disabled: loading || state.busy || !!unavailable || !!binding, open: worktreeOpen,
           setOpen: (value) => { setBranchOpen(false); setWorktreeOpen(value); },
           items: [
             { id: 'local', label: t('local') },
