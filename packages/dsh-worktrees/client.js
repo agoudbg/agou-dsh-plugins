@@ -65,7 +65,7 @@ ${ROW} > [class*="_rowActions"] { display: inline-flex; }
 ${ROW}:not(:hover):not([class*="_menuOpen"]) > [class*="_rowActions"] > :not([data-slot="${ACTION_SLOT}"]),
 ${ROW}:not(:hover):not([class*="_menuOpen"]) > [class*="_rowActions"] > [data-slot="${ACTION_SLOT}"] > :not(.${MARKER}):not(.dsh-session-workspace-label) { display: none; }
 ${FLAT_ROW} { position: relative; box-sizing: border-box; height: 48px; padding-top: 4px; padding-bottom: 24px; }
-${FLAT_ROW} .${MARKER} { position: absolute; inset-inline: 28px 8px; bottom: 4px; width: auto; height: 17px; justify-content: flex-start; gap: 4px; min-width: 0; color: var(--dsw-alias-label-secondary); font-size: 12px; line-height: 17px; font-weight: 400; }
+${FLAT_ROW} .${MARKER} { position: absolute; inset-inline: 28px 8px; bottom: 4px; width: auto; height: 17px; justify-content: flex-start; gap: 4px; min-width: 0; color: var(--dsw-alias-label-tertiary); font-size: 12px; line-height: 17px; font-weight: 400; }
 ${FLAT_ROW} .${PREFIX}-rowInfo { display: block; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 ${FLAT_ROW}:has(.dsh-session-workspace-label) { height: 65px; padding-bottom: 41px; }
 ${FLAT_ROW} .dsh-session-workspace-label { bottom: 21px; }
