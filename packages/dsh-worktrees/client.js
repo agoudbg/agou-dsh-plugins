@@ -528,6 +528,64 @@ ${FLAT_ROW}:not(:hover):not([class*="_menuOpen"]) > [class*="_rowActions"] > [da
       };
     }
 
+    // DSH 0.2.1-rc.5's native header reads the immutable session header cwd.
+    // Delegate the native cell with a selector-local view of the live directory.
+    function installOpenInAdapter(ctx) {
+      const name = 'conversation.session.header.utilities';
+      return ctx.slots.inject(name, () => {
+        let active = true;
+        let original;
+        let component;
+        let remove;
+        let warned = false;
+        const clear = () => {
+          remove?.();
+          remove = undefined;
+          original = undefined;
+          component = undefined;
+        };
+        const sync = () => {
+          if (!active) return;
+          const entries = ctx.slots.entries(name).filter((entry) =>
+            entry.options.id === 'open-in-app' && entry.component !== component);
+          const native = entries.length === 1 && entries[0].locale === 'open-in-app'
+            && (entries[0].options.priority ?? 0) === 0 ? entries[0] : undefined;
+          if (!native) {
+            clear();
+            if (entries.length > 0 && !warned) {
+              console.warn(`[${PREFIX}] The native Open-in-app cell is overridden; leaving that action to its owner.`);
+              warned = true;
+            }
+            return;
+          }
+          warned = false;
+          if (original === native) return;
+          clear();
+          original = native;
+          component = function SessionDirectoryOpenIn(props) {
+            const { sessionId, useSessions, useProjection } = props;
+            const directory = useProjection('workingDirectory');
+            // Unknown projections must never briefly open the source checkout.
+            const cwd = typeof directory === 'string' && directory.length > 0 ? directory : undefined;
+            const useDirectorySessions = React.useCallback((select, equals) => useSessions((state) => {
+              const row = state.byId[sessionId];
+              if (!row || row.cwd === cwd) return select(state);
+              return select({ ...state, byId: { ...state.byId, [sessionId]: { ...row, cwd } } });
+            }, equals), [sessionId, useSessions, cwd]);
+            return h(native.component, { ...props, useSessions: useDirectorySessions });
+          };
+          remove = ctx.slots.register({
+            // SlotCore elects the lowest priority; the native cell is at zero.
+            name, id: 'open-in-app', order: native.options.order, priority: -1,
+            locale: native.locale, inject: native.inject,
+          }, component);
+        };
+        const unsubscribe = ctx.slots.subscribe(name, sync);
+        sync();
+        return () => { active = false; unsubscribe(); clear(); };
+      });
+    }
+
     function NativeSelector({ label, title, disabled, items, selectedId, onSelect, open, setOpen, ariaLabel }) {
       return h(Menu, {
         open: open && !disabled, onClose: () => setOpen(false), items, selectedId,
@@ -869,6 +927,7 @@ ${FLAT_ROW}:not(:hover):not([class*="_menuOpen"]) > [class*="_rowActions"] > [da
         const t = ctx.locale.bind(NS);
         ctx.effect(() => () => controller.dispose());
         ctx.effect(() => installSendGate(ctx, controller));
+        installOpenInAdapter(ctx);
         ctx.on('connection/reset', () => controller.reset());
         const injected = () => ({ controller });
         ctx.slots.inject('conversation.hero.options', () => ctx.slots.register({

@@ -247,6 +247,8 @@ function harness(t, options = {}) {
       disposers.push(() => listeners.delete(name));
     },
     slots: {
+      entries: () => [],
+      subscribe: () => () => {},
       inject(_name, register) { ctx.effect(register); },
       register(registration, Component) {
         slots.set(registration.name, { registration, Component });
