@@ -12,6 +12,8 @@ The plugin targets this DSH version's conversation and sidebar interfaces. Other
 
 With **Local** selected, the branch menu shows the source workspace's actual branch. Choosing another local branch checks it out immediately. Git errors appear in a dialog, and the plugin does not stash or discard your changes to make checkout succeed.
 
+The worktree and branch menus are disabled when Git is unavailable, the folder is not a Git repository, or the repository has no commit. You can still use the folder for a Local conversation.
+
 With **New local worktree** selected, the branch menu chooses the starting branch. The directory is created when you send the first message, using that branch's committed revision. Changes that you have not committed in the source checkout are not copied. Choosing a mode or base branch does not allocate a directory or switch the source branch.
 
 A new worktree starts with detached HEAD. The model receives its path and base revision, together with a reminder to create a task branch before authorized code changes if HEAD is still detached. It is not asked to create a branch for a read-only task, or to commit or push automatically.
@@ -44,7 +46,9 @@ Initialized submodules, embedded repositories and files that cannot be snapshott
 
 ## Find worktree conversations
 
-Worktree conversations have a branch icon in the sidebar. Hover over a conversation to view its path, current branch and known starting branch. In **In one list** view, an extra line shows the worktree information. If Session workspace labels is enabled, its workspace-name line is retained as well.
+Worktree conversations have a branch icon in the sidebar. Hover over a conversation to view **Worktree path** and **Worktree branch**. In **In one list** view, the icon appears beside the branch information on an extra line. If Session workspace labels is enabled, its workspace-name line is retained above it.
+
+Use the open menu at the top right of a conversation to open its current working directory in your chosen application. Opening a cleaned-up checkout this way does not restore it. The native workspace-opening keyboard shortcut still targets the original workspace.
 
 Existing linked Git worktrees also receive sidebar annotations. They remain outside this plugin's managed inventory and automatic cleanup.
 
@@ -56,13 +60,17 @@ The plugin preserves the session's existing permission mode. Creating a checkout
 
 `worktree_info` reads status, managed-worktree lists and branches. `worktree_manage` exposes the same preparation, checkout, restore, removal and configuration operations as the interface. Mutating tool calls use DSH's approval flow; the model cannot approve its own request. Preparation does not send a chat message, and a new worktree selection is limited to a blank session.
 
-Disabling the plugin removes its menus, settings page, annotations and send adapter. It keeps existing checkouts, Git snapshots and stored choices. Restore any cleaned-up checkout before continuing its conversation without the plugin's directory guard.
+Disabling the plugin removes its menus, settings page and annotations, and restores native sending and directory-opening behavior. It keeps existing checkouts, Git snapshots and stored choices. Restore any cleaned-up checkout before continuing its conversation without the plugin's directory guard.
 
 ## 中文
 
 在新会话的工作区、模式菜单右侧选择“本地”或“新建本地工作树”。本地模式的分支选择会立即切换原工作区分支，新建模式只选择创建来源，发送第一条消息时才创建工作树。
 
 每个工作区分别记住上一次成功发送时的选择。新工作树采用 detached HEAD，模型会得到创建任务分支的提醒。创建失败时，错误通过对话框显示，草稿和附件保持可重试。
+
+Git 不可用、文件夹不是 Git 仓库或仓库尚无提交时，工作树和分支菜单会禁用，本地会话仍可正常使用。侧边栏悬浮详情显示“工作树路径”和“工作树分支”；单列表中的图标位于分支信息行，工作区名称保留在它的上一行。
+
+会话右上角的打开菜单会在所选应用中打开当前工作目录。此操作不会恢复已经清理的工作树。原生工作区键盘快捷键仍打开原工作区。
 
 在“设置 → 工作树”中修改新建目录和保留数量，查看、恢复或删除工作树。默认保留 15 个符合清理条件的工作树，置顶和运行中的会话受到保护。数量超过目标不会阻止新建，也不会主动要求清理。
 
