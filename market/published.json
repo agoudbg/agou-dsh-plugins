@@ -44,6 +44,11 @@
       "name": "dsh-session-grouping-bell",
       "version": "1.1.1",
       "publishTimestamp": 1793524585
+    },
+    {
+      "name": "dsh-session-workspace-label",
+      "version": "1.0.2",
+      "publishTimestamp": 1793688337
     }
   ]
 }
