@@ -141,7 +141,13 @@ export class LinkedWorktreeDiscovery {
     signal.throwIfAborted();
     const key = pathKey(real);
     const cached = this.cache.get(key);
-    if (cached && cached.expiresAt > Date.now()) return cached.result;
+    if (cached) {
+      this.cache.delete(key);
+      if (cached.expiresAt > Date.now()) {
+        this.cache.set(key, cached);
+        return cached.result;
+      }
+    }
     if (inFlight.has(key)) return inFlight.get(key);
     const promise = inspectDirectory(real, signal).then(record => ({ record }), error => {
       signal.throwIfAborted();

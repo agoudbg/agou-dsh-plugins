@@ -166,6 +166,60 @@ test('shared directories use cached inspection until invalidation and preserve t
   assert.equal(f.lists(), 3);
 });
 
+test('cache hits retain recently used directories at capacity', async t => {
+  const f = await fixture(t);
+  t.mock.method(Date, 'now', () => 1000);
+  const cold = path.join(f.root, 'cold');
+  await git(f.source, ['worktree', 'add', '-b', 'cold', cold]);
+  const discovery = f.create({ maxDirectories: 2 });
+  const branch = async directory => {
+    f.setRows([row('one', directory)]);
+    return (await discovery.refresh(emptyState())).records[0]?.currentBranch ?? null;
+  };
+  assert.equal(await branch(f.linked), 'feature');
+  assert.equal(await branch(cold), 'cold');
+  await git(f.linked, ['switch', '-c', 'hot-changed']);
+  await git(cold, ['switch', '-c', 'cold-changed']);
+  assert.equal(await branch(f.linked), 'feature');
+  assert.equal(await branch(f.plain), null);
+  assert.equal(await branch(f.linked), 'feature');
+  assert.equal(await branch(cold), 'cold-changed');
+});
+
+test('cache refreshes move expired directories to the most recent position', async t => {
+  const f = await fixture(t);
+  let time = 1000;
+  t.mock.method(Date, 'now', () => time);
+  const discovery = f.create({ cacheMs: 100, maxDirectories: 2 });
+  const branch = async directory => {
+    f.setRows([row('one', directory)]);
+    return (await discovery.refresh(emptyState())).records[0]?.currentBranch ?? null;
+  };
+  assert.equal(await branch(f.linked), 'feature');
+  time = 1050;
+  assert.equal(await branch(f.source), null);
+  await git(f.linked, ['switch', '-c', 'refreshed']);
+  time = 1101;
+  assert.equal(await branch(f.linked), 'refreshed');
+  await git(f.linked, ['switch', '-c', 'later']);
+  assert.equal(await branch(f.plain), null);
+  assert.equal(await branch(f.linked), 'refreshed');
+});
+
+test('cache hits do not extend metadata expiry', async t => {
+  const f = await fixture(t);
+  let time = 1000;
+  t.mock.method(Date, 'now', () => time);
+  const discovery = f.create({ cacheMs: 100 });
+  f.setRows([row('one', f.linked)]);
+  assert.equal((await discovery.refresh(emptyState())).records[0].currentBranch, 'feature');
+  await git(f.linked, ['switch', '-c', 'later']);
+  time = 1050;
+  assert.equal((await discovery.refresh(emptyState())).records[0].currentBranch, 'feature');
+  time = 1100;
+  assert.equal((await discovery.refresh(emptyState())).records[0].currentBranch, 'later');
+});
+
 test('expired metadata is inspected again on the next refresh', async t => {
   const f = await fixture(t);
   f.setRows([row('one', f.linked)]);
