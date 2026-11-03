@@ -1,10 +1,14 @@
 ![Agou DSH Plugins](docs/assets/brand/banner.svg)
 
+<div align="center">
+
 # agou-dsh-plugins
 
 <sup>[English](README.md) | **中文**</sup>
 
 由 [agoudbg](https://github.com/agoudbg) 开发的 DSH（DeepSeek Harness）插件。
+
+</div>
 
 ## 插件
 
