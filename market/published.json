@@ -49,6 +49,11 @@
       "name": "dsh-session-workspace-label",
       "version": "1.0.2",
       "publishTimestamp": 1793688337
+    },
+    {
+      "name": "@agou/dsh-worktrees",
+      "version": "1.0.0",
+      "publishTimestamp": 1793690252
     }
   ]
 }

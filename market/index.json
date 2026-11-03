@@ -423,12 +423,9 @@
       "versions": [
         {
           "version": "1.0.0",
-          "publishTimestamp": 1793673624,
+          "publishTimestamp": 1793690252,
           "source": {
-            "type": "git",
-            "url": "https://github.com/agoudbg/agou-dsh-plugins",
-            "commit": "bbfe511956c93e91f531bc9b8c5d22a579dc8de0",
-            "path": "packages/dsh-worktrees"
+            "type": "npm"
           },
           "engines": {
             "dsh": "0.2.1-rc.5"
