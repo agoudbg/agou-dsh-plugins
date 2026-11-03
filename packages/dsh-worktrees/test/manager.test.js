@@ -419,6 +419,28 @@ test('manual deletion archives only after snapshot/removal and failed archive ca
   assert.equal((await f.manager.remove(record.id)).archivePending, false);
 });
 
+test('accepted requests stay deduplicated after removal, restart and restoration', async t => {
+  const f = await fixture(t);
+  const record = await f.create('one');
+  f.advance(1000);
+  await f.manager.remember({ sessionId: 'one', requestId: 'followup' });
+  await f.manager.remove(record.id);
+  assert.deepEqual(f.archives, [['one']]);
+  f.advance(1000);
+  await f.manager.prepare({ sessionId: 'local', workspace: f.workspace, choice: { mode: 'local' } });
+  await f.manager.remember({ sessionId: 'local', requestId: 'local-input' });
+  const restarted = f.build();
+  await restarted.restore(record.id);
+  const before = restarted.list();
+  assert.equal(before.preferences['workspace-1'].mode, 'local');
+  f.advance(1000);
+  assert.equal(await restarted.remember({ sessionId: 'one', requestId: 'request-one' }), false);
+  const after = restarted.list();
+  assert.deepEqual(after.preferences, before.preferences);
+  assert.equal(after.bindings.one.acceptedAt, before.bindings.one.acceptedAt);
+  assert.equal(after.worktrees[record.id].lastUsedAt, before.worktrees[record.id].lastUsedAt);
+});
+
 test('inheritance associates shared checkout only when child cwd matches and preserves workspace identity', async t => {
   const f = await fixture(t);
   const record = await f.create('parent');

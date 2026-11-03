@@ -397,6 +397,8 @@ export class WorktreeManager {
     return this._run(() => this._save(state => {
       const binding = has(state.bindings, sessionId);
       const key = JSON.stringify([sessionId, requestId]);
+      // Queue edits and steering reuse request ids with new timestamps. Receipts must
+      // survive archive/restore so these repeats cannot replace newer preferences.
       if (!binding || has(state.accepted, key)) return false;
       if (binding.status !== 'ready') fail('NOT_PREPARED', 'The session directory was not prepared for this accepted message.');
       binding.acceptedAt = Math.max(binding.acceptedAt ?? 0, acceptedAt);
