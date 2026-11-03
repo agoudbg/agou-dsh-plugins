@@ -54,6 +54,11 @@
       "name": "@agou/dsh-worktrees",
       "version": "1.0.0",
       "publishTimestamp": 1793690252
+    },
+    {
+      "name": "@agou/dsh-worktrees",
+      "version": "1.0.1",
+      "publishTimestamp": 1793716180
     }
   ]
 }
