@@ -103,6 +103,18 @@ for (const dirName of dirs) {
     continue;
   }
 
+  // A previous run may have staged this exact version while it still awaits
+  // approval; its tag on origin is the durable marker of that.
+  const tagRef = `refs/tags/${name}@${version}`;
+  const remoteTags = spawnSync('git', ['ls-remote', 'origin', tagRef], {
+    cwd: root,
+    encoding: 'utf8',
+  });
+  if (remoteTags.status === 0 && remoteTags.stdout.trim()) {
+    console.log(`skip ${name}@${version}: tag already on origin, awaiting stage approval`);
+    continue;
+  }
+
   const latest = npmView(name);
   if (latest.status === 0 && latest.stdout.trim()) {
     if (compareSemver(version, latest.stdout.trim()) <= 0) {
