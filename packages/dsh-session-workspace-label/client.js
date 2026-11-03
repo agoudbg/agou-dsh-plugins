@@ -2,6 +2,7 @@ window.__ModuleLoader__.load({
   id: 'dsh-session-workspace-label',
   factory(require) {
     const React = require('react');
+    const { IconFolderCloseRegular } = require('@deepseek-ai/dsh-client-ui-primitives');
     const h = React.createElement;
     const NS = 'session-workspace-label';
     const LABEL = 'dsh-session-workspace-label';
@@ -33,15 +34,23 @@ ${ROW} .${LABEL} {
   position: absolute;
   inset-inline: 28px 8px;
   bottom: 4px;
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 17px;
   overflow: hidden;
   color: var(--dsw-alias-label-tertiary);
   font-size: 12px;
   font-weight: 400;
   line-height: 17px;
-  text-overflow: ellipsis;
   white-space: nowrap;
   pointer-events: none;
+}
+.${LABEL}-icon { flex: none; }
+.${LABEL}-text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 `;
 
@@ -67,7 +76,9 @@ ${ROW} .${LABEL} {
       const label = workspace === undefined
         ? t('ungrouped')
         : workspace.title === 'default-workspace' ? t('defaultWorkspace') : workspace.title;
-      return h('span', { className: LABEL }, label);
+      return h('span', { className: LABEL },
+        h(IconFolderCloseRegular, { size: 14, className: `${LABEL}-icon`, 'aria-hidden': true }),
+        h('span', { className: `${LABEL}-text` }, label));
     }
 
     function WorkspaceLabelStyle() {
