@@ -17,7 +17,7 @@ window.__ModuleLoader__.load({
     // Trigger geometry follows AgentPresetSeat and HeroShell in DSH 0.2.1-rc.5.
     // Native Menu and Modal own keyboard navigation, focus return and dismissal.
     const CSS = `
-[class$="_heroOptions"]:has(> [data-slot="conversation.hero.options"] .${PREFIX}-seat) { margin-left: 0; }
+[class$="_heroOptions"]:has(> [data-slot="conversation.hero.options"] .${PREFIX}-seat) { margin-left: 0; gap: 2px; }
 .${PREFIX}-anchor { min-width: 54px; max-width: 100%; }
 .${PREFIX}-seat {
   border-radius: var(--dsw-radius-sm); min-width: 0; max-width: min(100%,240px);
