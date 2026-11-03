@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Generates market/index.json, a DSH plugin market index (format 1), from
+// Generates market/index.json and the plugin sections in both READMEs from
 // package manifests, locale files, icons, git history, and the npm publish
 // record in market/published.json. Stdlib only, so it runs without an
 // installed node_modules.
@@ -15,6 +15,10 @@ import { spawnSync } from "node:child_process";
 import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import {
+  README_SPECS,
+  replacePluginSection,
+} from "./readme-plugins.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const indexPath = join(root, "market", "index.json");
@@ -142,6 +146,14 @@ function sortedPackageDirs(dir) {
     .sort();
 }
 
+function writeReadmeOutputs(plugins) {
+  for (const { file, lang } of README_SPECS) {
+    const readmePath = join(root, file);
+    const readme = readFileSync(readmePath, "utf8");
+    writeFileSync(readmePath, replacePluginSection(readme, plugins, lang), "utf8");
+  }
+}
+
 export async function buildMarketIndex() {
   const rootManifest = JSON.parse(readFileSync(join(root, "package.json"), "utf8"));
   const repoUrl = repoHttpsUrl();
@@ -202,6 +214,7 @@ export async function buildMarketIndex() {
   };
   mkdirSync(dirname(indexPath), { recursive: true });
   writeFileSync(indexPath, `${JSON.stringify(index, null, 2)}\n`, "utf8");
+  writeReadmeOutputs(plugins);
   return {
     url: INDEX_URL,
     path: indexPath,
