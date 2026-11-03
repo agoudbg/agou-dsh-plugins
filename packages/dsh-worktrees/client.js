@@ -1,5 +1,5 @@
 window.__ModuleLoader__.load({
-  id: 'dsh-worktrees',
+  id: '@agou/dsh-worktrees',
   factory(require) {
     const React = require('react');
     const { Button, Menu, Modal, IconFollowsystemOutlineRegular, IconBranchOutlineRegular, IconChevronDownOutlineRegular } = require('@deepseek-ai/dsh-client-ui-primitives');

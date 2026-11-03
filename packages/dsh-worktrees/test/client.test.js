@@ -6,6 +6,7 @@ import { test } from 'node:test';
 import { runInNewContext } from 'node:vm';
 
 const source = readFileSync(new URL('../client.js', import.meta.url), 'utf8');
+const packageName = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8')).name;
 const session = Object.freeze({ sessionId: 'session-1' });
 const success = Object.freeze({ kind: 'success' });
 const ready = { ready: true, actualDirectory: 'R:/worktrees/session-1', worktreeId: 'tree-1' };
@@ -267,7 +268,7 @@ function harness(t, options = {}) {
     AbortController, DOMException, Error, crypto: { randomUUID },
     console: { warn: (...args) => warnings.push(args) },
   }, { filename: 'dsh-worktrees/client.js' });
-  assert.equal(module.id, 'dsh-worktrees');
+  assert.equal(module.id, packageName);
   const plugin = module.factory((name) => {
     if (name === 'react') return renderer.React;
     assert.equal(name, '@deepseek-ai/dsh-client-ui-primitives');
