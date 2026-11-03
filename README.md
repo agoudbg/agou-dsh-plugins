@@ -1,3 +1,5 @@
+![Agou DSH Plugins](docs/assets/brand/banner.svg)
+
 # agou-dsh-plugins
 
 <sup>**English** | [中文](README-zh-CN.md)</sup>
@@ -71,6 +73,8 @@ https://raw.githubusercontent.com/agoudbg/agou-dsh-plugins/main/market/index.jso
 as an index source in your DSH plugin market settings to browse and install these plugins from the market page.
 
 ## Development
+
+Regenerate the banner and icon with `pnpm artwork:generate`. To compare a local reference image, run `pnpm artwork:compare --reference <path-to-reference.png>`. Comparison outputs stay in `.tmp/artwork/qa`. See [artwork generation](docs/artwork.md) for the repeat policy and output files.
 
 This repository is a pnpm workspace:
 

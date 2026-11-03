@@ -1,3 +1,5 @@
+![Agou DSH Plugins](docs/assets/brand/banner.svg)
+
 # agou-dsh-plugins
 
 <sup>[English](README.md) | **中文**</sup>
@@ -69,6 +71,8 @@ https://raw.githubusercontent.com/agoudbg/agou-dsh-plugins/main/market/index.jso
 ```
 
 ## 开发
+
+运行 `pnpm artwork:generate` 重新生成横幅和主图标。需要比对时，运行 `pnpm artwork:compare --reference <本地参考图路径>`，结果写入 `.tmp/artwork/qa`。重复排列规则和输出文件见[图片生成说明](docs/artwork.md)。
 
 本仓库是一个 pnpm workspace：
 

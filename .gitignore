@@ -19,3 +19,5 @@ Thumbs.db
 
 # Local verification artifacts
 .tmp/
+/docs/assets/reference/
+/docs/assets/brand/qa/

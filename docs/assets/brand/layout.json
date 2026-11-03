@@ -1,0 +1,253 @@
+{
+  "canvas": {
+    "width": 1280,
+    "height": 440
+  },
+  "seed": "agou-dsh-plugins-v1",
+  "mainCard": {
+    "x": 606,
+    "y": 233,
+    "width": 68,
+    "height": 68,
+    "source": "docs/assets/brand/icon.svg",
+    "opacity": 1,
+    "fieldMask": false,
+    "emphasis": "4px blue-cyan border; optically centered A puzzle glyph; opaque white surface outside the field opacity mask"
+  },
+  "repetition": "Seeded balanced graph coloring. Equal icons are forbidden when horizontal separation is at most 188px and vertical separation is at most 94px, including diagonals.",
+  "icons": [
+    {
+      "name": "dsh-auto-permission-default",
+      "source": "packages/dsh-auto-permission-default/icon.svg",
+      "sha256": "76c1926d3435eebc3160136101f7fdbf667e9a6b77504f3cfb41a0480f19aa36"
+    },
+    {
+      "name": "dsh-model-effort-memory",
+      "source": "packages/dsh-model-effort-memory/icon.svg",
+      "sha256": "d9477cf23c5e06850d58372f657f7b04621b88bab99c77afa93c8fc00e45e172"
+    },
+    {
+      "name": "dsh-pasted-text-file",
+      "source": "packages/dsh-pasted-text-file/icon.svg",
+      "sha256": "8e27d17257c85a1c3b6b992700a19afb8178513eacb1f714bd02e2644ed90930"
+    },
+    {
+      "name": "dsh-plugin-installed-order",
+      "source": "packages/dsh-plugin-installed-order/icon.svg",
+      "sha256": "eb594385fb87e2507b8d04b70e7f57b4485627bd6ab42343eeee9e4d53f6a6dc"
+    },
+    {
+      "name": "dsh-scrollbar-edge-hit",
+      "source": "packages/dsh-scrollbar-edge-hit/icon.svg",
+      "sha256": "fae6dcec05e7e4be1626ff8ebb21ad1a86e5fedce1664ccd373a61570ab26a80"
+    },
+    {
+      "name": "dsh-session-grouping-bell",
+      "source": "packages/dsh-session-grouping-bell/icon.svg",
+      "sha256": "4e6635fb9222d2c1e316475dafe191dc355e45886a540ae239d2320b3cd6e0a0"
+    },
+    {
+      "name": "dsh-session-workspace-label",
+      "source": "packages/dsh-session-workspace-label/icon.svg",
+      "sha256": "925478437e37234346db232d873ac889d01698d227bb690d0ce425c186f51204"
+    },
+    {
+      "name": "dsh-sidebar-scroll-flow",
+      "source": "packages/dsh-sidebar-scroll-flow/icon.svg",
+      "sha256": "76dacc2e24cfbd17d5f564d55e57eddccc2521bf3bdde2f627aa8e3e81267293"
+    },
+    {
+      "name": "dsh-worktrees",
+      "source": "packages/dsh-worktrees/icon.svg",
+      "sha256": "3a08e9ed45fdb75bc46bb7426916bfc3c7c0ce5718e133fce04df7b48d762fbe"
+    }
+  ],
+  "cards": [
+    {
+      "x": 136,
+      "y": 14,
+      "width": 68,
+      "height": 68,
+      "plugin": "dsh-plugin-installed-order"
+    },
+    {
+      "x": 230,
+      "y": -33,
+      "width": 68,
+      "height": 68,
+      "plugin": "dsh-model-effort-memory"
+    },
+    {
+      "x": 230,
+      "y": 61,
+      "width": 68,
+      "height": 68,
+      "plugin": "dsh-session-workspace-label"
+    },
+    {
+      "x": 324,
+      "y": 14,
+      "width": 68,
+      "height": 68,
+      "plugin": "dsh-pasted-text-file"
+    },
+    {
+      "x": 324,
+      "y": 108,
+      "width": 68,
+      "height": 68,
+      "plugin": "dsh-sidebar-scroll-flow"
+    },
+    {
+      "x": 418,
+      "y": -33,
+      "width": 68,
+      "height": 68,
+      "plugin": "dsh-auto-permission-default"
+    },
+    {
+      "x": 418,
+      "y": 61,
+      "width": 68,
+      "height": 68,
+      "plugin": "dsh-session-grouping-bell"
+    },
+    {
+      "x": 418,
+      "y": 155,
+      "width": 68,
+      "height": 68,
+      "plugin": "dsh-scrollbar-edge-hit"
+    },
+    {
+      "x": 512,
+      "y": 14,
+      "width": 68,
+      "height": 68,
+      "plugin": "dsh-worktrees"
+    },
+    {
+      "x": 512,
+      "y": 108,
+      "width": 68,
+      "height": 68,
+      "plugin": "dsh-plugin-installed-order"
+    },
+    {
+      "x": 512,
+      "y": 202,
+      "width": 68,
+      "height": 68,
+      "plugin": "dsh-worktrees"
+    },
+    {
+      "x": 606,
+      "y": -49,
+      "width": 68,
+      "height": 68,
+      "plugin": "dsh-session-grouping-bell"
+    },
+    {
+      "x": 606,
+      "y": 45,
+      "width": 68,
+      "height": 68,
+      "plugin": "dsh-scrollbar-edge-hit"
+    },
+    {
+      "x": 606,
+      "y": 139,
+      "width": 68,
+      "height": 68,
+      "plugin": "dsh-session-workspace-label"
+    },
+    {
+      "x": 700,
+      "y": 14,
+      "width": 68,
+      "height": 68,
+      "plugin": "dsh-sidebar-scroll-flow"
+    },
+    {
+      "x": 700,
+      "y": 108,
+      "width": 68,
+      "height": 68,
+      "plugin": "dsh-auto-permission-default"
+    },
+    {
+      "x": 700,
+      "y": 202,
+      "width": 68,
+      "height": 68,
+      "plugin": "dsh-session-grouping-bell"
+    },
+    {
+      "x": 794,
+      "y": -33,
+      "width": 68,
+      "height": 68,
+      "plugin": "dsh-session-workspace-label"
+    },
+    {
+      "x": 794,
+      "y": 61,
+      "width": 68,
+      "height": 68,
+      "plugin": "dsh-model-effort-memory"
+    },
+    {
+      "x": 794,
+      "y": 155,
+      "width": 68,
+      "height": 68,
+      "plugin": "dsh-pasted-text-file"
+    },
+    {
+      "x": 888,
+      "y": 14,
+      "width": 68,
+      "height": 68,
+      "plugin": "dsh-worktrees"
+    },
+    {
+      "x": 888,
+      "y": 108,
+      "width": 68,
+      "height": 68,
+      "plugin": "dsh-plugin-installed-order"
+    },
+    {
+      "x": 982,
+      "y": -33,
+      "width": 68,
+      "height": 68,
+      "plugin": "dsh-auto-permission-default"
+    },
+    {
+      "x": 982,
+      "y": 61,
+      "width": 68,
+      "height": 68,
+      "plugin": "dsh-scrollbar-edge-hit"
+    },
+    {
+      "x": 1076,
+      "y": 14,
+      "width": 68,
+      "height": 68,
+      "plugin": "dsh-sidebar-scroll-flow"
+    }
+  ],
+  "counts": {
+    "dsh-auto-permission-default": 3,
+    "dsh-model-effort-memory": 2,
+    "dsh-pasted-text-file": 2,
+    "dsh-plugin-installed-order": 3,
+    "dsh-scrollbar-edge-hit": 3,
+    "dsh-session-grouping-bell": 3,
+    "dsh-session-workspace-label": 3,
+    "dsh-sidebar-scroll-flow": 3,
+    "dsh-worktrees": 3
+  }
+}

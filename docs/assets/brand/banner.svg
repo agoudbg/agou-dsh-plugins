@@ -1,0 +1,633 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="440" viewBox="0 0 1280 440" fill="none" role="img" aria-labelledby="banner-title banner-description">
+  <title id="banner-title">Agou DSH Plugins</title>
+  <desc id="banner-description">A blue field of plugin cards with a bordered puzzle-piece card for Agou DSH Plugins.</desc>
+  <defs>
+    <linearGradient id="background-top" x1="0" x2="1280" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8BB2CC" /><stop offset="1" stop-color="#AAC8DE" />
+    </linearGradient>
+    <linearGradient id="background-bottom" x1="0" x2="1280" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#92B4CD" /><stop offset="1" stop-color="#C8DFEE" />
+    </linearGradient>
+    <linearGradient id="vertical-blend" x1="0" y1="0" x2="0" y2="440" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#000000" /><stop offset="1" stop-color="#FFFFFF" />
+    </linearGradient>
+    <mask id="background-blend" x="0" y="0" width="1280" height="440" maskUnits="userSpaceOnUse">
+      <rect width="1280" height="440" fill="url(#vertical-blend)" />
+    </mask>
+    <radialGradient id="field-fade" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="1" gradientTransform="translate(628.856 -0.45) scale(1102.932 379.452)">
+      <stop offset="0.416715" stop-color="#FFFFFF" />
+      <stop offset="1" stop-color="#000000" />
+    </radialGradient>
+    <mask id="field-mask" x="0" y="0" width="1280" height="440" maskUnits="userSpaceOnUse">
+      <rect width="1280" height="440" fill="url(#field-fade)" />
+    </mask>
+    <filter id="card-shadow" x="-20%" y="-20%" width="140%" height="150%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1" />
+      <feOffset dx="0" dy="1.5" />
+      <feComponentTransfer><feFuncA type="linear" slope="0.09" /></feComponentTransfer>
+      <feComposite in2="SourceAlpha" operator="out" />
+    </filter>
+    <linearGradient id="brand-border" x1="606" y1="233" x2="674" y2="301" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2AAEC7" /><stop offset="1" stop-color="#425BD5" />
+    </linearGradient>
+  </defs>
+  <g mask="url(#field-mask)">
+    <rect width="1280" height="440" fill="url(#background-top)" />
+    <rect width="1280" height="440" fill="url(#background-bottom)" mask="url(#background-blend)" />
+    <g id="plugin-0-card">
+    <rect x="136" y="14" width="68" height="68" rx="15" fill="#000000" filter="url(#card-shadow)" />
+    <rect x="135.5" y="13.5" width="69" height="69" rx="15.5" fill="none" stroke="#000000" stroke-opacity="0.055" />
+    <rect x="136" y="14" width="68" height="68" rx="15" fill="#FFFFFF" fill-opacity="0.7" />
+
+    <svg width="44" height="44" viewBox="7.75 7.949999809265137 25.400001525878906 20.700000762939453" fill="none" xmlns="http://www.w3.org/2000/svg" x="148" y="26" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="plugin-0-installed-order-top" x1="8" y1="8" x2="25" y2="17" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#71C9FF"/>
+      <stop offset="1" stop-color="#5662E2"/>
+    </linearGradient>
+    <linearGradient id="plugin-0-installed-order-bottom" x1="8" y1="19" x2="25" y2="28" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#51D3DE"/>
+      <stop offset="1" stop-color="#4B58C7"/>
+    </linearGradient>
+    <linearGradient id="plugin-0-installed-order-arrow" x1="28" y1="9.4" x2="29" y2="27" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#52D5DE"/>
+      <stop offset="1" stop-color="#6688F3"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8.5" width="17" height="8.5" rx="2.8" fill="url(#plugin-0-installed-order-top)" fill-opacity="0.92"/>
+  <rect x="8" y="19" width="17" height="8.5" rx="2.8" fill="url(#plugin-0-installed-order-bottom)" fill-opacity="0.62"/>
+  <path d="M12 12.75H21M12 23.25H21" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M29 27.2V9.8M26.3 12.1L29 9.4L31.7 12.1" stroke="url(#plugin-0-installed-order-arrow)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+  </g>
+<g id="plugin-1-card">
+    <rect x="230" y="-33" width="68" height="68" rx="15" fill="#000000" filter="url(#card-shadow)" />
+    <rect x="229.5" y="-33.5" width="69" height="69" rx="15.5" fill="none" stroke="#000000" stroke-opacity="0.055" />
+    <rect x="230" y="-33" width="68" height="68" rx="15" fill="#FFFFFF" fill-opacity="0.7" />
+
+    <svg width="44" height="44" viewBox="8.25 8.049999237060547 21 19.900001525878906" fill="none" xmlns="http://www.w3.org/2000/svg" x="242" y="-21" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="plugin-1-effort-memory-bars" x1="8" y1="9" x2="23" y2="27" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6BC8FF"/>
+      <stop offset="1" stop-color="#5364E4"/>
+    </linearGradient>
+    <linearGradient id="plugin-1-effort-memory-bookmark" x1="24" y1="8" x2="29" y2="18" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#51D3DE"/>
+      <stop offset="1" stop-color="#3E72D7"/>
+    </linearGradient>
+    <filter id="plugin-1-effort-memory-shadow" x="-35%" y="-35%" width="170%" height="190%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0.35" dy="0.65" stdDeviation="0.4" flood-color="#000000" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+  <rect x="8.5" y="8.5" width="14" height="4.3" rx="2.15" fill="url(#plugin-1-effort-memory-bars)"/>
+  <rect x="8.5" y="15.85" width="14" height="4.3" rx="2.15" fill="url(#plugin-1-effort-memory-bars)"/>
+  <rect x="8.5" y="23.2" width="14" height="4.3" rx="2.15" fill="url(#plugin-1-effort-memory-bars)"/>
+  <circle cx="18.2" cy="10.65" r="2.35" fill="#FFFFFF" filter="url(#plugin-1-effort-memory-shadow)"/>
+  <circle cx="13.7" cy="18" r="2.35" fill="#FFFFFF" filter="url(#plugin-1-effort-memory-shadow)"/>
+  <circle cx="20.6" cy="25.35" r="2.35" fill="#FFFFFF" filter="url(#plugin-1-effort-memory-shadow)"/>
+  <path d="M24 8.5H29V17.5L26.5 15.7L24 17.5V8.5Z" fill="url(#plugin-1-effort-memory-bookmark)"/>
+  <path d="M25.7 11.2H27.3" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"/>
+</svg>
+  </g>
+<g id="plugin-2-card">
+    <rect x="230" y="61" width="68" height="68" rx="15" fill="#000000" filter="url(#card-shadow)" />
+    <rect x="229.5" y="60.5" width="69" height="69" rx="15.5" fill="none" stroke="#000000" stroke-opacity="0.055" />
+    <rect x="230" y="61" width="68" height="68" rx="15" fill="#FFFFFF" fill-opacity="0.7" />
+
+    <svg width="44" height="44" viewBox="7.25 8.25 20.5 20" fill="none" xmlns="http://www.w3.org/2000/svg" x="242" y="73" preserveAspectRatio="xMidYMid meet">
+  <path d="M9 17H20.5L26 22.5L20.5 28H9C8.17 28 7.5 27.33 7.5 26.5V18.5C7.5 17.67 8.17 17 9 17Z" fill="url(#plugin-2-workspace-label)"/>
+  <path d="M9 8.5H22L27.5 14L22 19.5H9C8.17 19.5 7.5 18.83 7.5 18V10C7.5 9.17 8.17 8.5 9 8.5Z" fill="url(#plugin-2-session-label)"/>
+  <circle cx="11.5" cy="14" r="1.5" fill="#FFFFFF"/>
+  <path d="M15 14H21" stroke="#FFFFFF" stroke-width="2.1" stroke-linecap="round"/>
+  <circle cx="11.5" cy="22.5" r="1.5" fill="#FFFFFF"/>
+  <path d="M15 22.5H20" stroke="#FFFFFF" stroke-width="2.1" stroke-linecap="round"/>
+  <defs>
+    <linearGradient id="plugin-2-session-label" x1="8" y1="9" x2="27" y2="19" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7AC2FF"/>
+      <stop offset="1" stop-color="#5269E1"/>
+    </linearGradient>
+    <linearGradient id="plugin-2-workspace-label" x1="8" y1="18" x2="26" y2="28" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6BE0E2"/>
+      <stop offset="1" stop-color="#2F9CC6"/>
+    </linearGradient>
+  </defs>
+</svg>
+  </g>
+<g id="plugin-3-card">
+    <rect x="324" y="14" width="68" height="68" rx="15" fill="#000000" filter="url(#card-shadow)" />
+    <rect x="323.5" y="13.5" width="69" height="69" rx="15.5" fill="none" stroke="#000000" stroke-opacity="0.055" />
+    <rect x="324" y="14" width="68" height="68" rx="15" fill="#FFFFFF" fill-opacity="0.7" />
+
+    <svg width="44" height="44" viewBox="8.25 7.25 20.5 23" fill="none" xmlns="http://www.w3.org/2000/svg" x="336" y="26" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="plugin-3-paste-file-paper" x1="9" y1="7" x2="29" y2="30" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7CCBFF"/>
+      <stop offset="1" stop-color="#5064E2"/>
+    </linearGradient>
+  </defs>
+  <path d="M11 7.5H22.5L28.5 13.5V27.5C28.5 28.88 27.38 30 26 30H11C9.62 30 8.5 28.88 8.5 27.5V10C8.5 8.62 9.62 7.5 11 7.5Z" fill="url(#plugin-3-paste-file-paper)" fill-opacity="0.88"/>
+  <path d="M22.5 7.5V13.5H28.5" fill="#58D5DE" fill-opacity="0.84"/>
+  <path d="M13.5 17H23M13.5 20.8H20.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M14.5 26.3H20C21.93 26.3 23.5 24.73 23.5 22.8M17.3 23.9L14.5 26.3L17.3 28.7" stroke="#B9F5F3" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+  </g>
+<g id="plugin-4-card">
+    <rect x="324" y="108" width="68" height="68" rx="15" fill="#000000" filter="url(#card-shadow)" />
+    <rect x="323.5" y="107.5" width="69" height="69" rx="15.5" fill="none" stroke="#000000" stroke-opacity="0.055" />
+    <rect x="324" y="108" width="68" height="68" rx="15" fill="#FFFFFF" fill-opacity="0.7" />
+
+    <svg width="44" height="44" viewBox="6.75 7.550000190734863 22.5 20.900001525878906" fill="none" xmlns="http://www.w3.org/2000/svg" x="336" y="120" preserveAspectRatio="xMidYMid meet">
+  <path d="M10 8.8H26C27.1 8.8 28 9.7 28 10.8V25.2C28 26.3 27.1 27.2 26 27.2H10C8.9 27.2 8 26.3 8 25.2V10.8C8 9.7 8.9 8.8 10 8.8Z" fill="url(#plugin-4-sidebar-frame)" fill-opacity="0.2"/>
+  <path d="M14.7 9.9V26.1" stroke="url(#plugin-4-sidebar-details)" stroke-width="2.1" stroke-linecap="round"/>
+  <path d="M10.8 13H12.5M10.8 17H12.5M10.8 21H12.5" stroke="url(#plugin-4-sidebar-details)" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M21 13.8V22.2M21 22.2L17.7 18.9M21 22.2L24.3 18.9" stroke="url(#plugin-4-sidebar-details)" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M10 8.8H26C27.1 8.8 28 9.7 28 10.8V25.2C28 26.3 27.1 27.2 26 27.2H10C8.9 27.2 8 26.3 8 25.2V10.8C8 9.7 8.9 8.8 10 8.8Z" fill="none" stroke="url(#plugin-4-sidebar-frame)" stroke-width="2"/>
+  <defs>
+    <linearGradient id="plugin-4-sidebar-frame" x1="9" y1="9" x2="27" y2="27" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7AC2FF"/>
+      <stop offset="1" stop-color="#5269E1"/>
+    </linearGradient>
+    <linearGradient id="plugin-4-sidebar-details" x1="10" y1="10" x2="26" y2="26" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3F77D8"/>
+      <stop offset="1" stop-color="#2F9CC6"/>
+    </linearGradient>
+  </defs>
+</svg>
+  </g>
+<g id="plugin-5-card">
+    <rect x="418" y="-33" width="68" height="68" rx="15" fill="#000000" filter="url(#card-shadow)" />
+    <rect x="417.5" y="-33.5" width="69" height="69" rx="15.5" fill="none" stroke="#000000" stroke-opacity="0.055" />
+    <rect x="418" y="-33" width="68" height="68" rx="15" fill="#FFFFFF" fill-opacity="0.7" />
+
+    <svg width="44" height="44" viewBox="7.25 6.75 21.5 23" fill="none" xmlns="http://www.w3.org/2000/svg" x="430" y="-21" preserveAspectRatio="xMidYMid meet">
+  <path d="M18 7L28.5 10.4V17.2C28.5 22.9 24.08 27.9 18 29.5C11.92 27.9 7.5 22.9 7.5 17.2V10.4L18 7Z" fill="url(#plugin-5-permission-shield)"/>
+  <path d="M13.6 18L16.5 20.9L22.4 15" stroke="#FFFFFF" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <defs>
+    <linearGradient id="plugin-5-permission-shield" x1="18" y1="7" x2="18" y2="29.5" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7AC2FF"/>
+      <stop offset="1" stop-color="#4A65E8"/>
+    </linearGradient>
+  </defs>
+</svg>
+  </g>
+<g id="plugin-6-card">
+    <rect x="418" y="61" width="68" height="68" rx="15" fill="#000000" filter="url(#card-shadow)" />
+    <rect x="417.5" y="60.5" width="69" height="69" rx="15.5" fill="none" stroke="#000000" stroke-opacity="0.055" />
+    <rect x="418" y="61" width="68" height="68" rx="15" fill="#FFFFFF" fill-opacity="0.7" />
+
+    <svg width="44" height="44" viewBox="8.314617156982422 7.250000476837158 21.935382843017578 22.375001907348633" fill="none" xmlns="http://www.w3.org/2000/svg" x="430" y="73" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="plugin-6-session-grouping-bell" x1="10" y1="9" x2="27" y2="26" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#77C9FF"/>
+      <stop offset="1" stop-color="#5160DE"/>
+    </linearGradient>
+    <linearGradient id="plugin-6-session-grouping-clapper" x1="15" y1="27" x2="21" y2="27" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3F77D8"/>
+      <stop offset="1" stop-color="#51D3DE"/>
+    </linearGradient>
+  </defs>
+  <path d="M18 8.5C13.8 8.5 10.8 11.8 10.8 16.1V19.2L8.8 22.1C8.2 23 8.8 24.2 10 24.2H26C27.2 24.2 27.8 23 27.2 22.1L25.2 19.2V16.1C25.2 11.8 22.2 8.5 18 8.5Z" fill="url(#plugin-6-session-grouping-bell)" fill-opacity="0.9"/>
+  <path d="M13.8 17.5H22.2" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-opacity="0.72"/>
+  <path d="M15.3 27C16.3 28.7 19.7 28.7 20.7 27" stroke="url(#plugin-6-session-grouping-clapper)" stroke-width="2.2" stroke-linecap="round"/>
+  <circle cx="27.3" cy="10.2" r="2.1" fill="#51D5DE" stroke="#FFFFFF" stroke-width="1.2"/>
+</svg>
+  </g>
+<g id="plugin-7-card">
+    <rect x="418" y="155" width="68" height="68" rx="15" fill="#000000" filter="url(#card-shadow)" />
+    <rect x="417.5" y="154.5" width="69" height="69" rx="15.5" fill="none" stroke="#000000" stroke-opacity="0.055" />
+    <rect x="418" y="155" width="68" height="68" rx="15" fill="#FFFFFF" fill-opacity="0.7" />
+
+    <svg width="44" height="44" viewBox="7.650000095367432 6.849999904632568 22.200000762939453 22.299999237060547" fill="none" xmlns="http://www.w3.org/2000/svg" x="430" y="167" preserveAspectRatio="xMidYMid meet">
+  <path d="M27 8.5V27.5" stroke="url(#plugin-7-edge-track)" stroke-width="2.8" stroke-linecap="round"/>
+  <path d="M27 13.5V22.5" stroke="url(#plugin-7-edge-thumb)" stroke-width="5.2" stroke-linecap="round"/>
+  <path d="M9 18H21.5M21.5 18L18 14.5M21.5 18L18 21.5" stroke="url(#plugin-7-edge-arrow)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <defs>
+    <linearGradient id="plugin-7-edge-track" x1="27" y1="8.5" x2="27" y2="27.5" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7AC2FF"/>
+      <stop offset="1" stop-color="#4A65E8"/>
+    </linearGradient>
+    <linearGradient id="plugin-7-edge-thumb" x1="27" y1="13.5" x2="27" y2="22.5" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#51CFDB"/>
+      <stop offset="1" stop-color="#5269E1"/>
+    </linearGradient>
+    <linearGradient id="plugin-7-edge-arrow" x1="9" y1="18" x2="21.5" y2="18" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3F77D8"/>
+      <stop offset="1" stop-color="#51D3DE"/>
+    </linearGradient>
+  </defs>
+</svg>
+  </g>
+<g id="plugin-8-card">
+    <rect x="512" y="14" width="68" height="68" rx="15" fill="#000000" filter="url(#card-shadow)" />
+    <rect x="511.5" y="13.5" width="69" height="69" rx="15.5" fill="none" stroke="#000000" stroke-opacity="0.055" />
+    <rect x="512" y="14" width="68" height="68" rx="15" fill="#FFFFFF" fill-opacity="0.7" />
+
+    <svg width="44" height="44" viewBox="8.300000190734863 7.84999942779541 19.39999771118164 20.299999237060547" fill="none" xmlns="http://www.w3.org/2000/svg" x="524" y="26" preserveAspectRatio="xMidYMid meet">
+  <g transform="translate(1.8 1.8) scale(0.9)">
+    <path d="M11 12V24M11 19H16C20.4 19 25 16.4 25 12" stroke="url(#plugin-8-worktree-branches)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="7.5" y="7" width="7" height="7" rx="2" fill="#86B8F5"/>
+    <rect x="7.5" y="22" width="7" height="7" rx="2" fill="#5269E1"/>
+    <rect x="21.5" y="7" width="7" height="7" rx="2" fill="url(#plugin-8-worktree-leaf)"/>
+  </g>
+  <defs>
+    <linearGradient id="plugin-8-worktree-branches" x1="11" y1="12" x2="18" y2="24" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#86B8F5"/>
+      <stop offset="1" stop-color="#5269E1"/>
+    </linearGradient>
+    <linearGradient id="plugin-8-worktree-leaf" x1="22" y1="7" x2="28" y2="14" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#51CFDB"/>
+      <stop offset="1" stop-color="#108792"/>
+    </linearGradient>
+  </defs>
+</svg>
+  </g>
+<g id="plugin-9-card">
+    <rect x="512" y="108" width="68" height="68" rx="15" fill="#000000" filter="url(#card-shadow)" />
+    <rect x="511.5" y="107.5" width="69" height="69" rx="15.5" fill="none" stroke="#000000" stroke-opacity="0.055" />
+    <rect x="512" y="108" width="68" height="68" rx="15" fill="#FFFFFF" fill-opacity="0.7" />
+
+    <svg width="44" height="44" viewBox="7.75 7.949999809265137 25.400001525878906 20.700000762939453" fill="none" xmlns="http://www.w3.org/2000/svg" x="524" y="120" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="plugin-9-installed-order-top" x1="8" y1="8" x2="25" y2="17" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#71C9FF"/>
+      <stop offset="1" stop-color="#5662E2"/>
+    </linearGradient>
+    <linearGradient id="plugin-9-installed-order-bottom" x1="8" y1="19" x2="25" y2="28" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#51D3DE"/>
+      <stop offset="1" stop-color="#4B58C7"/>
+    </linearGradient>
+    <linearGradient id="plugin-9-installed-order-arrow" x1="28" y1="9.4" x2="29" y2="27" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#52D5DE"/>
+      <stop offset="1" stop-color="#6688F3"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8.5" width="17" height="8.5" rx="2.8" fill="url(#plugin-9-installed-order-top)" fill-opacity="0.92"/>
+  <rect x="8" y="19" width="17" height="8.5" rx="2.8" fill="url(#plugin-9-installed-order-bottom)" fill-opacity="0.62"/>
+  <path d="M12 12.75H21M12 23.25H21" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M29 27.2V9.8M26.3 12.1L29 9.4L31.7 12.1" stroke="url(#plugin-9-installed-order-arrow)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+  </g>
+<g id="plugin-10-card">
+    <rect x="512" y="202" width="68" height="68" rx="15" fill="#000000" filter="url(#card-shadow)" />
+    <rect x="511.5" y="201.5" width="69" height="69" rx="15.5" fill="none" stroke="#000000" stroke-opacity="0.055" />
+    <rect x="512" y="202" width="68" height="68" rx="15" fill="#FFFFFF" fill-opacity="0.7" />
+
+    <svg width="44" height="44" viewBox="8.300000190734863 7.84999942779541 19.39999771118164 20.299999237060547" fill="none" xmlns="http://www.w3.org/2000/svg" x="524" y="214" preserveAspectRatio="xMidYMid meet">
+  <g transform="translate(1.8 1.8) scale(0.9)">
+    <path d="M11 12V24M11 19H16C20.4 19 25 16.4 25 12" stroke="url(#plugin-10-worktree-branches)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="7.5" y="7" width="7" height="7" rx="2" fill="#86B8F5"/>
+    <rect x="7.5" y="22" width="7" height="7" rx="2" fill="#5269E1"/>
+    <rect x="21.5" y="7" width="7" height="7" rx="2" fill="url(#plugin-10-worktree-leaf)"/>
+  </g>
+  <defs>
+    <linearGradient id="plugin-10-worktree-branches" x1="11" y1="12" x2="18" y2="24" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#86B8F5"/>
+      <stop offset="1" stop-color="#5269E1"/>
+    </linearGradient>
+    <linearGradient id="plugin-10-worktree-leaf" x1="22" y1="7" x2="28" y2="14" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#51CFDB"/>
+      <stop offset="1" stop-color="#108792"/>
+    </linearGradient>
+  </defs>
+</svg>
+  </g>
+<g id="plugin-11-card">
+    <rect x="606" y="-49" width="68" height="68" rx="15" fill="#000000" filter="url(#card-shadow)" />
+    <rect x="605.5" y="-49.5" width="69" height="69" rx="15.5" fill="none" stroke="#000000" stroke-opacity="0.055" />
+    <rect x="606" y="-49" width="68" height="68" rx="15" fill="#FFFFFF" fill-opacity="0.7" />
+
+    <svg width="44" height="44" viewBox="8.314617156982422 7.250000476837158 21.935382843017578 22.375001907348633" fill="none" xmlns="http://www.w3.org/2000/svg" x="618" y="-37" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="plugin-11-session-grouping-bell" x1="10" y1="9" x2="27" y2="26" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#77C9FF"/>
+      <stop offset="1" stop-color="#5160DE"/>
+    </linearGradient>
+    <linearGradient id="plugin-11-session-grouping-clapper" x1="15" y1="27" x2="21" y2="27" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3F77D8"/>
+      <stop offset="1" stop-color="#51D3DE"/>
+    </linearGradient>
+  </defs>
+  <path d="M18 8.5C13.8 8.5 10.8 11.8 10.8 16.1V19.2L8.8 22.1C8.2 23 8.8 24.2 10 24.2H26C27.2 24.2 27.8 23 27.2 22.1L25.2 19.2V16.1C25.2 11.8 22.2 8.5 18 8.5Z" fill="url(#plugin-11-session-grouping-bell)" fill-opacity="0.9"/>
+  <path d="M13.8 17.5H22.2" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-opacity="0.72"/>
+  <path d="M15.3 27C16.3 28.7 19.7 28.7 20.7 27" stroke="url(#plugin-11-session-grouping-clapper)" stroke-width="2.2" stroke-linecap="round"/>
+  <circle cx="27.3" cy="10.2" r="2.1" fill="#51D5DE" stroke="#FFFFFF" stroke-width="1.2"/>
+</svg>
+  </g>
+<g id="plugin-12-card">
+    <rect x="606" y="45" width="68" height="68" rx="15" fill="#000000" filter="url(#card-shadow)" />
+    <rect x="605.5" y="44.5" width="69" height="69" rx="15.5" fill="none" stroke="#000000" stroke-opacity="0.055" />
+    <rect x="606" y="45" width="68" height="68" rx="15" fill="#FFFFFF" fill-opacity="0.7" />
+
+    <svg width="44" height="44" viewBox="7.650000095367432 6.849999904632568 22.200000762939453 22.299999237060547" fill="none" xmlns="http://www.w3.org/2000/svg" x="618" y="57" preserveAspectRatio="xMidYMid meet">
+  <path d="M27 8.5V27.5" stroke="url(#plugin-12-edge-track)" stroke-width="2.8" stroke-linecap="round"/>
+  <path d="M27 13.5V22.5" stroke="url(#plugin-12-edge-thumb)" stroke-width="5.2" stroke-linecap="round"/>
+  <path d="M9 18H21.5M21.5 18L18 14.5M21.5 18L18 21.5" stroke="url(#plugin-12-edge-arrow)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <defs>
+    <linearGradient id="plugin-12-edge-track" x1="27" y1="8.5" x2="27" y2="27.5" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7AC2FF"/>
+      <stop offset="1" stop-color="#4A65E8"/>
+    </linearGradient>
+    <linearGradient id="plugin-12-edge-thumb" x1="27" y1="13.5" x2="27" y2="22.5" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#51CFDB"/>
+      <stop offset="1" stop-color="#5269E1"/>
+    </linearGradient>
+    <linearGradient id="plugin-12-edge-arrow" x1="9" y1="18" x2="21.5" y2="18" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3F77D8"/>
+      <stop offset="1" stop-color="#51D3DE"/>
+    </linearGradient>
+  </defs>
+</svg>
+  </g>
+<g id="plugin-13-card">
+    <rect x="606" y="139" width="68" height="68" rx="15" fill="#000000" filter="url(#card-shadow)" />
+    <rect x="605.5" y="138.5" width="69" height="69" rx="15.5" fill="none" stroke="#000000" stroke-opacity="0.055" />
+    <rect x="606" y="139" width="68" height="68" rx="15" fill="#FFFFFF" fill-opacity="0.7" />
+
+    <svg width="44" height="44" viewBox="7.25 8.25 20.5 20" fill="none" xmlns="http://www.w3.org/2000/svg" x="618" y="151" preserveAspectRatio="xMidYMid meet">
+  <path d="M9 17H20.5L26 22.5L20.5 28H9C8.17 28 7.5 27.33 7.5 26.5V18.5C7.5 17.67 8.17 17 9 17Z" fill="url(#plugin-13-workspace-label)"/>
+  <path d="M9 8.5H22L27.5 14L22 19.5H9C8.17 19.5 7.5 18.83 7.5 18V10C7.5 9.17 8.17 8.5 9 8.5Z" fill="url(#plugin-13-session-label)"/>
+  <circle cx="11.5" cy="14" r="1.5" fill="#FFFFFF"/>
+  <path d="M15 14H21" stroke="#FFFFFF" stroke-width="2.1" stroke-linecap="round"/>
+  <circle cx="11.5" cy="22.5" r="1.5" fill="#FFFFFF"/>
+  <path d="M15 22.5H20" stroke="#FFFFFF" stroke-width="2.1" stroke-linecap="round"/>
+  <defs>
+    <linearGradient id="plugin-13-session-label" x1="8" y1="9" x2="27" y2="19" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7AC2FF"/>
+      <stop offset="1" stop-color="#5269E1"/>
+    </linearGradient>
+    <linearGradient id="plugin-13-workspace-label" x1="8" y1="18" x2="26" y2="28" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6BE0E2"/>
+      <stop offset="1" stop-color="#2F9CC6"/>
+    </linearGradient>
+  </defs>
+</svg>
+  </g>
+<g id="plugin-14-card">
+    <rect x="700" y="14" width="68" height="68" rx="15" fill="#000000" filter="url(#card-shadow)" />
+    <rect x="699.5" y="13.5" width="69" height="69" rx="15.5" fill="none" stroke="#000000" stroke-opacity="0.055" />
+    <rect x="700" y="14" width="68" height="68" rx="15" fill="#FFFFFF" fill-opacity="0.7" />
+
+    <svg width="44" height="44" viewBox="6.75 7.550000190734863 22.5 20.900001525878906" fill="none" xmlns="http://www.w3.org/2000/svg" x="712" y="26" preserveAspectRatio="xMidYMid meet">
+  <path d="M10 8.8H26C27.1 8.8 28 9.7 28 10.8V25.2C28 26.3 27.1 27.2 26 27.2H10C8.9 27.2 8 26.3 8 25.2V10.8C8 9.7 8.9 8.8 10 8.8Z" fill="url(#plugin-14-sidebar-frame)" fill-opacity="0.2"/>
+  <path d="M14.7 9.9V26.1" stroke="url(#plugin-14-sidebar-details)" stroke-width="2.1" stroke-linecap="round"/>
+  <path d="M10.8 13H12.5M10.8 17H12.5M10.8 21H12.5" stroke="url(#plugin-14-sidebar-details)" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M21 13.8V22.2M21 22.2L17.7 18.9M21 22.2L24.3 18.9" stroke="url(#plugin-14-sidebar-details)" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M10 8.8H26C27.1 8.8 28 9.7 28 10.8V25.2C28 26.3 27.1 27.2 26 27.2H10C8.9 27.2 8 26.3 8 25.2V10.8C8 9.7 8.9 8.8 10 8.8Z" fill="none" stroke="url(#plugin-14-sidebar-frame)" stroke-width="2"/>
+  <defs>
+    <linearGradient id="plugin-14-sidebar-frame" x1="9" y1="9" x2="27" y2="27" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7AC2FF"/>
+      <stop offset="1" stop-color="#5269E1"/>
+    </linearGradient>
+    <linearGradient id="plugin-14-sidebar-details" x1="10" y1="10" x2="26" y2="26" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3F77D8"/>
+      <stop offset="1" stop-color="#2F9CC6"/>
+    </linearGradient>
+  </defs>
+</svg>
+  </g>
+<g id="plugin-15-card">
+    <rect x="700" y="108" width="68" height="68" rx="15" fill="#000000" filter="url(#card-shadow)" />
+    <rect x="699.5" y="107.5" width="69" height="69" rx="15.5" fill="none" stroke="#000000" stroke-opacity="0.055" />
+    <rect x="700" y="108" width="68" height="68" rx="15" fill="#FFFFFF" fill-opacity="0.7" />
+
+    <svg width="44" height="44" viewBox="7.25 6.75 21.5 23" fill="none" xmlns="http://www.w3.org/2000/svg" x="712" y="120" preserveAspectRatio="xMidYMid meet">
+  <path d="M18 7L28.5 10.4V17.2C28.5 22.9 24.08 27.9 18 29.5C11.92 27.9 7.5 22.9 7.5 17.2V10.4L18 7Z" fill="url(#plugin-15-permission-shield)"/>
+  <path d="M13.6 18L16.5 20.9L22.4 15" stroke="#FFFFFF" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <defs>
+    <linearGradient id="plugin-15-permission-shield" x1="18" y1="7" x2="18" y2="29.5" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7AC2FF"/>
+      <stop offset="1" stop-color="#4A65E8"/>
+    </linearGradient>
+  </defs>
+</svg>
+  </g>
+<g id="plugin-16-card">
+    <rect x="700" y="202" width="68" height="68" rx="15" fill="#000000" filter="url(#card-shadow)" />
+    <rect x="699.5" y="201.5" width="69" height="69" rx="15.5" fill="none" stroke="#000000" stroke-opacity="0.055" />
+    <rect x="700" y="202" width="68" height="68" rx="15" fill="#FFFFFF" fill-opacity="0.7" />
+
+    <svg width="44" height="44" viewBox="8.314617156982422 7.250000476837158 21.935382843017578 22.375001907348633" fill="none" xmlns="http://www.w3.org/2000/svg" x="712" y="214" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="plugin-16-session-grouping-bell" x1="10" y1="9" x2="27" y2="26" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#77C9FF"/>
+      <stop offset="1" stop-color="#5160DE"/>
+    </linearGradient>
+    <linearGradient id="plugin-16-session-grouping-clapper" x1="15" y1="27" x2="21" y2="27" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3F77D8"/>
+      <stop offset="1" stop-color="#51D3DE"/>
+    </linearGradient>
+  </defs>
+  <path d="M18 8.5C13.8 8.5 10.8 11.8 10.8 16.1V19.2L8.8 22.1C8.2 23 8.8 24.2 10 24.2H26C27.2 24.2 27.8 23 27.2 22.1L25.2 19.2V16.1C25.2 11.8 22.2 8.5 18 8.5Z" fill="url(#plugin-16-session-grouping-bell)" fill-opacity="0.9"/>
+  <path d="M13.8 17.5H22.2" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-opacity="0.72"/>
+  <path d="M15.3 27C16.3 28.7 19.7 28.7 20.7 27" stroke="url(#plugin-16-session-grouping-clapper)" stroke-width="2.2" stroke-linecap="round"/>
+  <circle cx="27.3" cy="10.2" r="2.1" fill="#51D5DE" stroke="#FFFFFF" stroke-width="1.2"/>
+</svg>
+  </g>
+<g id="plugin-17-card">
+    <rect x="794" y="-33" width="68" height="68" rx="15" fill="#000000" filter="url(#card-shadow)" />
+    <rect x="793.5" y="-33.5" width="69" height="69" rx="15.5" fill="none" stroke="#000000" stroke-opacity="0.055" />
+    <rect x="794" y="-33" width="68" height="68" rx="15" fill="#FFFFFF" fill-opacity="0.7" />
+
+    <svg width="44" height="44" viewBox="7.25 8.25 20.5 20" fill="none" xmlns="http://www.w3.org/2000/svg" x="806" y="-21" preserveAspectRatio="xMidYMid meet">
+  <path d="M9 17H20.5L26 22.5L20.5 28H9C8.17 28 7.5 27.33 7.5 26.5V18.5C7.5 17.67 8.17 17 9 17Z" fill="url(#plugin-17-workspace-label)"/>
+  <path d="M9 8.5H22L27.5 14L22 19.5H9C8.17 19.5 7.5 18.83 7.5 18V10C7.5 9.17 8.17 8.5 9 8.5Z" fill="url(#plugin-17-session-label)"/>
+  <circle cx="11.5" cy="14" r="1.5" fill="#FFFFFF"/>
+  <path d="M15 14H21" stroke="#FFFFFF" stroke-width="2.1" stroke-linecap="round"/>
+  <circle cx="11.5" cy="22.5" r="1.5" fill="#FFFFFF"/>
+  <path d="M15 22.5H20" stroke="#FFFFFF" stroke-width="2.1" stroke-linecap="round"/>
+  <defs>
+    <linearGradient id="plugin-17-session-label" x1="8" y1="9" x2="27" y2="19" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7AC2FF"/>
+      <stop offset="1" stop-color="#5269E1"/>
+    </linearGradient>
+    <linearGradient id="plugin-17-workspace-label" x1="8" y1="18" x2="26" y2="28" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6BE0E2"/>
+      <stop offset="1" stop-color="#2F9CC6"/>
+    </linearGradient>
+  </defs>
+</svg>
+  </g>
+<g id="plugin-18-card">
+    <rect x="794" y="61" width="68" height="68" rx="15" fill="#000000" filter="url(#card-shadow)" />
+    <rect x="793.5" y="60.5" width="69" height="69" rx="15.5" fill="none" stroke="#000000" stroke-opacity="0.055" />
+    <rect x="794" y="61" width="68" height="68" rx="15" fill="#FFFFFF" fill-opacity="0.7" />
+
+    <svg width="44" height="44" viewBox="8.25 8.049999237060547 21 19.900001525878906" fill="none" xmlns="http://www.w3.org/2000/svg" x="806" y="73" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="plugin-18-effort-memory-bars" x1="8" y1="9" x2="23" y2="27" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6BC8FF"/>
+      <stop offset="1" stop-color="#5364E4"/>
+    </linearGradient>
+    <linearGradient id="plugin-18-effort-memory-bookmark" x1="24" y1="8" x2="29" y2="18" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#51D3DE"/>
+      <stop offset="1" stop-color="#3E72D7"/>
+    </linearGradient>
+    <filter id="plugin-18-effort-memory-shadow" x="-35%" y="-35%" width="170%" height="190%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0.35" dy="0.65" stdDeviation="0.4" flood-color="#000000" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+  <rect x="8.5" y="8.5" width="14" height="4.3" rx="2.15" fill="url(#plugin-18-effort-memory-bars)"/>
+  <rect x="8.5" y="15.85" width="14" height="4.3" rx="2.15" fill="url(#plugin-18-effort-memory-bars)"/>
+  <rect x="8.5" y="23.2" width="14" height="4.3" rx="2.15" fill="url(#plugin-18-effort-memory-bars)"/>
+  <circle cx="18.2" cy="10.65" r="2.35" fill="#FFFFFF" filter="url(#plugin-18-effort-memory-shadow)"/>
+  <circle cx="13.7" cy="18" r="2.35" fill="#FFFFFF" filter="url(#plugin-18-effort-memory-shadow)"/>
+  <circle cx="20.6" cy="25.35" r="2.35" fill="#FFFFFF" filter="url(#plugin-18-effort-memory-shadow)"/>
+  <path d="M24 8.5H29V17.5L26.5 15.7L24 17.5V8.5Z" fill="url(#plugin-18-effort-memory-bookmark)"/>
+  <path d="M25.7 11.2H27.3" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"/>
+</svg>
+  </g>
+<g id="plugin-19-card">
+    <rect x="794" y="155" width="68" height="68" rx="15" fill="#000000" filter="url(#card-shadow)" />
+    <rect x="793.5" y="154.5" width="69" height="69" rx="15.5" fill="none" stroke="#000000" stroke-opacity="0.055" />
+    <rect x="794" y="155" width="68" height="68" rx="15" fill="#FFFFFF" fill-opacity="0.7" />
+
+    <svg width="44" height="44" viewBox="8.25 7.25 20.5 23" fill="none" xmlns="http://www.w3.org/2000/svg" x="806" y="167" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="plugin-19-paste-file-paper" x1="9" y1="7" x2="29" y2="30" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7CCBFF"/>
+      <stop offset="1" stop-color="#5064E2"/>
+    </linearGradient>
+  </defs>
+  <path d="M11 7.5H22.5L28.5 13.5V27.5C28.5 28.88 27.38 30 26 30H11C9.62 30 8.5 28.88 8.5 27.5V10C8.5 8.62 9.62 7.5 11 7.5Z" fill="url(#plugin-19-paste-file-paper)" fill-opacity="0.88"/>
+  <path d="M22.5 7.5V13.5H28.5" fill="#58D5DE" fill-opacity="0.84"/>
+  <path d="M13.5 17H23M13.5 20.8H20.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M14.5 26.3H20C21.93 26.3 23.5 24.73 23.5 22.8M17.3 23.9L14.5 26.3L17.3 28.7" stroke="#B9F5F3" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+  </g>
+<g id="plugin-20-card">
+    <rect x="888" y="14" width="68" height="68" rx="15" fill="#000000" filter="url(#card-shadow)" />
+    <rect x="887.5" y="13.5" width="69" height="69" rx="15.5" fill="none" stroke="#000000" stroke-opacity="0.055" />
+    <rect x="888" y="14" width="68" height="68" rx="15" fill="#FFFFFF" fill-opacity="0.7" />
+
+    <svg width="44" height="44" viewBox="8.300000190734863 7.84999942779541 19.39999771118164 20.299999237060547" fill="none" xmlns="http://www.w3.org/2000/svg" x="900" y="26" preserveAspectRatio="xMidYMid meet">
+  <g transform="translate(1.8 1.8) scale(0.9)">
+    <path d="M11 12V24M11 19H16C20.4 19 25 16.4 25 12" stroke="url(#plugin-20-worktree-branches)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="7.5" y="7" width="7" height="7" rx="2" fill="#86B8F5"/>
+    <rect x="7.5" y="22" width="7" height="7" rx="2" fill="#5269E1"/>
+    <rect x="21.5" y="7" width="7" height="7" rx="2" fill="url(#plugin-20-worktree-leaf)"/>
+  </g>
+  <defs>
+    <linearGradient id="plugin-20-worktree-branches" x1="11" y1="12" x2="18" y2="24" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#86B8F5"/>
+      <stop offset="1" stop-color="#5269E1"/>
+    </linearGradient>
+    <linearGradient id="plugin-20-worktree-leaf" x1="22" y1="7" x2="28" y2="14" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#51CFDB"/>
+      <stop offset="1" stop-color="#108792"/>
+    </linearGradient>
+  </defs>
+</svg>
+  </g>
+<g id="plugin-21-card">
+    <rect x="888" y="108" width="68" height="68" rx="15" fill="#000000" filter="url(#card-shadow)" />
+    <rect x="887.5" y="107.5" width="69" height="69" rx="15.5" fill="none" stroke="#000000" stroke-opacity="0.055" />
+    <rect x="888" y="108" width="68" height="68" rx="15" fill="#FFFFFF" fill-opacity="0.7" />
+
+    <svg width="44" height="44" viewBox="7.75 7.949999809265137 25.400001525878906 20.700000762939453" fill="none" xmlns="http://www.w3.org/2000/svg" x="900" y="120" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="plugin-21-installed-order-top" x1="8" y1="8" x2="25" y2="17" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#71C9FF"/>
+      <stop offset="1" stop-color="#5662E2"/>
+    </linearGradient>
+    <linearGradient id="plugin-21-installed-order-bottom" x1="8" y1="19" x2="25" y2="28" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#51D3DE"/>
+      <stop offset="1" stop-color="#4B58C7"/>
+    </linearGradient>
+    <linearGradient id="plugin-21-installed-order-arrow" x1="28" y1="9.4" x2="29" y2="27" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#52D5DE"/>
+      <stop offset="1" stop-color="#6688F3"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8.5" width="17" height="8.5" rx="2.8" fill="url(#plugin-21-installed-order-top)" fill-opacity="0.92"/>
+  <rect x="8" y="19" width="17" height="8.5" rx="2.8" fill="url(#plugin-21-installed-order-bottom)" fill-opacity="0.62"/>
+  <path d="M12 12.75H21M12 23.25H21" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M29 27.2V9.8M26.3 12.1L29 9.4L31.7 12.1" stroke="url(#plugin-21-installed-order-arrow)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+  </g>
+<g id="plugin-22-card">
+    <rect x="982" y="-33" width="68" height="68" rx="15" fill="#000000" filter="url(#card-shadow)" />
+    <rect x="981.5" y="-33.5" width="69" height="69" rx="15.5" fill="none" stroke="#000000" stroke-opacity="0.055" />
+    <rect x="982" y="-33" width="68" height="68" rx="15" fill="#FFFFFF" fill-opacity="0.7" />
+
+    <svg width="44" height="44" viewBox="7.25 6.75 21.5 23" fill="none" xmlns="http://www.w3.org/2000/svg" x="994" y="-21" preserveAspectRatio="xMidYMid meet">
+  <path d="M18 7L28.5 10.4V17.2C28.5 22.9 24.08 27.9 18 29.5C11.92 27.9 7.5 22.9 7.5 17.2V10.4L18 7Z" fill="url(#plugin-22-permission-shield)"/>
+  <path d="M13.6 18L16.5 20.9L22.4 15" stroke="#FFFFFF" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <defs>
+    <linearGradient id="plugin-22-permission-shield" x1="18" y1="7" x2="18" y2="29.5" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7AC2FF"/>
+      <stop offset="1" stop-color="#4A65E8"/>
+    </linearGradient>
+  </defs>
+</svg>
+  </g>
+<g id="plugin-23-card">
+    <rect x="982" y="61" width="68" height="68" rx="15" fill="#000000" filter="url(#card-shadow)" />
+    <rect x="981.5" y="60.5" width="69" height="69" rx="15.5" fill="none" stroke="#000000" stroke-opacity="0.055" />
+    <rect x="982" y="61" width="68" height="68" rx="15" fill="#FFFFFF" fill-opacity="0.7" />
+
+    <svg width="44" height="44" viewBox="7.650000095367432 6.849999904632568 22.200000762939453 22.299999237060547" fill="none" xmlns="http://www.w3.org/2000/svg" x="994" y="73" preserveAspectRatio="xMidYMid meet">
+  <path d="M27 8.5V27.5" stroke="url(#plugin-23-edge-track)" stroke-width="2.8" stroke-linecap="round"/>
+  <path d="M27 13.5V22.5" stroke="url(#plugin-23-edge-thumb)" stroke-width="5.2" stroke-linecap="round"/>
+  <path d="M9 18H21.5M21.5 18L18 14.5M21.5 18L18 21.5" stroke="url(#plugin-23-edge-arrow)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <defs>
+    <linearGradient id="plugin-23-edge-track" x1="27" y1="8.5" x2="27" y2="27.5" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7AC2FF"/>
+      <stop offset="1" stop-color="#4A65E8"/>
+    </linearGradient>
+    <linearGradient id="plugin-23-edge-thumb" x1="27" y1="13.5" x2="27" y2="22.5" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#51CFDB"/>
+      <stop offset="1" stop-color="#5269E1"/>
+    </linearGradient>
+    <linearGradient id="plugin-23-edge-arrow" x1="9" y1="18" x2="21.5" y2="18" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3F77D8"/>
+      <stop offset="1" stop-color="#51D3DE"/>
+    </linearGradient>
+  </defs>
+</svg>
+  </g>
+<g id="plugin-24-card">
+    <rect x="1076" y="14" width="68" height="68" rx="15" fill="#000000" filter="url(#card-shadow)" />
+    <rect x="1075.5" y="13.5" width="69" height="69" rx="15.5" fill="none" stroke="#000000" stroke-opacity="0.055" />
+    <rect x="1076" y="14" width="68" height="68" rx="15" fill="#FFFFFF" fill-opacity="0.7" />
+
+    <svg width="44" height="44" viewBox="6.75 7.550000190734863 22.5 20.900001525878906" fill="none" xmlns="http://www.w3.org/2000/svg" x="1088" y="26" preserveAspectRatio="xMidYMid meet">
+  <path d="M10 8.8H26C27.1 8.8 28 9.7 28 10.8V25.2C28 26.3 27.1 27.2 26 27.2H10C8.9 27.2 8 26.3 8 25.2V10.8C8 9.7 8.9 8.8 10 8.8Z" fill="url(#plugin-24-sidebar-frame)" fill-opacity="0.2"/>
+  <path d="M14.7 9.9V26.1" stroke="url(#plugin-24-sidebar-details)" stroke-width="2.1" stroke-linecap="round"/>
+  <path d="M10.8 13H12.5M10.8 17H12.5M10.8 21H12.5" stroke="url(#plugin-24-sidebar-details)" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M21 13.8V22.2M21 22.2L17.7 18.9M21 22.2L24.3 18.9" stroke="url(#plugin-24-sidebar-details)" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M10 8.8H26C27.1 8.8 28 9.7 28 10.8V25.2C28 26.3 27.1 27.2 26 27.2H10C8.9 27.2 8 26.3 8 25.2V10.8C8 9.7 8.9 8.8 10 8.8Z" fill="none" stroke="url(#plugin-24-sidebar-frame)" stroke-width="2"/>
+  <defs>
+    <linearGradient id="plugin-24-sidebar-frame" x1="9" y1="9" x2="27" y2="27" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7AC2FF"/>
+      <stop offset="1" stop-color="#5269E1"/>
+    </linearGradient>
+    <linearGradient id="plugin-24-sidebar-details" x1="10" y1="10" x2="26" y2="26" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3F77D8"/>
+      <stop offset="1" stop-color="#2F9CC6"/>
+    </linearGradient>
+  </defs>
+</svg>
+  </g>
+  </g>
+  <g id="brand-card">
+    <rect x="606" y="233" width="68" height="68" rx="15" fill="#000000" filter="url(#card-shadow)" />
+    <rect x="605.5" y="232.5" width="69" height="69" rx="15.5" fill="none" stroke="#000000" stroke-opacity="0.055" />
+    <rect x="606" y="233" width="68" height="68" rx="15" fill="#FFFFFF" fill-opacity="1" />
+    <rect x="604" y="231" width="72" height="72" rx="17" fill="none" stroke="url(#brand-border)" stroke-width="4" />
+    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="5.75 5.75 24.5 24.5" fill="none" role="img" aria-labelledby="brand-plugin-title brand-plugin-description" overflow="visible" x="618" y="245" preserveAspectRatio="xMidYMid meet">
+  <title id="brand-plugin-title">Agou DSH Plugins</title>
+  <desc id="brand-plugin-description">An optically centered blue puzzle piece with a white A.</desc>
+  <defs>
+    <linearGradient id="brand-plugin-body" x1="12" y1="6" x2="25" y2="29" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7AC2FF"/>
+      <stop offset="1" stop-color="#5269E1"/>
+    </linearGradient>
+  </defs>
+  <!-- Balance the asymmetric tabs by silhouette area, not the bounding box. -->
+  <g transform="translate(-2.08 0.08)">
+    <path d="M15 10V8.5C15 6.57 16.57 5 18.5 5C20.43 5 22 6.57 22 8.5V10H26C27.1 10 28 10.9 28 12V16H29.5C31.43 16 33 17.57 33 19.5C33 21.43 31.43 23 29.5 23H28V27C28 28.1 27.1 29 26 29H22V27.5C22 25.57 20.43 24 18.5 24C16.57 24 15 25.57 15 27.5V29H11C9.9 29 9 28.1 9 27V23H10.5C12.43 23 14 21.43 14 19.5C14 17.57 12.43 16 10.5 16H9V12C9 10.9 9.9 10 11 10H15Z" fill="url(#brand-plugin-body)"/>
+    <path transform="translate(1.58 -0.53)" d="M14.6 22.8L18.5 14.1L22.4 22.8M16 19.8H21" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
+  </g>
+</svg>

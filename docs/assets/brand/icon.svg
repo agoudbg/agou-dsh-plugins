@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 36 36" fill="none" role="img" aria-labelledby="plugin-title plugin-description">
+  <title id="plugin-title">Agou DSH Plugins</title>
+  <desc id="plugin-description">An optically centered blue puzzle piece with a white A.</desc>
+  <defs>
+    <linearGradient id="plugin-body" x1="12" y1="6" x2="25" y2="29" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7AC2FF" />
+      <stop offset="1" stop-color="#5269E1" />
+    </linearGradient>
+  </defs>
+  <!-- Balance the asymmetric tabs by silhouette area, not the bounding box. -->
+  <g transform="translate(-2.08 0.08)">
+    <path d="M15 10V8.5C15 6.57 16.57 5 18.5 5C20.43 5 22 6.57 22 8.5V10H26C27.1 10 28 10.9 28 12V16H29.5C31.43 16 33 17.57 33 19.5C33 21.43 31.43 23 29.5 23H28V27C28 28.1 27.1 29 26 29H22V27.5C22 25.57 20.43 24 18.5 24C16.57 24 15 25.57 15 27.5V29H11C9.9 29 9 28.1 9 27V23H10.5C12.43 23 14 21.43 14 19.5C14 17.57 12.43 16 10.5 16H9V12C9 10.9 9.9 10 11 10H15Z" fill="url(#plugin-body)" />
+    <path transform="translate(1.58 -0.53)" d="M14.6 22.8L18.5 14.1L22.4 22.8M16 19.8H21" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+</svg>
