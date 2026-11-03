@@ -6,12 +6,32 @@ export const README_SPECS = [
   { file: "README-zh-CN.md", lang: "zh" },
 ];
 
+const README_ICON_VIEW_BOXES = {
+  "packages/dsh-auto-permission-default": "6.5,6.5,23,23",
+  "packages/dsh-model-effort-memory": "7.5,7.5,22,22",
+  "packages/dsh-pasted-text-file": "7.5,6.5,24,24",
+  "packages/dsh-plugin-installed-order": "6.8,6,25.5,25.5",
+  "packages/dsh-scrollbar-edge-hit": "7,7,23,23",
+  "packages/dsh-session-grouping-bell": "7,6.5,24.5,24.5",
+  "packages/dsh-session-workspace-label": "7,7.5,21.5,21.5",
+  "packages/dsh-sidebar-scroll-flow": "6.5,6.5,23.5,23.5",
+  "packages/dsh-worktrees": "7.5,7.5,21.5,21.5",
+};
+
 function repositoryDirectory(plugin) {
   const directory = plugin.repository?.directory;
   if (typeof directory !== "string" || !directory.startsWith("packages/")) {
     throw new Error(`invalid plugin repository directory for ${plugin.name}`);
   }
   return directory;
+}
+
+function readmeIconSource(directory) {
+  const viewBox = README_ICON_VIEW_BOXES[directory];
+  if (!viewBox) {
+    throw new Error(`README icon viewBox is missing for ${directory}`);
+  }
+  return `${directory}/icon.svg#svgView(viewBox(${viewBox}))`;
 }
 
 function escapeHtmlAttribute(text) {
@@ -32,7 +52,7 @@ export function renderPluginList(plugins, lang) {
       }
       const directory = repositoryDirectory(plugin);
       const alt = lang === "zh" ? `${title}图标` : `${title} icon`;
-      return `### <img src="${directory}/icon.svg" alt="${escapeHtmlAttribute(alt)}" width="36" height="36" align="left" /> [${title}](${directory})\n\n${description}`;
+      return `### <img src="${readmeIconSource(directory)}" alt="${escapeHtmlAttribute(alt)}" width="25" height="25" align="top" /> [${title}](${directory})\n\n${description}`;
     })
     .join("\n\n");
 }
