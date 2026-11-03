@@ -1,5 +1,5 @@
 {
-  "name": "dsh-worktrees",
+  "name": "@agou/dsh-worktrees",
   "version": "1.0.0",
   "description": "Creates detached worktrees from chat, remembers workspace choices, and manages recoverable background cleanup.",
   "type": "module",

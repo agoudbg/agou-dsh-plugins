@@ -59,7 +59,11 @@ for (const dirName of dirs) {
     continue;
   }
 
-  if (pkg.name !== dirName) fail(dirName, `package name "${pkg.name}" must match directory name`);
+  // A scoped npm name like @agou/dsh-worktrees maps to directory dsh-worktrees.
+  const scopedName = /^@[^/]+\/([^/]+)$/.exec(pkg.name ?? '');
+  if ((scopedName ? scopedName[1] : pkg.name) !== dirName) {
+    fail(dirName, `package name "${pkg.name}" must match directory name`);
+  }
   if (!/^\d+\.\d+\.\d+(-[0-9A-Za-z.-]+)?$/.test(pkg.version ?? '')) {
     fail(dirName, `version "${pkg.version}" is not valid semver`);
   }

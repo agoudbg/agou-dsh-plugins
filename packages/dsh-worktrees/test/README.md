@@ -1,6 +1,6 @@
 # Worktree verification
 
-Run the suite from this package directory with `node --test`, or use `pnpm --filter dsh-worktrees test` from the repository root.
+Run the suite from this package directory with `node --test`, or use `pnpm --filter @agou/dsh-worktrees test` from the repository root.
 
 The native transport and Open in App tests need an installed DSH runtime. Set `DSH_TEST_RUNTIME` to the `@deepseek-ai` scope directory containing the runtime's `cordis`, `dsh-client-connection` and `dsh-client-ui-open-in-app` packages:
 

@@ -23,7 +23,7 @@ To try a change, reinstall the package directory into a DSH profile with `dsh pl
 ## Coding Style & Naming Conventions
 
 - Plain ESM JavaScript, 2-space indentation; double quotes in JSON files.
-- Package name must match its directory name and use the `dsh-` prefix (e.g. `dsh-sidebar-scroll-flow`).
+- Package name must match its directory name and use the `dsh-` prefix (e.g. `dsh-sidebar-scroll-flow`). A scoped npm name `@agou/dsh-<name>` maps to the directory `dsh-<name>`.
 - Each manifest needs a valid semver `version`, a non-empty `engines.dsh`, a non-empty `files` array, and `dsh.bundle.patch` pointing at a real file; every `exports` target must resolve.
 - Add user-facing strings to both `locale/en.json` and `locale/zh.json`.
 
