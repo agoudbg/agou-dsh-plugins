@@ -1,7 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="16" fill="#303238"/>
-  <g transform="translate(12 11) scale(1.6667)" stroke="#f1f2f4" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M10.268 21a2 2 0 0 0 3.464 0"/>
-    <path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/>
-  </g>
+<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="session-grouping-bell" x1="10" y1="9" x2="27" y2="26" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#77C9FF" />
+      <stop offset="1" stop-color="#5160DE" />
+    </linearGradient>
+    <linearGradient id="session-grouping-clapper" x1="15" y1="27" x2="21" y2="27" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3F77D8" />
+      <stop offset="1" stop-color="#51D3DE" />
+    </linearGradient>
+  </defs>
+  <path d="M18 8.5C13.8 8.5 10.8 11.8 10.8 16.1V19.2L8.8 22.1C8.2 23 8.8 24.2 10 24.2H26C27.2 24.2 27.8 23 27.2 22.1L25.2 19.2V16.1C25.2 11.8 22.2 8.5 18 8.5Z" fill="url(#session-grouping-bell)" fill-opacity="0.9" />
+  <path d="M13.8 17.5H22.2" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-opacity="0.72" />
+  <path d="M15.3 27C16.3 28.7 19.7 28.7 20.7 27" stroke="url(#session-grouping-clapper)" stroke-width="2.2" stroke-linecap="round" />
+  <circle cx="27.3" cy="10.2" r="2.1" fill="#51D5DE" stroke="#FFFFFF" stroke-width="1.2" />
 </svg>

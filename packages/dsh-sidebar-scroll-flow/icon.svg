@@ -1,6 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect x="8" y="8" width="48" height="48" rx="10" fill="none" stroke="#5b6472" stroke-width="3"/>
-  <line x1="26" y1="8" x2="26" y2="56" stroke="#5b6472" stroke-width="3"/>
-  <path d="M14 23h6M14 31h6M14 39h6" stroke="#247bbf" stroke-width="3" stroke-linecap="round"/>
-  <path d="M40 24v16m0 0-7-7m7 7 7-7" fill="none" stroke="#247bbf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M10 8.8H26C27.1 8.8 28 9.7 28 10.8V25.2C28 26.3 27.1 27.2 26 27.2H10C8.9 27.2 8 26.3 8 25.2V10.8C8 9.7 8.9 8.8 10 8.8Z" fill="url(#sidebar-frame)" fill-opacity="0.2" />
+  <path d="M14.7 9.9V26.1" stroke="url(#sidebar-details)" stroke-width="2.1" stroke-linecap="round" />
+  <path d="M10.8 13H12.5M10.8 17H12.5M10.8 21H12.5" stroke="url(#sidebar-details)" stroke-width="1.8" stroke-linecap="round" />
+  <path d="M21 13.8V22.2M21 22.2L17.7 18.9M21 22.2L24.3 18.9" stroke="url(#sidebar-details)" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M10 8.8H26C27.1 8.8 28 9.7 28 10.8V25.2C28 26.3 27.1 27.2 26 27.2H10C8.9 27.2 8 26.3 8 25.2V10.8C8 9.7 8.9 8.8 10 8.8Z" fill="none" stroke="url(#sidebar-frame)" stroke-width="2" />
+  <defs>
+    <linearGradient id="sidebar-frame" x1="9" y1="9" x2="27" y2="27" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7AC2FF" />
+      <stop offset="1" stop-color="#5269E1" />
+    </linearGradient>
+    <linearGradient id="sidebar-details" x1="10" y1="10" x2="26" y2="26" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3F77D8" />
+      <stop offset="1" stop-color="#2F9CC6" />
+    </linearGradient>
+  </defs>
 </svg>

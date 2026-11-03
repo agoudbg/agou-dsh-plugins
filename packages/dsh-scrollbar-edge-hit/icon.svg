@@ -1,6 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect x="8" y="8" width="48" height="48" rx="10" fill="none" stroke="#5b6472" stroke-width="3"/>
-  <line x1="47" y1="14" x2="47" y2="50" stroke="#5b6472" stroke-width="3"/>
-  <line x1="47" y1="23" x2="47" y2="37" stroke="#247bbf" stroke-width="6" stroke-linecap="round"/>
-  <path d="M18 30h22m0 0-7-7m7 7-7 7" fill="none" stroke="#247bbf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M27 8.5V27.5" stroke="url(#edge-track)" stroke-width="2.8" stroke-linecap="round" />
+  <path d="M27 13.5V22.5" stroke="url(#edge-thumb)" stroke-width="5.2" stroke-linecap="round" />
+  <path d="M9 18H21.5M21.5 18L18 14.5M21.5 18L18 21.5" stroke="url(#edge-arrow)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+  <defs>
+    <linearGradient id="edge-track" x1="27" y1="8.5" x2="27" y2="27.5" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7AC2FF" />
+      <stop offset="1" stop-color="#4A65E8" />
+    </linearGradient>
+    <linearGradient id="edge-thumb" x1="27" y1="13.5" x2="27" y2="22.5" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#51CFDB" />
+      <stop offset="1" stop-color="#5269E1" />
+    </linearGradient>
+    <linearGradient id="edge-arrow" x1="9" y1="18" x2="21.5" y2="18" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3F77D8" />
+      <stop offset="1" stop-color="#51D3DE" />
+    </linearGradient>
+  </defs>
 </svg>

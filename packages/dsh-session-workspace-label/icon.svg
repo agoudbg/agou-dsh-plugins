@@ -1,5 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="14" fill="#3564d8"/>
-  <path d="M15 18h34M15 39h34" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
-  <path d="M16 25h10l3 4h17v7H16zM16 46h10l3 4h17v7H16z" fill="#c9d8ff" transform="translate(0 -2) scale(1 .9)"/>
+<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M9 17H20.5L26 22.5L20.5 28H9C8.17 28 7.5 27.33 7.5 26.5V18.5C7.5 17.67 8.17 17 9 17Z" fill="url(#workspace-label)" />
+  <path d="M9 8.5H22L27.5 14L22 19.5H9C8.17 19.5 7.5 18.83 7.5 18V10C7.5 9.17 8.17 8.5 9 8.5Z" fill="url(#session-label)" />
+  <circle cx="11.5" cy="14" r="1.5" fill="#FFFFFF" />
+  <path d="M15 14H21" stroke="#FFFFFF" stroke-width="2.1" stroke-linecap="round" />
+  <circle cx="11.5" cy="22.5" r="1.5" fill="#FFFFFF" />
+  <path d="M15 22.5H20" stroke="#FFFFFF" stroke-width="2.1" stroke-linecap="round" />
+  <defs>
+    <linearGradient id="session-label" x1="8" y1="9" x2="27" y2="19" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7AC2FF" />
+      <stop offset="1" stop-color="#5269E1" />
+    </linearGradient>
+    <linearGradient id="workspace-label" x1="8" y1="18" x2="26" y2="28" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6BE0E2" />
+      <stop offset="1" stop-color="#2F9CC6" />
+    </linearGradient>
+  </defs>
 </svg>
