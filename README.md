@@ -1,5 +1,7 @@
 # agou-dsh-plugins
 
+<sup>**English** | [中文](README-zh-CN.md)</sup>
+
 DSH (DeepSeek Harness) plugins by [agoudbg](https://github.com/agoudbg).
 
 ## Plugins
