@@ -1,6 +1,6 @@
 - insert:
     - id: worktrees
-      name: dsh-worktrees
+      name: "@agou/dsh-worktrees"
       config:
         directory: !!js dshHomePath('worktrees')
         maxRetained: 15
