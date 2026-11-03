@@ -292,6 +292,28 @@ test('snapshots exact tracked and nonignored untracked bytes and detached ancest
   assert.equal(await fs.readFile(path.join(record.path, 'commit.txt'), 'utf8'), 'detached commit\n');
 });
 
+test('restored untracked files belong to the snapshot commit and follow tracked reset behavior', async t => {
+  const f = await fixture(t);
+  const record = await f.create('one');
+  const file = path.join(record.path, 'notes.txt');
+  await fs.writeFile(file, 'saved snapshot contents');
+  assert.equal(await git(record.path, ['status', '--porcelain']), '?? notes.txt');
+  const removed = await f.manager.remove(record.id);
+  await f.manager.restore(record.id);
+  assert.equal(await git(record.path, ['rev-parse', 'HEAD']), removed.snapshotCommit);
+  assert.equal(await git(record.path, ['status', '--porcelain']), '');
+  assert.equal(await git(record.path, ['ls-files', '--error-unmatch', '--', 'notes.txt']), 'notes.txt');
+  // Destructive resets are confined to this fixture's allocated checkout.
+  assert.equal(await fs.realpath(record.path), path.join(f.config.directory, `dsh-${record.id}`));
+  await git(record.path, ['reset', '--hard']);
+  assert.equal(await fs.readFile(file, 'utf8'), 'saved snapshot contents');
+  await fs.writeFile(file, 'edits after restoration');
+  await git(record.path, ['reset', '--hard']);
+  assert.equal(await fs.readFile(file, 'utf8'), 'saved snapshot contents');
+  await git(record.path, ['reset', '--hard', record.baseCommit]);
+  assert.equal(await present(file), false);
+});
+
 test('unchanged cleanup snapshots HEAD and restores only the original unoccupied path', async t => {
   const f = await fixture(t);
   const record = await f.create('one');

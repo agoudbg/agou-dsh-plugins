@@ -40,7 +40,9 @@ Automatic cleanup removes the checkout directory after saving a Git snapshot in 
 
 When you send another message, choose **Restore** in the confirmation dialog to recreate the checkout before that message is sent. You can also restore it from **Settings → Worktrees**. Cancelling preserves the draft. An occupied original path is not overwritten. If the directory disappeared without a usable snapshot, an error is shown rather than continuing in the source directory.
 
-Snapshots preserve local commit ancestry, tracked file contents and untracked files that Git does not ignore. **Ignored files are not backed up, and staged versus unstaged changes are not preserved.** Restored changes are the contents of a detached snapshot commit. Snapshots have no automatic expiry, so their objects remain in the original repository.
+Snapshots preserve local commit ancestry, tracked file contents and untracked files that Git does not ignore. **Ignored files are not backed up, and staged versus unstaged changes are not preserved.** Restoration checks out a detached snapshot commit, so previously untracked files are now tracked in that commit. `git reset --hard` can discard later edits to these files; resetting to an older commit that does not contain them can delete them. Snapshots have no automatic expiry, so their objects remain in the original repository.
+
+On Windows, recreating symbolic links requires permission to create them, typically through Developer Mode or an elevated DSH process. If Windows denies this, restoration reports an error and keeps the saved snapshot. After enabling the required permission, retry restoration.
 
 Initialized submodules, embedded repositories and files that cannot be snapshotted safely cause cleanup to keep the checkout. A failed cleanup may leave more than the retention target on disk.
 
@@ -74,7 +76,9 @@ Git 不可用、文件夹不是 Git 仓库或仓库尚无提交时，工作树�
 
 在“设置 → 工作树”中修改新建目录和保留数量，查看、恢复或删除工作树。默认保留 15 个符合清理条件的工作树，置顶和运行中的会话受到保护。数量超过目标不会阻止新建，也不会主动要求清理。
 
-自动清理先保存 Git 快照，再删除目录，历史会话仍然保留。继续发送前需要确认恢复。快照不包含被 Git 忽略的文件，不保留暂存与未暂存的区分，恢复后的文件修改位于一个 detached 的快照提交中。
+自动清理先保存 Git 快照，再删除目录，历史会话仍然保留。继续发送前需要确认恢复。快照不包含被 Git 忽略的文件，不保留暂存与未暂存的区分。恢复后 HEAD 指向 detached 的快照提交，原来未跟踪的文件也成为这个提交中的已跟踪文件。之后对这些文件的修改可能被 `git reset --hard` 丢弃；重置到不包含它们的旧提交时，文件可能被删除。
+
+在 Windows 上，恢复符号链接需要创建符号链接的权限，通常需要启用开发者模式或以管理员权限运行 DSH。权限不足时，恢复会报错，保存的快照继续保留。取得相应权限后可以重试恢复。
 
 插件保持原有权限。工作树位于原工作区之外时，受限权限下的写入继续使用 DSH 原有审批。
 
