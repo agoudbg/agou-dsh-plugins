@@ -44,12 +44,9 @@
       "versions": [
         {
           "version": "1.0.1",
-          "publishTimestamp": 1793785906,
+          "publishTimestamp": 1793786257,
           "source": {
-            "type": "git",
-            "url": "https://github.com/agoudbg/agou-dsh-plugins",
-            "commit": "fb1b9164884e63b9cee3c52c5a37b7d16ee71538",
-            "path": "packages/dsh-auto-permission-default"
+            "type": "npm"
           },
           "engines": {
             "dsh": ">=0.2.1-rc.5"
@@ -99,12 +96,9 @@
       "versions": [
         {
           "version": "1.0.1",
-          "publishTimestamp": 1793785906,
+          "publishTimestamp": 1793786268,
           "source": {
-            "type": "git",
-            "url": "https://github.com/agoudbg/agou-dsh-plugins",
-            "commit": "fb1b9164884e63b9cee3c52c5a37b7d16ee71538",
-            "path": "packages/dsh-model-effort-memory"
+            "type": "npm"
           },
           "engines": {
             "dsh": ">=0.2.1-rc.5"
@@ -154,12 +148,9 @@
       "versions": [
         {
           "version": "1.0.1",
-          "publishTimestamp": 1793785906,
+          "publishTimestamp": 1793786263,
           "source": {
-            "type": "git",
-            "url": "https://github.com/agoudbg/agou-dsh-plugins",
-            "commit": "fb1b9164884e63b9cee3c52c5a37b7d16ee71538",
-            "path": "packages/dsh-pasted-text-file"
+            "type": "npm"
           },
           "engines": {
             "dsh": ">=0.2.1-rc.5"
@@ -208,12 +199,9 @@
       "versions": [
         {
           "version": "1.0.1",
-          "publishTimestamp": 1793785906,
+          "publishTimestamp": 1793786346,
           "source": {
-            "type": "git",
-            "url": "https://github.com/agoudbg/agou-dsh-plugins",
-            "commit": "fb1b9164884e63b9cee3c52c5a37b7d16ee71538",
-            "path": "packages/dsh-plugin-installed-order"
+            "type": "npm"
           },
           "engines": {
             "dsh": ">=0.2.1-rc.5"
