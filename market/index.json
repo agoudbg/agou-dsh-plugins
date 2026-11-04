@@ -43,6 +43,19 @@
       },
       "versions": [
         {
+          "version": "1.0.1",
+          "publishTimestamp": 1793785906,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/agoudbg/agou-dsh-plugins",
+            "commit": "fb1b9164884e63b9cee3c52c5a37b7d16ee71538",
+            "path": "packages/dsh-auto-permission-default"
+          },
+          "engines": {
+            "dsh": ">=0.2.1-rc.5"
+          }
+        },
+        {
           "version": "1.0.0",
           "publishTimestamp": 1793402043,
           "source": {
@@ -84,6 +97,19 @@
         "sortKeys": {}
       },
       "versions": [
+        {
+          "version": "1.0.1",
+          "publishTimestamp": 1793785906,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/agoudbg/agou-dsh-plugins",
+            "commit": "fb1b9164884e63b9cee3c52c5a37b7d16ee71538",
+            "path": "packages/dsh-model-effort-memory"
+          },
+          "engines": {
+            "dsh": ">=0.2.1-rc.5"
+          }
+        },
         {
           "version": "1.0.0",
           "publishTimestamp": 1793471965,
@@ -127,6 +153,19 @@
       },
       "versions": [
         {
+          "version": "1.0.1",
+          "publishTimestamp": 1793785906,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/agoudbg/agou-dsh-plugins",
+            "commit": "fb1b9164884e63b9cee3c52c5a37b7d16ee71538",
+            "path": "packages/dsh-pasted-text-file"
+          },
+          "engines": {
+            "dsh": ">=0.2.1-rc.5"
+          }
+        },
+        {
           "version": "1.0.0",
           "publishTimestamp": 1793443983,
           "source": {
@@ -167,6 +206,19 @@
         "sortKeys": {}
       },
       "versions": [
+        {
+          "version": "1.0.1",
+          "publishTimestamp": 1793785906,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/agoudbg/agou-dsh-plugins",
+            "commit": "fb1b9164884e63b9cee3c52c5a37b7d16ee71538",
+            "path": "packages/dsh-plugin-installed-order"
+          },
+          "engines": {
+            "dsh": ">=0.2.1-rc.5"
+          }
+        },
         {
           "version": "1.0.0",
           "publishTimestamp": 1793471969,
@@ -209,6 +261,16 @@
       },
       "versions": [
         {
+          "version": "1.0.1",
+          "publishTimestamp": 1793797092,
+          "source": {
+            "type": "npm"
+          },
+          "engines": {
+            "dsh": ">=0.2.1-rc.5"
+          }
+        },
+        {
           "version": "1.0.0",
           "publishTimestamp": 1793402047,
           "source": {
@@ -250,6 +312,16 @@
         "sortKeys": {}
       },
       "versions": [
+        {
+          "version": "1.1.2",
+          "publishTimestamp": 1793797097,
+          "source": {
+            "type": "npm"
+          },
+          "engines": {
+            "dsh": ">=0.2.1-rc.5"
+          }
+        },
         {
           "version": "1.1.1",
           "publishTimestamp": 1793524585,
@@ -379,6 +451,16 @@
         "sortKeys": {}
       },
       "versions": [
+        {
+          "version": "1.0.1",
+          "publishTimestamp": 1793797101,
+          "source": {
+            "type": "npm"
+          },
+          "engines": {
+            "dsh": ">=0.2.1-rc.5"
+          }
+        },
         {
           "version": "1.0.0",
           "publishTimestamp": 1793402056,

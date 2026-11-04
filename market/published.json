@@ -59,6 +59,21 @@
       "name": "@agou/dsh-worktrees",
       "version": "1.0.1",
       "publishTimestamp": 1793716180
+    },
+    {
+      "name": "dsh-scrollbar-edge-hit",
+      "version": "1.0.1",
+      "publishTimestamp": 1793797092
+    },
+    {
+      "name": "dsh-session-grouping-bell",
+      "version": "1.1.2",
+      "publishTimestamp": 1793797097
+    },
+    {
+      "name": "dsh-sidebar-scroll-flow",
+      "version": "1.0.1",
+      "publishTimestamp": 1793797101
     }
   ]
 }
