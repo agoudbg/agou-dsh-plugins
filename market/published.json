@@ -61,6 +61,26 @@
       "publishTimestamp": 1793716180
     },
     {
+      "name": "dsh-auto-permission-default",
+      "version": "1.0.1",
+      "publishTimestamp": 1793786257
+    },
+    {
+      "name": "dsh-pasted-text-file",
+      "version": "1.0.1",
+      "publishTimestamp": 1793786263
+    },
+    {
+      "name": "dsh-model-effort-memory",
+      "version": "1.0.1",
+      "publishTimestamp": 1793786268
+    },
+    {
+      "name": "dsh-plugin-installed-order",
+      "version": "1.0.1",
+      "publishTimestamp": 1793786346
+    },
+    {
       "name": "dsh-scrollbar-edge-hit",
       "version": "1.0.1",
       "publishTimestamp": 1793797092
