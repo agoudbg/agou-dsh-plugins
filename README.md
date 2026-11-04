@@ -1,4 +1,10 @@
-![Agou DSH Plugins](docs/assets/brand/banner.svg#svgView(viewBox(0,0,1280,380)))
+<p>
+  <picture>
+    <!-- Keep commas encoded in srcset so GitHub preserves the SVG view fragment. -->
+    <source media="(max-width: 600px)" srcset="docs/assets/brand/banner.svg#svgView(viewBox(320%2C0%2C640%2C380))">
+    <img src="docs/assets/brand/banner.svg#svgView(viewBox(0,0,1280,380))" alt="Agou DSH Plugins">
+  </picture>
+</p>
 
 <div align="center">
 
