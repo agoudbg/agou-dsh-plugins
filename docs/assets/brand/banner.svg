@@ -65,7 +65,7 @@
     <rect x="229.5" y="-33.5" width="69" height="69" rx="15.5" fill="none" stroke="#000000" stroke-opacity="0.055" />
     <rect x="230" y="-33" width="68" height="68" rx="15" fill="#FFFFFF" fill-opacity="0.7" />
 
-    <svg width="44" height="44" viewBox="8.25 8.049999237060547 21 19.900001525878906" fill="none" xmlns="http://www.w3.org/2000/svg" x="242" y="-21" preserveAspectRatio="xMidYMid meet">
+    <svg width="44" height="44" viewBox="8.25 7.75 21 21.75" fill="none" xmlns="http://www.w3.org/2000/svg" x="242" y="-21" preserveAspectRatio="xMidYMid meet">
   <defs>
     <linearGradient id="plugin-1-effort-memory-bars" x1="8" y1="9" x2="23" y2="27" gradientUnits="userSpaceOnUse">
       <stop stop-color="#6BC8FF"/>
@@ -452,7 +452,7 @@
     <rect x="793.5" y="60.5" width="69" height="69" rx="15.5" fill="none" stroke="#000000" stroke-opacity="0.055" />
     <rect x="794" y="61" width="68" height="68" rx="15" fill="#FFFFFF" fill-opacity="0.7" />
 
-    <svg width="44" height="44" viewBox="8.25 8.049999237060547 21 19.900001525878906" fill="none" xmlns="http://www.w3.org/2000/svg" x="806" y="73" preserveAspectRatio="xMidYMid meet">
+    <svg width="44" height="44" viewBox="8.25 7.75 21 21.75" fill="none" xmlns="http://www.w3.org/2000/svg" x="806" y="73" preserveAspectRatio="xMidYMid meet">
   <defs>
     <linearGradient id="plugin-18-effort-memory-bars" x1="8" y1="9" x2="23" y2="27" gradientUnits="userSpaceOnUse">
       <stop stop-color="#6BC8FF"/>

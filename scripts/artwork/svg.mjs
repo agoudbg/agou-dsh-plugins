@@ -31,6 +31,38 @@ export function parseSvg(source, label) {
   return root;
 }
 
+/** Measure filtered ink without rasterizing the exported SVG artwork. */
+function paintedBounds(root, label) {
+  const viewBox = (root.getAttribute('viewBox') ?? '').trim().split(/[\s,]+/).map(Number);
+  if (viewBox.length !== 4 || !viewBox.every(Number.isFinite) || viewBox[2] <= 0 || viewBox[3] <= 0) {
+    throw new Error(`${label}: filtered artwork requires a valid viewBox.`);
+  }
+  const sample = root.cloneNode(true);
+  sample.setAttribute('width', String(viewBox[2]));
+  sample.setAttribute('height', String(viewBox[3]));
+  // Subpixel sampling captures faint shadow tails; cap the temporary raster size.
+  const image = new Resvg(serializer.serializeToString(sample), {
+    font: { loadSystemFonts: false },
+    fitTo: { mode: 'zoom', value: Math.min(8, 1024 / Math.max(viewBox[2], viewBox[3])) },
+  }).render();
+  const pixels = image.pixels;
+  let left = image.width, top = image.height, right = -1, bottom = -1;
+  for (let y = 0; y < image.height; y++) for (let x = 0; x < image.width; x++) {
+    if (pixels[(y * image.width + x) * 4 + 3] === 0) continue;
+    left = Math.min(left, x); top = Math.min(top, y);
+    right = Math.max(right, x); bottom = Math.max(bottom, y);
+  }
+  if (right < left) return undefined;
+  const unitX = viewBox[2] / image.width;
+  const unitY = viewBox[3] / image.height;
+  return {
+    x: viewBox[0] + left * unitX,
+    y: viewBox[1] + top * unitY,
+    width: (right + 1 - left) * unitX,
+    height: (bottom + 1 - top) * unitY,
+  };
+}
+
 /** Namespace repeated gradients/filters so one plugin cannot repaint another. */
 export function placeSvg(source, { x, y, width, height, prefix, crop = true, preserveCenter = false }) {
   const root = parseSvg(source, prefix);
@@ -52,7 +84,9 @@ export function placeSvg(source, { x, y, width, height, prefix, crop = true, pre
     }
   }
   if (crop) {
-    const bounds = new Resvg(source, { font: { loadSystemFonts: false } }).getBBox();
+    const bounds = elements.some((element) => element.localName === 'filter')
+      ? paintedBounds(root, prefix)
+      : new Resvg(source, { font: { loadSystemFonts: false } }).getBBox();
     if (!bounds || bounds.width <= 0 || bounds.height <= 0) throw new Error(`${prefix}: empty icon.`);
     // Keep the same glyph scale while preserving authored optical alignment.
     let centerX = bounds.x + bounds.width / 2;

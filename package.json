@@ -13,7 +13,7 @@
   "scripts": {
     "artwork:generate": "node scripts/generate-artwork.mjs",
     "artwork:compare": "node scripts/compare-artwork.mjs",
-    "artwork:test": "node --test scripts/artwork/layout.test.mjs"
+    "artwork:test": "node --test scripts/artwork/*.test.mjs"
   },
   "devDependencies": {
     "@deepseek-ai/dsh-plugin-market-index": "0.2.1-rc.5",
