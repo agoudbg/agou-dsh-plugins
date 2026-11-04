@@ -3,6 +3,8 @@ import { Resvg } from '@resvg/resvg-js';
 import { WIDTH, HEIGHT, CARD_SIZE, ICON_SIZE, BRAND_BOX, BRAND_BORDER_WIDTH } from './layout.mjs';
 
 const serializer = new XMLSerializer();
+const CARD_OPACITY = 0.7;
+const SHADOW_OPACITY = 0.09;
 
 /** Parse repository SVGs as XML, with no scripts or external resources. */
 export function parseSvg(source, label) {
@@ -109,10 +111,12 @@ export function placeSvg(source, { x, y, width, height, prefix, crop = true, pre
 
 /** Cards share geometry and glyph scale; the main card has an opaque surface. */
 function cardSvg({ x, y, svg, prefix, main = false }) {
+  // Apply opacity after filtering so discarded effects leave the white surface intact.
   return `<g id="${prefix}-card">
-    <rect x="${x}" y="${y}" width="${CARD_SIZE}" height="${CARD_SIZE}" rx="15" fill="#000000" filter="url(#card-shadow)" />
     <rect x="${x - 0.5}" y="${y - 0.5}" width="69" height="69" rx="15.5" fill="none" stroke="#000000" stroke-opacity="0.055" />
-    <rect x="${x}" y="${y}" width="${CARD_SIZE}" height="${CARD_SIZE}" rx="15" fill="#FFFFFF" fill-opacity="${main ? 1 : 0.7}" />
+    <g opacity="${main ? 1 : CARD_OPACITY}">
+      <rect x="${x}" y="${y}" width="${CARD_SIZE}" height="${CARD_SIZE}" rx="15" fill="#FFFFFF" filter="url(#${main ? 'card-shadow-opaque' : 'card-shadow'})" />
+    </g>
     ${main ? `<rect x="${x - BRAND_BORDER_WIDTH / 2}" y="${y - BRAND_BORDER_WIDTH / 2}" width="${CARD_SIZE + BRAND_BORDER_WIDTH}" height="${CARD_SIZE + BRAND_BORDER_WIDTH}" rx="${15 + BRAND_BORDER_WIDTH / 2}" fill="none" stroke="url(#brand-border)" stroke-width="${BRAND_BORDER_WIDTH}" />` : ''}
     ${placeSvg(svg, { x: x + 12, y: y + 12, width: ICON_SIZE, height: ICON_SIZE, prefix, preserveCenter: main })}
   </g>`.replace(/[ \t]+$/gm, '');
@@ -147,10 +151,10 @@ export function bannerSvg(assignments, brandSvg) {
       <rect width="1280" height="440" fill="url(#field-fade)" />
     </mask>
     <filter id="card-shadow" x="-20%" y="-20%" width="140%" height="150%" color-interpolation-filters="sRGB">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="1" />
-      <feOffset dx="0" dy="1.5" />
-      <feComponentTransfer><feFuncA type="linear" slope="0.09" /></feComponentTransfer>
-      <feComposite in2="SourceAlpha" operator="out" />
+      <feDropShadow dx="0" dy="1.5" stdDeviation="1" flood-color="#000000" flood-opacity="${SHADOW_OPACITY / CARD_OPACITY}" />
+    </filter>
+    <filter id="card-shadow-opaque" x="-20%" y="-20%" width="140%" height="150%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="1" flood-color="#000000" flood-opacity="${SHADOW_OPACITY}" />
     </filter>
     <linearGradient id="brand-border" x1="606" y1="233" x2="674" y2="301" gradientUnits="userSpaceOnUse">
       <stop stop-color="#2AAEC7" /><stop offset="1" stop-color="#425BD5" />

@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import { XMLSerializer } from '@xmldom/xmldom';
 import { Resvg } from '@resvg/resvg-js';
-import { parseSvg, placeSvg } from './svg.mjs';
+import { bannerSvg, parseSvg, placeSvg } from './svg.mjs';
 
 const source = readFileSync(new URL('../../packages/dsh-model-effort-memory/icon.svg', import.meta.url), 'utf8');
 const serializer = new XMLSerializer();
@@ -33,3 +33,28 @@ for (const [name, svg] of [['original', source], ['translated', translated]]) {
     assert.ok(shadow > 0, 'The shadow must remain visible.');
   });
 }
+
+test('card faces retain their color when SVG shadow filters are ignored', () => {
+  const brand = readFileSync(new URL('../../docs/assets/brand/icon.svg', import.meta.url), 'utf8');
+  const svg = bannerSvg([{ x: 136, y: 14, index: 0, icon: { svg: source } }], brand);
+  const options = { font: { loadSystemFonts: false }, background: '#FFFFFF' };
+  const normal = new Resvg(svg, options).render();
+  const root = parseSvg(svg, 'banner');
+  let removed = 0;
+  for (const element of Array.from(root.getElementsByTagName('*'))) {
+    if (!/^url\(#card-shadow(?:-opaque)?\)$/.test(element.getAttribute('filter') ?? '')) continue;
+    element.removeAttribute('filter');
+    removed++;
+  }
+  assert.equal(removed, 2, 'Exercise both translucent and opaque card surfaces.');
+  const imported = new Resvg(serializer.serializeToString(root), options).render();
+  const expected = normal.pixels;
+  const actual = imported.pixels;
+  for (const [x, y] of [[170, 21], [170, 75], [143, 48], [197, 48], [610, 267]]) {
+    const offset = (y * normal.width + x) * 4;
+    for (let channel = 0; channel < 3; channel++) {
+      assert.ok(Math.abs(actual[offset + channel] - expected[offset + channel]) <= 1,
+        `Ignoring the shadow must preserve the card face at ${x},${y}.`);
+    }
+  }
+});
