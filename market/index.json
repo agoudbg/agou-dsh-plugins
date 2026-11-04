@@ -223,7 +223,7 @@
     {
       "name": "dsh-session-grouping-bell",
       "title": {
-        "en": "Session grouping bell",
+        "en": "Session Grouping Bell",
         "zh": "会话分组铃铛"
       },
       "description": {
@@ -288,7 +288,7 @@
     {
       "name": "dsh-session-workspace-label",
       "title": {
-        "en": "Session workspace labels",
+        "en": "Session Workspace Labels",
         "zh": "会话工作区标签"
       },
       "description": {

@@ -29,10 +29,10 @@ DSH (DeepSeek Harness) plugins by [agoudbg](https://github.com/agoudbg).
 <img src="packages/dsh-scrollbar-edge-hit/icon.svg#svgView(viewBox(7,7,25.875,23))" alt="Edge-Reachable Scrollbar icon" width="18" height="16" /> **[Edge-Reachable Scrollbar](packages/dsh-scrollbar-edge-hit)**<br>
 <sub>Makes the scrollbar usable with the mouse at the screen edge.</sub>
 
-<img src="packages/dsh-session-grouping-bell/icon.svg#svgView(viewBox(7,6.5,27.5625,24.5))" alt="Session grouping bell icon" width="18" height="16" /> **[Session grouping bell](packages/dsh-session-grouping-bell)**<br>
+<img src="packages/dsh-session-grouping-bell/icon.svg#svgView(viewBox(7,6.5,27.5625,24.5))" alt="Session Grouping Bell icon" width="18" height="16" /> **[Session Grouping Bell](packages/dsh-session-grouping-bell)**<br>
 <sub>Quickly switch to the single-list view.</sub>
 
-<img src="packages/dsh-session-workspace-label/icon.svg#svgView(viewBox(7,7.5,24.1875,21.5))" alt="Session workspace labels icon" width="18" height="16" /> **[Session workspace labels](packages/dsh-session-workspace-label)**<br>
+<img src="packages/dsh-session-workspace-label/icon.svg#svgView(viewBox(7,7.5,24.1875,21.5))" alt="Session Workspace Labels icon" width="18" height="16" /> **[Session Workspace Labels](packages/dsh-session-workspace-label)**<br>
 <sub>Displays workspace names by group in single-list mode.</sub>
 
 <img src="packages/dsh-sidebar-scroll-flow/icon.svg#svgView(viewBox(6.5,6.5,26.4375,23.5))" alt="Sidebar Scroll Flow icon" width="18" height="16" /> **[Sidebar Scroll Flow](packages/dsh-sidebar-scroll-flow)**<br>
