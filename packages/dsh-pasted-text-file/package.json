@@ -1,6 +1,6 @@
 {
   "name": "dsh-pasted-text-file",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Paste long text as an attachment.",
   "type": "module",
   "license": "MIT",

@@ -1,6 +1,6 @@
 {
   "name": "dsh-auto-permission-default",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Selects the Auto review permission preset for every new interactive DSH session.",
   "type": "module",
   "license": "MIT",

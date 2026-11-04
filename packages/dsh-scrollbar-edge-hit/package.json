@@ -1,6 +1,6 @@
 {
   "name": "dsh-scrollbar-edge-hit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Makes the DSH Web UI scrollbar usable with the mouse at the screen edge.",
   "type": "module",
   "license": "MIT",

@@ -1,6 +1,6 @@
 {
   "name": "dsh-plugin-installed-order",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Shows installed plugins before built-in experimental plugins on the Installed tab.",
   "type": "module",
   "license": "MIT",
