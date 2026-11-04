@@ -88,7 +88,8 @@ export function bannerSvg(assignments, brandSvg) {
   const cards = assignments.map(({ x, y, index, icon }) =>
     cardSvg({ x, y, svg: icon.svg, prefix: `plugin-${index}` })).join('\n');
   const mainCard = cardSvg({ ...BRAND_BOX, svg: brandSvg, prefix: 'brand', main: true });
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${HEIGHT}" viewBox="0 0 ${WIDTH} ${HEIGHT}" fill="none" role="img" aria-labelledby="banner-title banner-description">
+  // Let the viewBox determine height so fragment crops also resize the image box.
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" viewBox="0 0 ${WIDTH} ${HEIGHT}" fill="none" role="img" aria-labelledby="banner-title banner-description">
   <title id="banner-title">Agou DSH Plugins</title>
   <desc id="banner-description">A blue field of plugin cards with a bordered puzzle-piece card for Agou DSH Plugins.</desc>
   <defs>

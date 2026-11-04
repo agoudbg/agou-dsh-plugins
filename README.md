@@ -1,4 +1,4 @@
-![Agou DSH Plugins](docs/assets/brand/banner.svg)
+![Agou DSH Plugins](docs/assets/brand/banner.svg#svgView(viewBox(0,0,1280,380)))
 
 <div align="center">
 
