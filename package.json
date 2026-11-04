@@ -10,7 +10,16 @@
     "url": "git+https://github.com/agoudbg/agou-dsh-plugins.git"
   },
   "packageManager": "pnpm@9.15.0",
+  "scripts": {
+    "artwork:generate": "node scripts/generate-artwork.mjs",
+    "artwork:compare": "node scripts/compare-artwork.mjs",
+    "artwork:test": "node --test scripts/artwork/*.test.mjs"
+  },
   "devDependencies": {
-    "@deepseek-ai/dsh-plugin-market-index": "0.2.1-rc.5"
+    "@deepseek-ai/dsh-plugin-market-index": "0.2.1-rc.5",
+    "@resvg/resvg-js": "2.6.2",
+    "@xmldom/xmldom": "0.9.12",
+    "pixelmatch": "8.0.0",
+    "pngjs": "7.0.0"
   }
 }

@@ -48,7 +48,7 @@ Initialized submodules, embedded repositories and files that cannot be snapshott
 
 ## Find worktree conversations
 
-Worktree conversations have a branch icon in the sidebar. Hover over a conversation to view **Worktree path** and **Worktree branch**. In **In one list** view, the icon appears beside the branch information on an extra line. If Session workspace labels is enabled, its workspace-name line is retained above it.
+Worktree conversations have a branch icon in the sidebar. Hover over a conversation to view **Worktree path** and **Worktree branch**. In **In one list** view, the icon appears beside the branch information on an extra line. If Session Workspace Labels is enabled, its workspace-name line is retained above it.
 
 Use the open menu at the top right of a conversation to open its current working directory in your chosen application. Opening a cleaned-up checkout this way does not restore it. The native workspace-opening keyboard shortcut still targets the original workspace.
 
