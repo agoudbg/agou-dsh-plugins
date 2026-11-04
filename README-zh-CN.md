@@ -14,31 +14,31 @@
 
 <!-- BEGIN AUTO-GENERATED PLUGIN LIST: DO NOT EDIT -->
 
-<img src="packages/dsh-auto-permission-default/icon.svg#svgView(viewBox(6.5,6.5,25.875,23))" alt="自动审查默认权限图标" width="18" height="16" /> **[自动审查默认权限](packages/dsh-auto-permission-default)**<br>
+<img src="packages/dsh-auto-permission-default/icon.svg#svgView(viewBox(6.5,6.5,31.625,28.75))" alt="自动审查默认权限图标" width="22" height="20" align="absmiddle" />**[自动审查默认权限](packages/dsh-auto-permission-default)**<br>
 <sub>让每个新建交互会话默认使用“自动审查”权限预设。</sub>
 
-<img src="packages/dsh-model-effort-memory/icon.svg#svgView(viewBox(7.5,7.5,24.75,22))" alt="记住模型推理强度图标" width="18" height="16" /> **[记住模型推理强度](packages/dsh-model-effort-memory)**<br>
+<img src="packages/dsh-model-effort-memory/icon.svg#svgView(viewBox(7.5,7.5,30.25,27.5))" alt="记住模型推理强度图标" width="22" height="20" align="absmiddle" />**[记住模型推理强度](packages/dsh-model-effort-memory)**<br>
 <sub>切换模型时恢复每个模型上次选择的推理强度。</sub>
 
-<img src="packages/dsh-pasted-text-file/icon.svg#svgView(viewBox(7.5,6.5,27,24))" alt="长文本粘贴附件图标" width="18" height="16" /> **[长文本粘贴附件](packages/dsh-pasted-text-file)**<br>
+<img src="packages/dsh-pasted-text-file/icon.svg#svgView(viewBox(7.5,6.5,33,30))" alt="长文本粘贴附件图标" width="22" height="20" align="absmiddle" />**[长文本粘贴附件](packages/dsh-pasted-text-file)**<br>
 <sub>将长文本粘贴为附件。</sub>
 
-<img src="packages/dsh-plugin-installed-order/icon.svg#svgView(viewBox(6.8,6,28.6875,25.5))" alt="已安装插件优先图标" width="18" height="16" /> **[已安装插件优先](packages/dsh-plugin-installed-order)**<br>
+<img src="packages/dsh-plugin-installed-order/icon.svg#svgView(viewBox(6.8,6,35.0625,31.875))" alt="已安装插件优先图标" width="22" height="20" align="absmiddle" />**[已安装插件优先](packages/dsh-plugin-installed-order)**<br>
 <sub>在插件管理的“已安装”页面中，将“已安装插件”排在内置实验性插件前面。</sub>
 
-<img src="packages/dsh-scrollbar-edge-hit/icon.svg#svgView(viewBox(7,7,25.875,23))" alt="滚动条贴边可用图标" width="18" height="16" /> **[滚动条贴边可用](packages/dsh-scrollbar-edge-hit)**<br>
+<img src="packages/dsh-scrollbar-edge-hit/icon.svg#svgView(viewBox(7,7,31.625,28.75))" alt="滚动条贴边可用图标" width="22" height="20" align="absmiddle" />**[滚动条贴边可用](packages/dsh-scrollbar-edge-hit)**<br>
 <sub>让滚动条在鼠标位于屏幕边缘时可用。</sub>
 
-<img src="packages/dsh-session-grouping-bell/icon.svg#svgView(viewBox(7,6.5,27.5625,24.5))" alt="会话分组铃铛图标" width="18" height="16" /> **[会话分组铃铛](packages/dsh-session-grouping-bell)**<br>
+<img src="packages/dsh-session-grouping-bell/icon.svg#svgView(viewBox(7,6.5,33.6875,30.625))" alt="会话分组铃铛图标" width="22" height="20" align="absmiddle" />**[会话分组铃铛](packages/dsh-session-grouping-bell)**<br>
 <sub>快速切换到单列表视图。</sub>
 
-<img src="packages/dsh-session-workspace-label/icon.svg#svgView(viewBox(7,7.5,24.1875,21.5))" alt="会话工作区标签图标" width="18" height="16" /> **[会话工作区标签](packages/dsh-session-workspace-label)**<br>
+<img src="packages/dsh-session-workspace-label/icon.svg#svgView(viewBox(7,7.5,29.5625,26.875))" alt="会话工作区标签图标" width="22" height="20" align="absmiddle" />**[会话工作区标签](packages/dsh-session-workspace-label)**<br>
 <sub>在单列表模式分组显示工作区名称。</sub>
 
-<img src="packages/dsh-sidebar-scroll-flow/icon.svg#svgView(viewBox(6.5,6.5,26.4375,23.5))" alt="侧边栏整体滚动图标" width="18" height="16" /> **[侧边栏整体滚动](packages/dsh-sidebar-scroll-flow)**<br>
+<img src="packages/dsh-sidebar-scroll-flow/icon.svg#svgView(viewBox(6.5,6.5,32.3125,29.375))" alt="侧边栏整体滚动图标" width="22" height="20" align="absmiddle" />**[侧边栏整体滚动](packages/dsh-sidebar-scroll-flow)**<br>
 <sub>增大对话列表在侧边栏的显示区域。</sub>
 
-<img src="packages/dsh-worktrees/icon.svg#svgView(viewBox(7.5,7.5,24.1875,21.5))" alt="工作树图标" width="18" height="16" /> **[工作树](packages/dsh-worktrees)**<br>
+<img src="packages/dsh-worktrees/icon.svg#svgView(viewBox(7.5,7.5,29.5625,26.875))" alt="工作树图标" width="22" height="20" align="absmiddle" />**[工作树](packages/dsh-worktrees)**<br>
 <sub>为会话选择 Git 分支或新建本地工作树，支持保存快照后自动清理和恢复。</sub>
 
 <!-- END AUTO-GENERATED PLUGIN LIST -->

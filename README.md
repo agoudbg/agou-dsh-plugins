@@ -14,31 +14,31 @@ DSH (DeepSeek Harness) plugins by [agoudbg](https://github.com/agoudbg).
 
 <!-- BEGIN AUTO-GENERATED PLUGIN LIST: DO NOT EDIT -->
 
-<img src="packages/dsh-auto-permission-default/icon.svg#svgView(viewBox(6.5,6.5,25.875,23))" alt="Auto Permission Default icon" width="18" height="16" /> **[Auto Permission Default](packages/dsh-auto-permission-default)**<br>
+<img src="packages/dsh-auto-permission-default/icon.svg#svgView(viewBox(6.5,6.5,31.625,28.75))" alt="Auto Permission Default icon" width="22" height="20" align="absmiddle" />**[Auto Permission Default](packages/dsh-auto-permission-default)**<br>
 <sub>Selects the Auto review permission preset for every new interactive session.</sub>
 
-<img src="packages/dsh-model-effort-memory/icon.svg#svgView(viewBox(7.5,7.5,24.75,22))" alt="Remember Model Effort icon" width="18" height="16" /> **[Remember Model Effort](packages/dsh-model-effort-memory)**<br>
+<img src="packages/dsh-model-effort-memory/icon.svg#svgView(viewBox(7.5,7.5,30.25,27.5))" alt="Remember Model Effort icon" width="22" height="20" align="absmiddle" />**[Remember Model Effort](packages/dsh-model-effort-memory)**<br>
 <sub>Keeps each model's last selected reasoning effort when switching models.</sub>
 
-<img src="packages/dsh-pasted-text-file/icon.svg#svgView(viewBox(7.5,6.5,27,24))" alt="Pasted Text Attachment icon" width="18" height="16" /> **[Pasted Text Attachment](packages/dsh-pasted-text-file)**<br>
+<img src="packages/dsh-pasted-text-file/icon.svg#svgView(viewBox(7.5,6.5,33,30))" alt="Pasted Text Attachment icon" width="22" height="20" align="absmiddle" />**[Pasted Text Attachment](packages/dsh-pasted-text-file)**<br>
 <sub>Paste long text as an attachment.</sub>
 
-<img src="packages/dsh-plugin-installed-order/icon.svg#svgView(viewBox(6.8,6,28.6875,25.5))" alt="Installed Plugins First icon" width="18" height="16" /> **[Installed Plugins First](packages/dsh-plugin-installed-order)**<br>
+<img src="packages/dsh-plugin-installed-order/icon.svg#svgView(viewBox(6.8,6,35.0625,31.875))" alt="Installed Plugins First icon" width="22" height="20" align="absmiddle" />**[Installed Plugins First](packages/dsh-plugin-installed-order)**<br>
 <sub>Shows installed plugins before built-in experimental plugins on the Installed tab.</sub>
 
-<img src="packages/dsh-scrollbar-edge-hit/icon.svg#svgView(viewBox(7,7,25.875,23))" alt="Edge-Reachable Scrollbar icon" width="18" height="16" /> **[Edge-Reachable Scrollbar](packages/dsh-scrollbar-edge-hit)**<br>
+<img src="packages/dsh-scrollbar-edge-hit/icon.svg#svgView(viewBox(7,7,31.625,28.75))" alt="Edge-Reachable Scrollbar icon" width="22" height="20" align="absmiddle" />**[Edge-Reachable Scrollbar](packages/dsh-scrollbar-edge-hit)**<br>
 <sub>Makes the scrollbar usable with the mouse at the screen edge.</sub>
 
-<img src="packages/dsh-session-grouping-bell/icon.svg#svgView(viewBox(7,6.5,27.5625,24.5))" alt="Session Grouping Bell icon" width="18" height="16" /> **[Session Grouping Bell](packages/dsh-session-grouping-bell)**<br>
+<img src="packages/dsh-session-grouping-bell/icon.svg#svgView(viewBox(7,6.5,33.6875,30.625))" alt="Session Grouping Bell icon" width="22" height="20" align="absmiddle" />**[Session Grouping Bell](packages/dsh-session-grouping-bell)**<br>
 <sub>Quickly switch to the single-list view.</sub>
 
-<img src="packages/dsh-session-workspace-label/icon.svg#svgView(viewBox(7,7.5,24.1875,21.5))" alt="Session Workspace Labels icon" width="18" height="16" /> **[Session Workspace Labels](packages/dsh-session-workspace-label)**<br>
+<img src="packages/dsh-session-workspace-label/icon.svg#svgView(viewBox(7,7.5,29.5625,26.875))" alt="Session Workspace Labels icon" width="22" height="20" align="absmiddle" />**[Session Workspace Labels](packages/dsh-session-workspace-label)**<br>
 <sub>Displays workspace names by group in single-list mode.</sub>
 
-<img src="packages/dsh-sidebar-scroll-flow/icon.svg#svgView(viewBox(6.5,6.5,26.4375,23.5))" alt="Sidebar Scroll Flow icon" width="18" height="16" /> **[Sidebar Scroll Flow](packages/dsh-sidebar-scroll-flow)**<br>
+<img src="packages/dsh-sidebar-scroll-flow/icon.svg#svgView(viewBox(6.5,6.5,32.3125,29.375))" alt="Sidebar Scroll Flow icon" width="22" height="20" align="absmiddle" />**[Sidebar Scroll Flow](packages/dsh-sidebar-scroll-flow)**<br>
 <sub>Increases the display area for the conversation list in the sidebar.</sub>
 
-<img src="packages/dsh-worktrees/icon.svg#svgView(viewBox(7.5,7.5,24.1875,21.5))" alt="Worktrees icon" width="18" height="16" /> **[Worktrees](packages/dsh-worktrees)**<br>
+<img src="packages/dsh-worktrees/icon.svg#svgView(viewBox(7.5,7.5,29.5625,26.875))" alt="Worktrees icon" width="22" height="20" align="absmiddle" />**[Worktrees](packages/dsh-worktrees)**<br>
 <sub>Choose a Git branch or a new local worktree for each conversation, with recoverable background cleanup.</sub>
 
 <!-- END AUTO-GENERATED PLUGIN LIST -->

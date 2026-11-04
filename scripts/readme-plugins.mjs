@@ -7,7 +7,9 @@ export const README_SPECS = [
 ];
 
 const README_ICON_SIZE = 16;
-const README_ICON_RIGHT_PADDING = 2;
+const README_ICON_RIGHT_PADDING = 6;
+// Bottom padding raises the artwork's center 2px within the aligned image frame.
+const README_ICON_BOTTOM_PADDING = 4;
 
 const README_ICON_VIEW_BOXES = {
   "packages/dsh-auto-permission-default": "6.5,6.5,23,23",
@@ -35,9 +37,10 @@ function readmeIconSource(directory) {
     throw new Error(`README icon viewBox is missing for ${directory}`);
   }
   const [x, y, width, height] = viewBox.split(",").map(Number);
-  // Expand only the right edge by the configured display-space padding.
+  // Reserve display-space padding for the label gap and vertical alignment.
   const paddedWidth = Number((width + height * README_ICON_RIGHT_PADDING / README_ICON_SIZE).toFixed(4));
-  return `${directory}/icon.svg#svgView(viewBox(${x},${y},${paddedWidth},${height}))`;
+  const paddedHeight = Number((height + height * README_ICON_BOTTOM_PADDING / README_ICON_SIZE).toFixed(4));
+  return `${directory}/icon.svg#svgView(viewBox(${x},${y},${paddedWidth},${paddedHeight}))`;
 }
 
 function escapeHtmlAttribute(text) {
@@ -58,7 +61,7 @@ export function renderPluginList(plugins, lang) {
       }
       const directory = repositoryDirectory(plugin);
       const alt = lang === "zh" ? `${title}图标` : `${title} icon`;
-      return `<img src="${readmeIconSource(directory)}" alt="${escapeHtmlAttribute(alt)}" width="${README_ICON_SIZE + README_ICON_RIGHT_PADDING}" height="${README_ICON_SIZE}" /> **[${title}](${directory})**<br>\n<sub>${description}</sub>`;
+      return `<img src="${readmeIconSource(directory)}" alt="${escapeHtmlAttribute(alt)}" width="${README_ICON_SIZE + README_ICON_RIGHT_PADDING}" height="${README_ICON_SIZE + README_ICON_BOTTOM_PADDING}" align="absmiddle" />**[${title}](${directory})**<br>\n<sub>${description}</sub>`;
     })
     .join("\n\n");
 }
