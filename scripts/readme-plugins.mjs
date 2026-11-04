@@ -6,6 +6,9 @@ export const README_SPECS = [
   { file: "README-zh-CN.md", lang: "zh" },
 ];
 
+const README_ICON_SIZE = 16;
+const README_ICON_RIGHT_PADDING = 2;
+
 const README_ICON_VIEW_BOXES = {
   "packages/dsh-auto-permission-default": "6.5,6.5,23,23",
   "packages/dsh-model-effort-memory": "7.5,7.5,22,22",
@@ -31,7 +34,10 @@ function readmeIconSource(directory) {
   if (!viewBox) {
     throw new Error(`README icon viewBox is missing for ${directory}`);
   }
-  return `${directory}/icon.svg#svgView(viewBox(${viewBox}))`;
+  const [x, y, width, height] = viewBox.split(",").map(Number);
+  // Expand only the right edge by the configured display-space padding.
+  const paddedWidth = Number((width + height * README_ICON_RIGHT_PADDING / README_ICON_SIZE).toFixed(4));
+  return `${directory}/icon.svg#svgView(viewBox(${x},${y},${paddedWidth},${height}))`;
 }
 
 function escapeHtmlAttribute(text) {
@@ -52,7 +58,7 @@ export function renderPluginList(plugins, lang) {
       }
       const directory = repositoryDirectory(plugin);
       const alt = lang === "zh" ? `${title}图标` : `${title} icon`;
-      return `### <img src="${readmeIconSource(directory)}" alt="${escapeHtmlAttribute(alt)}" width="25" height="25" align="top" /> [${title}](${directory})\n\n${description}`;
+      return `<img src="${readmeIconSource(directory)}" alt="${escapeHtmlAttribute(alt)}" width="${README_ICON_SIZE + README_ICON_RIGHT_PADDING}" height="${README_ICON_SIZE}" /> **[${title}](${directory})**<br>\n<sub>${description}</sub>`;
     })
     .join("\n\n");
 }
