@@ -11,7 +11,7 @@
     "directory": "packages/dsh-worktrees"
   },
   "keywords": ["dsh", "dsh-plugin", "deepseek-harness", "git", "worktree", "web-ui"],
-  "engines": { "node": ">=22", "dsh": "0.2.1-rc.5" },
+  "engines": { "node": ">=22", "dsh": ">=0.2.1-rc.5" },
   "exports": {
     ".": "./index.js",
     "./client": "./client.js",
