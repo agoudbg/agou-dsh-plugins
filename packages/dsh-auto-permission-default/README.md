@@ -2,7 +2,7 @@
 
 Selects the **Auto review** permission preset for every new interactive DSH session.
 
-The permission-presets service deliberately cannot name the runtime-registered `auto` preset as its durable default, so this plugin listens for `session/created` and switches the preset itself:
+The permission-presets service deliberately cannot name the runtime-registered `auto` preset as its durable default, so this plugin listens for `agent/created` (the phase after a session's `session/created` announcement completes) and switches the preset itself:
 
 - New interactive sessions start on the Auto review preset (per-tool LLM authorization review).
 - A session whose effective preset already differs from the configured default (an explicit human or stored selection) is left untouched.
