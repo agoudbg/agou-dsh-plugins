@@ -17,6 +17,13 @@ window.__ModuleLoader__.load({
      * New Session button and the foot (settings) stay where they are today via
      * `position: sticky`, so nothing the user relies on disappears.
      *
+     * Column widening rides on the shipped `--dsh-sidebar-inline-padding`
+     * custom property, so the widened rows end exactly at the padding edge and
+     * never create horizontal scroll slack. The vertical anchors (sticky tops,
+     * backdrop band) match the 0.2.2-rc.1 geometry: a 60px brand row, a 38px
+     * New Session button with a 10px bottom margin (46px top offset in
+     * titlebar mode).
+     *
      * Selectors anchor on the readable suffix of the shipped CSS-module class
      * tokens (`hHd-Xa_panelList`, `bhn1Oq_list`, ...) instead of full hashed
      * names, so a rebuild that changes the hashes keeps working.
@@ -28,18 +35,16 @@ window.__ModuleLoader__.load({
          scrolls. */
       'div:has(> [class*="panelList"]):has(> [class*="regionArea"]):not([class*="collapsed"]) { overflow-y: auto !important; padding-top: 0 !important; padding-bottom: 0 !important; }',
 
-      /* Brand row pinned at the top, widened to the full column; the 4px
-         shadow band covers the seam down to the New Session button. */
+      /* Brand row pinned at the top, widened to the full column by exactly
+         the shipped inline padding; content keeps the shipped inset. */
       'div:has(> [class*="panelList"]):has(> [class*="regionArea"]):not([class*="collapsed"]) > [class*="logoRow"] {',
       '  position: sticky !important;',
       '  top: 0 !important;',
       '  z-index: 3;',
-      '  margin-left: -12px !important;',
-      '  margin-right: -12px !important;',
-      '  height: 66px !important;',
-      '  padding-top: 14px !important;',
+      '  margin-left: calc(-1 * var(--dsh-sidebar-inline-padding, 12px)) !important;',
+      '  margin-right: calc(-1 * var(--dsh-sidebar-inline-padding, 12px)) !important;',
       '  padding-left: 16px !important;',
-      '  padding-right: 12px !important;',
+      '  padding-right: var(--dsh-sidebar-inline-padding, 12px) !important;',
       '  background: var(--dsw-specific-sidebar-fill);',
       '  box-shadow: 0 4px 0 0 var(--dsw-specific-sidebar-fill);',
       '  /* the seam backdrop below is a pseudo of this row */',
@@ -47,9 +52,11 @@ window.__ModuleLoader__.load({
       '}',
       /* Opaque backdrop behind the pinned New Session button: it stacks under
          the button but over the session rows, so rows scrolling underneath
-         stay hidden, and its hairline is the line rows disappear at. */
+         stay hidden, and its hairline is the line rows disappear at. It starts
+         at the natural brand-row height (top: 100%) and covers the button
+         plus its bottom margin (38px + 10px). */
       /* The hairline shows only while scrolled: a scroll-driven animation
-         fades it in over the first pixels of scrolling. */
+          fades it in over the first pixels of scrolling. */
       '@keyframes sidebar-scroll-flow-line {',
       '  0% { border-bottom-color: transparent; }',
       '  8% { border-bottom-color: var(--dsw-alias-border-l3); }',
@@ -58,11 +65,11 @@ window.__ModuleLoader__.load({
       'div:has(> [class*="panelList"]):has(> [class*="regionArea"]):not([class*="collapsed"]) > [class*="logoRow"]::after {',
       "  content: '';",
       '  position: absolute;',
-      '  top: 70px;',
+      '  top: 100%;',
       '  left: 0;',
       '  right: 0;',
       '  box-sizing: border-box;',
-      '  height: 50px;',
+      '  height: 48px;',
       '  background: var(--dsw-specific-sidebar-fill);',
       '  border-bottom: .5px solid var(--dsw-alias-border-l3);',
       '  animation: sidebar-scroll-flow-line linear both;',
@@ -70,19 +77,20 @@ window.__ModuleLoader__.load({
       '  animation-range: 0 12px;',
       '  pointer-events: none;',
       '}',
-      /* Titlebar mode: the band starts below the 40px brand row. */
-      '[data-windows-titlebar] div:has(> [class*="panelList"]):has(> [class*="regionArea"]):not([class*="collapsed"]) > [class*="logoRow"]::after { top: 44px; height: 54px; }',
-      /* Titlebar mode keeps its own 40px brand row. */
-      '[data-windows-titlebar] div:has(> [class*="panelList"]):has(> [class*="regionArea"]):not([class*="collapsed"]) > [class*="logoRow"] { height: 40px !important; padding-top: 0 !important; padding-left: 0 !important; padding-right: 0 !important; }',
+      /* Titlebar mode keeps its own 40px brand row unwidened; the band then
+         covers the button (46px flow top, 38px + 6px top margin, 10px bottom
+         margin) down to the panel list start. */
+      '[data-windows-titlebar] div:has(> [class*="panelList"]):has(> [class*="regionArea"]):not([class*="collapsed"]) > [class*="logoRow"] { margin-left: 0 !important; margin-right: 0 !important; padding-left: 0 !important; padding-right: 0 !important; }',
+      '[data-windows-titlebar] div:has(> [class*="panelList"]):has(> [class*="regionArea"]):not([class*="collapsed"]) > [class*="logoRow"]::after { height: 54px; }',
 
-      /* New Session button pinned right below the brand row. */
+      /* New Session button pinned right below the brand row (its natural 60px
+         height, 46px in titlebar mode: 40px row + 6px button margin-top). */
       'div:has(> [class*="panelList"]):has(> [class*="regionArea"]):not([class*="collapsed"]) > [class*="newSession"] {',
       '  position: sticky !important;',
-      '  top: 70px !important;',
+      '  top: 60px !important;',
       '  z-index: 3;',
       '}',
-      /* Titlebar mode: the button starts below the 40px brand row. */
-      '[data-windows-titlebar] div:has(> [class*="panelList"]):has(> [class*="regionArea"]):not([class*="collapsed"]) > [class*="newSession"] { top: 48px !important; }',
+      '[data-windows-titlebar] div:has(> [class*="panelList"]):has(> [class*="regionArea"]):not([class*="collapsed"]) > [class*="newSession"] { top: 46px !important; }',
 
       /* The browsing region sizes to its content instead of clipping it. */
       '[class*="regionArea"] { flex: none !important; overflow: visible !important; }',
@@ -103,10 +111,10 @@ window.__ModuleLoader__.load({
       '  position: sticky !important;',
       '  bottom: 0 !important;',
       '  z-index: 3;',
-      '  margin-left: -12px !important;',
-      '  margin-right: -12px !important;',
-      '  padding-left: 12px !important;',
-      '  padding-right: 12px !important;',
+      '  margin-left: calc(-1 * var(--dsh-sidebar-inline-padding, 12px)) !important;',
+      '  margin-right: calc(-1 * var(--dsh-sidebar-inline-padding, 12px)) !important;',
+      '  padding-left: var(--dsh-sidebar-inline-padding, 12px) !important;',
+      '  padding-right: var(--dsh-sidebar-inline-padding, 12px) !important;',
       '  padding-bottom: 6px !important;',
       '  background: var(--dsw-specific-sidebar-fill);',
       '}',

@@ -10,7 +10,7 @@ The shipped layout keeps the global panel rows (Temporary tasks, Plugins, Automa
 - The collapsed rail keeps its own layout and never scrolls.
 - Windows titlebar mode keeps its shorter 40px brand row, with pinned offsets adjusted.
 
-The plugin is a style-only overlay: selectors anchor on the readable suffixes of the shipped CSS-module class tokens (`..._panelList`, `..._regionArea`, ...), so rebuilds that change the hashes keep working. A DSH update that renames those class suffixes or restructures the sidebar needs the style sheet updated.
+The plugin is a style-only overlay: selectors anchor on the readable suffixes of the shipped CSS-module class tokens (`..._panelList`, `..._regionArea`, ...), so rebuilds that change the hashes keep working. Column widening rides on the shipped `--dsh-sidebar-inline-padding` custom property. The vertical pin offsets and backdrop band are tuned to the 0.2.2-rc.1 sidebar geometry (60px brand row, 38px New Session button); a DSH update that renames those class suffixes or restructures the sidebar needs the style sheet updated.
 
 ## Requirements
 
