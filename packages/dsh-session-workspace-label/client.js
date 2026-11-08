@@ -14,6 +14,13 @@ window.__ModuleLoader__.load({
     // their hover behavior. Remove idle buttons from layout: invisible buttons
     // in a zero-width strip still contribute overflow to ancestor scrollports.
     // Scope layout changes to rows containing our label.
+    // DSH 0.2.2-rc.1 wraps the quick actions in span.rowQuickActions between
+    // rowActions and the row.action slot anchor, so the resting rules must
+    // reach through that wrapper while still matching the pre-rc.1 layout.
+    // rc.1 also hides every non-pinned occupant under that wrapper with an
+    // unconditional rule (specificity 0,4,0), so the resting display rule for
+    // the label must carry a higher specificity to win the cascade.
+    const RESTING = `${ROW}:not(:hover):not([class*="_menuOpen"]) > [class*="_rowActions"]`;
     const CSS = `
 .${LABEL} { display: none; }
 ${ROW} {
@@ -26,11 +33,13 @@ ${ROW} {
 ${ROW} > [class*="_rowActions"] {
   display: inline-flex;
 }
-${ROW}:not(:hover):not([class*="_menuOpen"]) > [class*="_rowActions"] > :not([data-slot="${SLOT}"]),
-${ROW}:not(:hover):not([class*="_menuOpen"]) > [class*="_rowActions"] > [data-slot="${SLOT}"] > :not(.${LABEL}) {
+${RESTING} > :not([class*="_rowQuickActions"]):not([data-slot="${SLOT}"]),
+${RESTING} > [data-slot="${SLOT}"] > :not(.${LABEL}),
+${RESTING} > [class*="_rowQuickActions"] [data-slot="${SLOT}"] > :not(.${LABEL}) {
   display: none;
 }
-${ROW} .${LABEL} {
+${ROW} .${LABEL},
+${RESTING} > [class*="_rowQuickActions"] [data-slot="${SLOT}"] > .${LABEL} {
   position: absolute;
   inset-inline: 28px 8px;
   bottom: 4px;
