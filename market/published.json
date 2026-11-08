@@ -109,6 +109,11 @@
       "name": "@agou/dsh-worktrees",
       "version": "1.0.2",
       "publishTimestamp": 1794135185
+    },
+    {
+      "name": "dsh-sidebar-scroll-flow",
+      "version": "1.0.2",
+      "publishTimestamp": 1794141089
     }
   ]
 }
