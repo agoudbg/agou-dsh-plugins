@@ -5,6 +5,7 @@ window.__ModuleLoader__.load({
     const h = React.createElement;
     const NS = 'session-grouping-bell';
     const SLOT = 'sidebar.workspaces';
+    const FOOTER_SLOT = 'sidebar.footer.action';
     const PREFIX = 'dsh-session-grouping-bell';
     const STORAGE_KEY = `${PREFIX}:last-grouped:v1`;
     const isGrouped = (mode) => mode === 'workspace' || mode === 'workspace-tree';
@@ -127,6 +128,8 @@ span:has(> .${PREFIX}-heading):not([class*="sectionLabelHidden"]) {
         }));
         const translate = ctx.locale.bind(NS);
         const wrappers = new WeakSet();
+        const subscribeNone = () => () => {};
+        const viewRef = { current: undefined };
         let lastGrouped = readLastGrouped();
 
         function remember(mode) {
@@ -137,6 +140,16 @@ span:has(> .${PREFIX}-heading):not([class*="sectionLabelHidden"]) {
           } catch (error) {
             console.warn(`[${PREFIX}] Could not save grouping; keeping it for this page:`, error);
           }
+        }
+
+        // One toggle for both seats; it always reads the browser's live view
+        // store handle so a re-registered browser cannot leave a stale closure.
+        function toggle() {
+          const view = viewRef.current;
+          if (view === undefined) return;
+          const mode = view.getSnapshot().groupBy;
+          remember(mode);
+          view.actions.setGroupBy(mode === 'flat' ? lastGrouped ?? 'workspace' : 'flat');
         }
 
         function BellButton({ flat, hint, tooltip, onClick, useSessions, useSessionStatus, useWorkspaces }) {
@@ -160,11 +173,13 @@ span:has(> .${PREFIX}-heading):not([class*="sectionLabelHidden"]) {
           const button = h('button', {
             type: 'button', className: `${PREFIX}-button`,
             'aria-label': label, 'aria-pressed': flat, onClick,
+            title: tooltip === undefined ? hint : undefined,
           }, bell, attention === undefined ? null : h('svg', {
             className: `${PREFIX}-badge ${PREFIX}-badge-${attention}`,
             width: 10, height: 10, viewBox: '0 0 10 10',
             'aria-hidden': true, focusable: false,
           }, h('circle', { cx: 5, cy: 5, r: 3, fill: 'currentColor' })));
+          if (tooltip === undefined) return button;
           return h(tooltip.type, {
             label: hint,
             side: tooltip.props.side,
@@ -173,16 +188,47 @@ span:has(> .${PREFIX}-heading):not([class*="sectionLabelHidden"]) {
           }, button);
         }
 
+        // Fallback seat for DSH builds that forbid re-declaring the browser's
+        // child slots: the footer receives the framework's standard Hooks, and
+        // the grouping state rides the browser's own view store handle.
+        function FooterBell(props) {
+          const view = viewRef.current;
+          const flat = React.useSyncExternalStore(
+            view === undefined ? subscribeNone : view.subscribe,
+            () => view !== undefined && view.getSnapshot().groupBy === 'flat');
+          if (view === undefined) return null;
+          const hint = translate(!flat ? 'showFlat'
+            : lastGrouped === 'workspace-tree' ? 'showWorkspaceTree' : 'showWorkspace');
+          return h(BellButton, {
+            flat, hint, onClick: toggle,
+            useSessions: props.useSessions,
+            useSessionStatus: props.useSessionStatus,
+            useWorkspaces: props.useWorkspaces,
+          });
+        }
+
         ctx.slots.inject(SLOT, () => {
           let source;
           let disposeEntry;
+          let disposeFooter;
           let syncing = false;
           let warned = false;
+          let headerUnsupported = false;
 
           function dispose() {
             disposeEntry?.();
             disposeEntry = undefined;
             source = undefined;
+          }
+
+          function installFooter() {
+            if (disposeFooter !== undefined) return;
+            disposeFooter = ctx.slots.register({
+              name: FOOTER_SLOT,
+              id: 'session-grouping-bell',
+              order: 100,
+              locale: NS,
+            }, FooterBell);
           }
 
           function sync() {
@@ -210,71 +256,84 @@ span:has(> .${PREFIX}-heading):not([class*="sectionLabelHidden"]) {
                 throw new Error('The workspace browser has no setGroupBy action.');
               }
               source = entry;
+              viewRef.current = view;
               if (lastGrouped === undefined) remember(view.getSnapshot().groupBy);
-              const toggle = () => {
-                const mode = view.getSnapshot().groupBy;
-                remember(mode);
-                view.actions.setGroupBy(mode === 'flat' ? lastGrouped ?? 'workspace' : 'flat');
-              };
-              const Browser = entry.component;
 
-              function BrowserWithBell(props) {
-                const flat = props.useStore((state) => state.groupBy === 'flat');
-                // rc.5 exposes the entire browser as one slot. Delegate its
-                // render unconditionally so its Hooks stay on the same fiber,
-                // then decorate only its heading element. Translations remain
-                // strings, including the tree's accessible name.
-                const tree = Browser({
-                  ...props,
-                  actions: {
-                    ...props.actions,
-                    setGroupBy(mode) {
-                      remember(mode);
-                      props.actions.setGroupBy(mode);
+              // Preferred seat: wrap the browser and decorate its heading.
+              // DSH builds whose slots forbid re-declaring an entry's children
+              // reject the wrapper registration; fall back to the footer seat
+              // instead of crashing the contribution.
+              let decorate = !headerUnsupported;
+              if (decorate) {
+                const Browser = entry.component;
+
+                function BrowserWithBell(props) {
+                  const flat = props.useStore((state) => state.groupBy === 'flat');
+                  // rc.5 exposes the entire browser as one slot. Delegate its
+                  // render unconditionally so its Hooks stay on the same fiber,
+                  // then decorate only its heading element. Translations remain
+                  // strings, including the tree's accessible name.
+                  const tree = Browser({
+                    ...props,
+                    actions: {
+                      ...props.actions,
+                      setGroupBy(mode) {
+                        remember(mode);
+                        props.actions.setGroupBy(mode);
+                      },
                     },
-                  },
-                });
-                if (!props.wide) return tree;
-                const children = React.Children.toArray(tree.props.children);
-                const header = children[0];
-                const headerChildren = React.Children.toArray(header.props.children);
-                const heading = headerChildren[0];
-                if (!React.isValidElement(heading) || heading.type !== 'span') {
-                  throw new Error('Unsupported workspace browser header.');
+                  });
+                  if (!props.wide) return tree;
+                  const children = React.Children.toArray(tree.props.children);
+                  const header = children[0];
+                  const headerChildren = React.Children.toArray(header.props.children);
+                  const heading = headerChildren[0];
+                  if (!React.isValidElement(heading) || heading.type !== 'span') {
+                    throw new Error('Unsupported workspace browser header.');
+                  }
+                  const tooltip = findHeaderTooltip(headerChildren[1]);
+                  if (tooltip === undefined) {
+                    throw new Error('Unsupported workspace browser tooltip.');
+                  }
+                  const hint = translate(!flat ? 'showFlat'
+                    : lastGrouped === 'workspace-tree' ? 'showWorkspaceTree' : 'showWorkspace');
+                  headerChildren[0] = React.cloneElement(heading, {},
+                    h('span', { className: `${PREFIX}-heading` },
+                      h('span', { className: `${PREFIX}-label` }, heading.props.children),
+                      h(BellButton, {
+                        flat, hint, tooltip, onClick: toggle,
+                        useSessions: props.useSessions,
+                        useSessionStatus: props.useSessionStatus,
+                        useWorkspaces: props.useWorkspaces,
+                      })));
+                  children[0] = React.cloneElement(header, {}, headerChildren);
+                  return h(React.Fragment, null,
+                    h('style', { 'data-plugin': PREFIX }, CSS),
+                    React.cloneElement(tree, {}, children));
                 }
-                const tooltip = findHeaderTooltip(headerChildren[1]);
-                if (tooltip === undefined) {
-                  throw new Error('Unsupported workspace browser tooltip.');
-                }
-                const hint = translate(!flat ? 'showFlat'
-                  : lastGrouped === 'workspace-tree' ? 'showWorkspaceTree' : 'showWorkspace');
-                headerChildren[0] = React.cloneElement(heading, {},
-                  h('span', { className: `${PREFIX}-heading` },
-                    h('span', { className: `${PREFIX}-label` }, heading.props.children),
-                    h(BellButton, {
-                      flat, hint, tooltip, onClick: toggle,
-                      useSessions: props.useSessions,
-                      useSessionStatus: props.useSessionStatus,
-                      useWorkspaces: props.useWorkspaces,
-                    })));
-                children[0] = React.cloneElement(header, {}, headerChildren);
-                return h(React.Fragment, null,
-                  h('style', { 'data-plugin': PREFIX }, CSS),
-                  React.cloneElement(tree, {}, children));
-              }
 
-              wrappers.add(BrowserWithBell);
-              disposeEntry = ctx.slots.register({
-                name: SLOT,
-                priority: (entry.options.priority ?? 0) - 1,
-                children: entry.children,
-                store: entry.store,
-                inject: entry.inject,
-                locale: entry.locale,
-              }, BrowserWithBell);
+                wrappers.add(BrowserWithBell);
+                try {
+                  disposeEntry = ctx.slots.register({
+                    name: SLOT,
+                    priority: (entry.options.priority ?? 0) - 1,
+                    children: entry.children,
+                    store: entry.store,
+                    inject: entry.inject,
+                    locale: entry.locale,
+                  }, BrowserWithBell);
+                } catch (error) {
+                  disposeEntry = undefined;
+                  source = undefined;
+                  decorate = false;
+                  headerUnsupported = true;
+                  console.warn(`[${PREFIX}] The workspace header cannot be decorated on this DSH; placing the bell in the sidebar footer:`, error);
+                }
+              }
+              if (!decorate) installFooter();
             } catch (error) {
               dispose();
-              throw error;
+              console.warn(`[${PREFIX}] Could not attach the grouping bell; retrying on the next slot change:`, error);
             } finally {
               syncing = false;
             }
@@ -287,6 +346,7 @@ span:has(> .${PREFIX}-heading):not([class*="sectionLabelHidden"]) {
           return () => {
             unsubscribe();
             dispose();
+            disposeFooter?.();
           };
         });
       },
