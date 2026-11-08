@@ -62,15 +62,23 @@ window.__ModuleLoader__.load({
 .${PREFIX}-rowIcon { flex: none; }
 .${PREFIX}-rowInfo { display: none; }
 ${ROW} > [class*="_rowActions"] { display: inline-flex; }
-${ROW}:not(:hover):not([class*="_menuOpen"]) > [class*="_rowActions"] > :not([data-slot="${ACTION_SLOT}"]),
-${ROW}:not(:hover):not([class*="_menuOpen"]) > [class*="_rowActions"] > [data-slot="${ACTION_SLOT}"] > :not(.${MARKER}):not(.dsh-session-workspace-label) { display: none; }
+/* DSH 0.2.2-rc.1 wraps the quick actions in span.rowQuickActions between
+   rowActions and the row.action slot anchor, so the resting rules must
+   reach through that wrapper while still matching the pre-rc.1 layout. */
+${ROW}:not(:hover):not([class*="_menuOpen"]) > [class*="_rowActions"] > :not([class*="_rowQuickActions"]):not([data-slot="${ACTION_SLOT}"]),
+${ROW}:not(:hover):not([class*="_menuOpen"]) > [class*="_rowActions"] > [data-slot="${ACTION_SLOT}"] > :not(.${MARKER}):not(.dsh-session-workspace-label),
+${ROW}:not(:hover):not([class*="_menuOpen"]) > [class*="_rowActions"] > [class*="_rowQuickActions"] [data-slot="${ACTION_SLOT}"] > :not(.${MARKER}):not(.dsh-session-workspace-label) { display: none; }
 ${FLAT_ROW} { position: relative; box-sizing: border-box; height: 48px; padding-top: 4px; padding-bottom: 24px; }
 ${FLAT_ROW} .${MARKER} { position: absolute; inset-inline: 28px 8px; bottom: 4px; width: auto; height: 17px; justify-content: flex-start; gap: 4px; min-width: 0; color: var(--dsw-alias-label-tertiary); font-size: 12px; line-height: 17px; font-weight: 400; }
 ${FLAT_ROW} .${PREFIX}-rowInfo { display: block; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 ${FLAT_ROW}:has(.dsh-session-workspace-label) { height: 65px; padding-bottom: 41px; }
-${FLAT_ROW} .dsh-session-workspace-label { bottom: 21px; }
+/* The workspace-label plugin's resting display rules carry specificity up to
+   (0,9,0), so the coexistence overrides must exceed that to win the cascade. */
+${FLAT_ROW} .dsh-session-workspace-label.dsh-session-workspace-label:has(+ .${MARKER}) { bottom: 21px; }
+${FLAT_ROW}:not(:hover):not([class*="_menuOpen"]) > [class*="_rowActions"] > [class*="_rowQuickActions"] [data-slot="${ACTION_SLOT}"] > .dsh-session-workspace-label:has(+ .${MARKER}) { bottom: 21px; }
 /* The workspace-label plugin hides other action children at rest. Override only our marker. */
-${FLAT_ROW}:not(:hover):not([class*="_menuOpen"]) > [class*="_rowActions"] > [data-slot="${ACTION_SLOT}"] > .${MARKER}.${MARKER} { display: inline-flex; }
+${FLAT_ROW}:not(:hover):not([class*="_menuOpen"]) > [class*="_rowActions"] > [data-slot="${ACTION_SLOT}"] > .${MARKER}.${MARKER},
+${FLAT_ROW}:not(:hover):not([class*="_menuOpen"]) > [class*="_rowActions"] > [class*="_rowQuickActions"] [data-slot="${ACTION_SLOT}"] > .${MARKER}.${MARKER} { display: inline-flex; }
 @media (max-width: 600px) {
   .${PREFIX}-setting { align-items: stretch; flex-direction: column; gap: 12px; }
   .${PREFIX}-field { width: 100%; }
