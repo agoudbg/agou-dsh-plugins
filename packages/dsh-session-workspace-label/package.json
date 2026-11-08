@@ -1,6 +1,6 @@
 {
   "name": "dsh-session-workspace-label",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Displays workspace names by group in single-list mode.",
   "type": "module",
   "license": "MIT",
