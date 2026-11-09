@@ -1,0 +1,33 @@
+name: Artwork
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  refresh:
+    # A commit this job pushed regenerates nothing new, so skip it instead of
+    # paying for a second run.
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # commit the regenerated banner back to main
+    concurrency:
+      group: artwork-refresh
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: corepack enable
+      - name: Install toolchain dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Regenerate banner artwork
+        run: node scripts/refresh-artwork.mjs --commit

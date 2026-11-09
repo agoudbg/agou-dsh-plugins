@@ -13,6 +13,8 @@ pnpm artwork:generate
 pnpm artwork:compare --reference .tmp/artwork/reference/powertoys.png
 ```
 
+CI regenerates the banner after a push to `main`; see [Continuous integration](#continuous-integration). The local generator remains the way to preview a change before pushing.
+
 The comparison command requires a local reference PNG supplied with `--reference`. Reference images and comparison outputs are excluded from version control. Generating the banner and icon does not require a reference image.
 
 The scripts use Node 22 and pinned `@resvg/resvg-js`, `@xmldom/xmldom`, `pngjs`, and `pixelmatch` versions. Rendering uses no browser, system fonts, network assets, or raster images embedded in the generated SVGs.
@@ -42,7 +44,18 @@ With the existing nine icons, 25 surrounding cards give each icon two or three a
 
 Run `pnpm artwork:test` to check adjacency boundaries, 100 seeds for nine icons, input-order independence, balanced layouts with five through thirty icons, and invalid inputs.
 
-The same inputs and seed produce byte-identical SVG and PNG files. There is no clock-based randomness. [layout.json](assets/brand/layout.json) records the seed, input hashes, assignments, counts, and main-card placement. Run the generator again after changing plugin icons.
+The same inputs and seed produce byte-identical SVG and PNG files. There is no clock-based randomness. Rendering is also identical across operating systems, so a regenerated file never produces a spurious diff. [layout.json](assets/brand/layout.json) records the seed, input hashes, assignments, counts, and main-card placement.
+
+## Continuous integration
+
+The [Artwork workflow](../.github/workflows/artwork.yml) regenerates the banner on every push to `main` and commits the result when plugin icons changed, so the banner does not drift from `packages/*/icon.svg`. It runs `node scripts/refresh-artwork.mjs --commit`:
+
+```sh
+node scripts/refresh-artwork.mjs            # regenerate and report what changed
+node scripts/refresh-artwork.mjs --commit    # also commit as github-actions[bot] and push
+```
+
+The job is skipped on the push its own commit creates, and a push that loses a race is regenerated on top of the new tip rather than forced. `--commit` refuses to start when the worktree has changes outside `docs/assets/brand`, because recovering from a lost race resets to `origin/main`. Run the plain form locally to preview the banner after changing a plugin icon.
 
 ## Geometry and appearance
 
