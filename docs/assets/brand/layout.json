@@ -22,6 +22,11 @@
       "sha256": "76c1926d3435eebc3160136101f7fdbf667e9a6b77504f3cfb41a0480f19aa36"
     },
     {
+      "name": "dsh-menu-search",
+      "source": "packages/dsh-menu-search/icon.svg",
+      "sha256": "64cd0f2135db45697b05853f971d54ea9e9042e7e4d03522f76cc3b4512f5de4"
+    },
+    {
       "name": "dsh-model-effort-memory",
       "source": "packages/dsh-model-effort-memory/icon.svg",
       "sha256": "d9477cf23c5e06850d58372f657f7b04621b88bab99c77afa93c8fc00e45e172"
@@ -68,49 +73,49 @@
       "y": 14,
       "width": 68,
       "height": 68,
-      "plugin": "dsh-plugin-installed-order"
+      "plugin": "dsh-menu-search"
     },
     {
       "x": 230,
       "y": -33,
       "width": 68,
       "height": 68,
-      "plugin": "dsh-model-effort-memory"
+      "plugin": "dsh-session-workspace-label"
     },
     {
       "x": 230,
       "y": 61,
       "width": 68,
       "height": 68,
-      "plugin": "dsh-session-workspace-label"
+      "plugin": "dsh-sidebar-scroll-flow"
     },
     {
       "x": 324,
       "y": 14,
       "width": 68,
       "height": 68,
-      "plugin": "dsh-pasted-text-file"
+      "plugin": "dsh-auto-permission-default"
     },
     {
       "x": 324,
       "y": 108,
       "width": 68,
       "height": 68,
-      "plugin": "dsh-sidebar-scroll-flow"
+      "plugin": "dsh-pasted-text-file"
     },
     {
       "x": 418,
       "y": -33,
       "width": 68,
       "height": 68,
-      "plugin": "dsh-auto-permission-default"
+      "plugin": "dsh-session-grouping-bell"
     },
     {
       "x": 418,
       "y": 61,
       "width": 68,
       "height": 68,
-      "plugin": "dsh-session-grouping-bell"
+      "plugin": "dsh-model-effort-memory"
     },
     {
       "x": 418,
@@ -145,7 +150,7 @@
       "y": -49,
       "width": 68,
       "height": 68,
-      "plugin": "dsh-session-grouping-bell"
+      "plugin": "dsh-plugin-installed-order"
     },
     {
       "x": 606,
@@ -159,7 +164,7 @@
       "y": 139,
       "width": 68,
       "height": 68,
-      "plugin": "dsh-session-workspace-label"
+      "plugin": "dsh-menu-search"
     },
     {
       "x": 700,
@@ -173,56 +178,56 @@
       "y": 108,
       "width": 68,
       "height": 68,
-      "plugin": "dsh-auto-permission-default"
+      "plugin": "dsh-session-grouping-bell"
     },
     {
       "x": 700,
       "y": 202,
       "width": 68,
       "height": 68,
-      "plugin": "dsh-session-grouping-bell"
+      "plugin": "dsh-auto-permission-default"
     },
     {
       "x": 794,
       "y": -33,
       "width": 68,
       "height": 68,
-      "plugin": "dsh-session-workspace-label"
+      "plugin": "dsh-pasted-text-file"
     },
     {
       "x": 794,
       "y": 61,
       "width": 68,
       "height": 68,
-      "plugin": "dsh-model-effort-memory"
+      "plugin": "dsh-session-workspace-label"
     },
     {
       "x": 794,
       "y": 155,
       "width": 68,
       "height": 68,
-      "plugin": "dsh-pasted-text-file"
+      "plugin": "dsh-plugin-installed-order"
     },
     {
       "x": 888,
       "y": 14,
       "width": 68,
       "height": 68,
-      "plugin": "dsh-worktrees"
+      "plugin": "dsh-model-effort-memory"
     },
     {
       "x": 888,
       "y": 108,
       "width": 68,
       "height": 68,
-      "plugin": "dsh-plugin-installed-order"
+      "plugin": "dsh-worktrees"
     },
     {
       "x": 982,
       "y": -33,
       "width": 68,
       "height": 68,
-      "plugin": "dsh-auto-permission-default"
+      "plugin": "dsh-session-grouping-bell"
     },
     {
       "x": 982,
@@ -240,13 +245,14 @@
     }
   ],
   "counts": {
-    "dsh-auto-permission-default": 3,
+    "dsh-auto-permission-default": 2,
+    "dsh-menu-search": 2,
     "dsh-model-effort-memory": 2,
     "dsh-pasted-text-file": 2,
     "dsh-plugin-installed-order": 3,
     "dsh-scrollbar-edge-hit": 3,
     "dsh-session-grouping-bell": 3,
-    "dsh-session-workspace-label": 3,
+    "dsh-session-workspace-label": 2,
     "dsh-sidebar-scroll-flow": 3,
     "dsh-worktrees": 3
   }
