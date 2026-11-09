@@ -1,0 +1,47 @@
+{
+  "name": "dsh-menu-search",
+  "version": "1.0.0",
+  "description": "Adds a search field to the DSH Web UI workspace, work mode, and branch menus.",
+  "type": "module",
+  "license": "MIT",
+  "author": "agoudbg",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agoudbg/agou-dsh-plugins.git",
+    "directory": "packages/dsh-menu-search"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "web-ui",
+    "menu",
+    "search"
+  ],
+  "engines": {
+    "dsh": ">=0.2.1-rc.5"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": ["@deepseek-ai/dsh-client-ui-layout"]
+    }
+  }
+}

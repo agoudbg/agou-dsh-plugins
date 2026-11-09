@@ -23,6 +23,9 @@
 <img src="packages/dsh-auto-permission-default/icon.svg#svgView(viewBox(6.5,6.5,31.625,28.75))" alt="自动审查默认权限图标" width="22" height="20" align="absmiddle" />**[自动审查默认权限](packages/dsh-auto-permission-default)**<br>
 <sub>让每个新建交互会话默认使用“自动审查”权限预设。</sub>
 
+<img src="packages/dsh-menu-search/icon.svg#svgView(viewBox(6.4,6.4,30.25,27.5))" alt="菜单搜索图标" width="22" height="20" align="absmiddle" />**[菜单搜索](packages/dsh-menu-search)**<br>
+<sub>为工作区、工作模式和分支菜单添加搜索框。</sub>
+
 <img src="packages/dsh-model-effort-memory/icon.svg#svgView(viewBox(7.5,7.5,30.25,27.5))" alt="记住模型推理强度图标" width="22" height="20" align="absmiddle" />**[记住模型推理强度](packages/dsh-model-effort-memory)**<br>
 <sub>切换模型时恢复每个模型上次选择的推理强度。</sub>
 

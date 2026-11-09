@@ -23,6 +23,9 @@ DSH (DeepSeek Harness) plugins by [agoudbg](https://github.com/agoudbg).
 <img src="packages/dsh-auto-permission-default/icon.svg#svgView(viewBox(6.5,6.5,31.625,28.75))" alt="Auto Permission Default icon" width="22" height="20" align="absmiddle" />**[Auto Permission Default](packages/dsh-auto-permission-default)**<br>
 <sub>Selects the Auto review permission preset for every new interactive session.</sub>
 
+<img src="packages/dsh-menu-search/icon.svg#svgView(viewBox(6.4,6.4,30.25,27.5))" alt="Menu Search icon" width="22" height="20" align="absmiddle" />**[Menu Search](packages/dsh-menu-search)**<br>
+<sub>Adds a search field to the workspace, work mode, and branch menus.</sub>
+
 <img src="packages/dsh-model-effort-memory/icon.svg#svgView(viewBox(7.5,7.5,30.25,27.5))" alt="Remember Model Effort icon" width="22" height="20" align="absmiddle" />**[Remember Model Effort](packages/dsh-model-effort-memory)**<br>
 <sub>Keeps each model's last selected reasoning effort when switching models.</sub>
 
