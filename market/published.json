@@ -114,6 +114,11 @@
       "name": "dsh-sidebar-scroll-flow",
       "version": "1.0.2",
       "publishTimestamp": 1794141089
+    },
+    {
+      "name": "dsh-menu-search",
+      "version": "1.0.0",
+      "publishTimestamp": 1794217684
     }
   ]
 }

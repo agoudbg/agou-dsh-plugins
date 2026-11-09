@@ -96,12 +96,9 @@
       "versions": [
         {
           "version": "1.0.0",
-          "publishTimestamp": 1794216654,
+          "publishTimestamp": 1794217684,
           "source": {
-            "type": "git",
-            "url": "https://github.com/agoudbg/agou-dsh-plugins",
-            "commit": "bb38f5f73ed78d5512df4a6d7f24624efa339aac",
-            "path": "packages/dsh-menu-search"
+            "type": "npm"
           },
           "engines": {
             "dsh": ">=0.2.1-rc.5"
