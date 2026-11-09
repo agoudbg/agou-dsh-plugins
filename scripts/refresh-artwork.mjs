@@ -7,6 +7,7 @@ import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
+import { parsePorcelainZ, pathsOutside } from './artwork/worktree.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const ARTWORK_DIR = 'docs/assets/brand';
@@ -83,16 +84,6 @@ function generate() {
   run(process.execPath, [path.join(root, 'scripts/generate-artwork.mjs')]);
 }
 
-// Porcelain entries look like " M path" or "R  from -> path"; compare the
-// resolved target path so renames into or out of the artwork directory count.
-function changedPaths(args) {
-  return capture('git', ['status', '--porcelain', '-z', ...args])
-    .split('\0')
-    .filter(Boolean)
-    .map((entry) => entry.slice(3))
-    .filter((entry) => !entry.includes(' -> '));
-}
-
 function describeChanges() {
   return capture('git', ['status', '--porcelain', '--', ARTWORK_DIR])
     .split('\n')
@@ -101,8 +92,8 @@ function describeChanges() {
 }
 
 function requireCleanWorktree() {
-  const dirty = changedPaths(['--untracked-files=all'])
-    .filter((file) => path.posix.dirname(file) !== ARTWORK_DIR);
+  const output = capture('git', ['status', '--porcelain', '-z', '--untracked-files=all']);
+  const dirty = pathsOutside(parsePorcelainZ(output), ARTWORK_DIR);
   if (dirty.length > 0) {
     throw new Error(
       `--commit requires every change outside ${ARTWORK_DIR} to be committed first; uncommitted:\n` +
