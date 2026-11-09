@@ -19,6 +19,12 @@ jobs:
       - run: corepack enable
       - name: Install toolchain dependencies
         run: pnpm install --frozen-lockfile
+      # --frozen-lockfile still rewrites the lockfile when the workspace package
+      # set drifts (it adds an empty importer for a package with no deps), and it
+      # exits 0 while doing so. A dirty lockfile here means a package was added
+      # without committing that entry, which also breaks the artwork refresh.
+      - name: Check lockfile is committed
+        run: git diff --exit-code -- pnpm-lock.yaml
       - name: Check packages
         run: node scripts/check-packages.mjs
       - name: Check market index
