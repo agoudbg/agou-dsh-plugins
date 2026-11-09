@@ -26,6 +26,8 @@ importers:
 
   packages/dsh-auto-permission-default: {}
 
+  packages/dsh-menu-search: {}
+
   packages/dsh-model-effort-memory: {}
 
   packages/dsh-pasted-text-file: {}
