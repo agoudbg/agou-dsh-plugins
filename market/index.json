@@ -65,6 +65,51 @@
       ]
     },
     {
+      "name": "dsh-menu-search",
+      "title": {
+        "en": "Menu Search",
+        "zh": "菜单搜索"
+      },
+      "description": {
+        "en": "Adds a search field to the workspace, work mode, and branch menus.",
+        "zh": "为工作区、工作模式和分支菜单添加搜索框。"
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzYiIGhlaWdodD0iMzYiIHZpZXdCb3g9IjAgMCAzNiAzNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cGF0aCBkPSJNMjAuOTYgMjAuOTZMMjcuNSAyNy41IiBzdHJva2U9IiM2NThFRkYiIHN0cm9rZS13aWR0aD0iMy40IiBzdHJva2UtbGluZWNhcD0icm91bmQiIC8+CiAgPGNpcmNsZSBjeD0iMTUuMyIgY3k9IjE1LjMiIHI9IjgiIGZpbGw9InVybCgjbWVudS1zZWFyY2gtbGVucykiIC8+CiAgPHBhdGggZD0iTTExLjQgMTIuNEgxOS42IiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iMS45IiBzdHJva2UtbGluZWNhcD0icm91bmQiIC8+CiAgPHBhdGggZD0iTTExLjQgMTguMkgxNi40IiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iMS45IiBzdHJva2UtbGluZWNhcD0icm91bmQiIC8+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9Im1lbnUtc2VhcmNoLWxlbnMiIHgxPSI3LjMiIHkxPSI3LjMiIHgyPSIyMy4zIiB5Mj0iMjMuMyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjNkZCNkZGIiAvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNTUiIHN0b3AtY29sb3I9IiM1NTc3RjIiIC8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzRBNUJEOCIgLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgo8L3N2Zz4K",
+      "author": "agoudbg",
+      "homepage": "https://github.com/agoudbg/agou-dsh-plugins#readme",
+      "repository": {
+        "url": "https://github.com/agoudbg/agou-dsh-plugins",
+        "directory": "packages/dsh-menu-search"
+      },
+      "metadata": {
+        "keywords": [
+          "dsh",
+          "dsh-plugin",
+          "deepseek-harness",
+          "web-ui",
+          "menu",
+          "search"
+        ],
+        "labels": [],
+        "sortKeys": {}
+      },
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishTimestamp": 1794216654,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/agoudbg/agou-dsh-plugins",
+            "commit": "bb38f5f73ed78d5512df4a6d7f24624efa339aac",
+            "path": "packages/dsh-menu-search"
+          },
+          "engines": {
+            "dsh": ">=0.2.1-rc.5"
+          }
+        }
+      ]
+    },
+    {
       "name": "dsh-model-effort-memory",
       "title": {
         "en": "Remember Model Effort",
