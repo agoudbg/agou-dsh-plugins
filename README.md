@@ -78,7 +78,7 @@ as an index source in your DSH plugin market settings to browse and install thes
 
 ## Development
 
-Regenerate the banner and icon with `pnpm artwork:generate`. To compare a local reference image, run `pnpm artwork:compare --reference <path-to-reference.png>`. Comparison outputs stay in `.tmp/artwork/qa`. See [artwork generation](docs/artwork.md) for the repeat policy and output files.
+Regenerate the banner and icon with `pnpm artwork:generate`. CI regenerates the banner on every push to `main` and commits the result, so a plugin icon change never leaves the banner stale. To compare a local reference image, run `pnpm artwork:compare --reference <path-to-reference.png>`. Comparison outputs stay in `.tmp/artwork/qa`. See [artwork generation](docs/artwork.md) for the repeat policy and output files.
 
 This repository is a pnpm workspace:
 

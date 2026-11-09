@@ -6,8 +6,8 @@ This is a pnpm workspace of self-contained DSH (DeepSeek Harness) plugin bundles
 
 - `packages/<name>/` — one installable plugin per directory: `index.js` (host entry), optional `client.js` (web-side module), `cordis.patch.yml`, `locale/en.json` and `locale/zh.json`, `icon.svg`, `README.md`, `LICENSE`, `package.json`.
 - `market/index.json` — generated plugin market index; never edit it by hand.
-- `scripts/` — package validation, market index generation, and publish automation.
-- `.github/workflows/` — CI checks, npm publish, and the PR version guard.
+- `scripts/` — package validation, market index generation, artwork generation, and publish automation.
+- `.github/workflows/` — CI checks, npm publish, the PR version guard, and the banner artwork refresh.
 
 ## Build, Test, and Development Commands
 
@@ -17,6 +17,7 @@ There is no build step; plugins are plain ESM JavaScript. Use Node 22 and pnpm v
 - `node scripts/check-packages.mjs` — validate manifests, exports, entry syntax, and `npm pack` contents of every package.
 - `node scripts/check-market-index.mjs` — verify `market/index.json` matches the packages.
 - `node scripts/build-market-index.mjs` — regenerate the market index locally.
+- `node scripts/generate-artwork.mjs` — regenerate the banner and icon artwork; `node scripts/refresh-artwork.mjs` also reports drift from the committed plugin icons.
 
 To try a change, reinstall the package directory into a DSH profile with `dsh plugin --profile <profile> add <path>`.
 
