@@ -1,6 +1,6 @@
-# ![](icon.svg) 已安装插件优先
+# <img src="icon.svg#svgView(viewBox(6.8,6,35.0625,31.875))" alt="已安装插件优先图标" width="40" height="36" align="absmiddle" /> 已安装插件优先
 
-[English](README.md) | **中文**
+<sup>[English](README.md) | **中文**</sup>
 
 在插件管理的“已安装”页面中，将“已安装插件”排在内置实验性插件前面。
 

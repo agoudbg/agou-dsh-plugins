@@ -1,6 +1,6 @@
-# ![](icon.svg) Remember Model Effort
+# <img src="icon.svg#svgView(viewBox(7.5,7.5,30.25,27.5))" alt="Remember Model Effort icon" width="40" height="36" align="absmiddle" /> Remember Model Effort
 
-**English** | [中文](README-zh-CN.md)
+<sup>**English** | [中文](README-zh-CN.md)</sup>
 
 Keeps each model's last selected reasoning effort when switching models.
 

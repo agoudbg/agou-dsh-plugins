@@ -1,6 +1,6 @@
-# ![](icon.svg) 菜单搜索
+# <img src="icon.svg#svgView(viewBox(6.4,6.4,30.25,27.5))" alt="菜单搜索图标" width="40" height="36" align="absmiddle" /> 菜单搜索
 
-[English](README.md) | **中文**
+<sup>[English](README.md) | **中文**</sup>
 
 为工作区、工作模式和分支菜单添加搜索框。
 

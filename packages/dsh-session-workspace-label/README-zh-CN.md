@@ -1,6 +1,6 @@
-# ![](icon.svg) 会话工作区标签
+# <img src="icon.svg#svgView(viewBox(7,7.5,29.5625,26.875))" alt="会话工作区标签图标" width="40" height="36" align="absmiddle" /> 会话工作区标签
 
-[English](README.md) | **中文**
+<sup>[English](README.md) | **中文**</sup>
 
 在单列表模式分组显示工作区名称。
 

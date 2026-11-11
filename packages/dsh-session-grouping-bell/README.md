@@ -1,6 +1,6 @@
-# ![](icon.svg) Session Grouping Bell
+# <img src="icon.svg#svgView(viewBox(7,6.5,33.6875,30.625))" alt="Session Grouping Bell icon" width="40" height="36" align="absmiddle" /> Session Grouping Bell
 
-**English** | [中文](README-zh-CN.md)
+<sup>**English** | [中文](README-zh-CN.md)</sup>
 
 Quickly switch to the single-list view.
 

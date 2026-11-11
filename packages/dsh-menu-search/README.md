@@ -1,6 +1,6 @@
-# ![](icon.svg) Menu Search
+# <img src="icon.svg#svgView(viewBox(6.4,6.4,30.25,27.5))" alt="Menu Search icon" width="40" height="36" align="absmiddle" /> Menu Search
 
-**English** | [中文](README-zh-CN.md)
+<sup>**English** | [中文](README-zh-CN.md)</sup>
 
 Adds a search field to the workspace, work mode, and branch menus.
 

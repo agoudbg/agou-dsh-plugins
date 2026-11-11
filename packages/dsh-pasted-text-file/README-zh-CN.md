@@ -1,6 +1,6 @@
-# ![](icon.svg) 长文本粘贴附件
+# <img src="icon.svg#svgView(viewBox(7.5,6.5,33,30))" alt="长文本粘贴附件图标" width="40" height="36" align="absmiddle" /> 长文本粘贴附件
 
-[English](README.md) | **中文**
+<sup>[English](README.md) | **中文**</sup>
 
 将长文本粘贴为附件。
 

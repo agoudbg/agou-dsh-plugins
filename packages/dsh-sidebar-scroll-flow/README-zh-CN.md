@@ -1,6 +1,6 @@
-# ![](icon.svg) 侧边栏整体滚动
+# <img src="icon.svg#svgView(viewBox(6.5,6.5,32.3125,29.375))" alt="侧边栏整体滚动图标" width="40" height="36" align="absmiddle" /> 侧边栏整体滚动
 
-[English](README.md) | **中文**
+<sup>[English](README.md) | **中文**</sup>
 
 增大对话列表在侧边栏的显示区域。
 

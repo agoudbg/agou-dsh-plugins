@@ -1,6 +1,6 @@
-# ![](icon.svg) Worktrees
+# <img src="icon.svg#svgView(viewBox(7.5,7.5,29.5625,26.875))" alt="Worktrees icon" width="40" height="36" align="absmiddle" /> Worktrees
 
-**English** | [中文](README-zh-CN.md)
+<sup>**English** | [中文](README-zh-CN.md)</sup>
 
 Choose a Git branch or a new local worktree for each conversation, with recoverable background cleanup.
 

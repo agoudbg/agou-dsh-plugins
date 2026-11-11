@@ -1,6 +1,6 @@
-# ![](icon.svg) Session Workspace Labels
+# <img src="icon.svg#svgView(viewBox(7,7.5,29.5625,26.875))" alt="Session Workspace Labels icon" width="40" height="36" align="absmiddle" /> Session Workspace Labels
 
-**English** | [中文](README-zh-CN.md)
+<sup>**English** | [中文](README-zh-CN.md)</sup>
 
 Displays workspace names by group in single-list mode.
 

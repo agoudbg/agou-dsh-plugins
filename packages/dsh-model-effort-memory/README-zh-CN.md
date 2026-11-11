@@ -1,6 +1,6 @@
-# ![](icon.svg) 记住模型推理强度
+# <img src="icon.svg#svgView(viewBox(7.5,7.5,30.25,27.5))" alt="记住模型推理强度图标" width="40" height="36" align="absmiddle" /> 记住模型推理强度
 
-[English](README.md) | **中文**
+<sup>[English](README.md) | **中文**</sup>
 
 切换模型时恢复每个模型上次选择的推理强度。
 

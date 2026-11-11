@@ -1,6 +1,6 @@
-# ![](icon.svg) Edge-Reachable Scrollbar
+# <img src="icon.svg#svgView(viewBox(7,7,31.625,28.75))" alt="Edge-Reachable Scrollbar icon" width="40" height="36" align="absmiddle" /> Edge-Reachable Scrollbar
 
-**English** | [中文](README-zh-CN.md)
+<sup>**English** | [中文](README-zh-CN.md)</sup>
 
 Makes the scrollbar usable with the mouse at the screen edge.
 

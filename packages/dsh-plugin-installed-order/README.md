@@ -1,6 +1,6 @@
-# ![](icon.svg) Installed Plugins First
+# <img src="icon.svg#svgView(viewBox(6.8,6,35.0625,31.875))" alt="Installed Plugins First icon" width="40" height="36" align="absmiddle" /> Installed Plugins First
 
-**English** | [中文](README-zh-CN.md)
+<sup>**English** | [中文](README-zh-CN.md)</sup>
 
 Shows installed plugins before built-in experimental plugins on the Installed tab.
 

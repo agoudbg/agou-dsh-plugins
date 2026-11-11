@@ -1,6 +1,6 @@
-# ![](icon.svg) Auto Permission Default
+# <img src="icon.svg#svgView(viewBox(6.5,6.5,31.625,28.75))" alt="Auto Permission Default icon" width="40" height="36" align="absmiddle" /> Auto Permission Default
 
-**English** | [中文](README-zh-CN.md)
+<sup>**English** | [中文](README-zh-CN.md)</sup>
 
 Selects the Auto review permission preset for every new interactive session.
 

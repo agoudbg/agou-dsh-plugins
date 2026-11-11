@@ -1,6 +1,6 @@
-# ![](icon.svg) Sidebar Scroll Flow
+# <img src="icon.svg#svgView(viewBox(6.5,6.5,32.3125,29.375))" alt="Sidebar Scroll Flow icon" width="40" height="36" align="absmiddle" /> Sidebar Scroll Flow
 
-**English** | [中文](README-zh-CN.md)
+<sup>**English** | [中文](README-zh-CN.md)</sup>
 
 Increases the display area for the conversation list in the sidebar.
 

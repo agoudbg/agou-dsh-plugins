@@ -1,6 +1,6 @@
-# ![](icon.svg) 滚动条贴边可用
+# <img src="icon.svg#svgView(viewBox(7,7,31.625,28.75))" alt="滚动条贴边可用图标" width="40" height="36" align="absmiddle" /> 滚动条贴边可用
 
-[English](README.md) | **中文**
+<sup>[English](README.md) | **中文**</sup>
 
 让滚动条在鼠标位于屏幕边缘时可用。
 

@@ -1,6 +1,6 @@
-# ![](icon.svg) Pasted Text Attachment
+# <img src="icon.svg#svgView(viewBox(7.5,6.5,33,30))" alt="Pasted Text Attachment icon" width="40" height="36" align="absmiddle" /> Pasted Text Attachment
 
-**English** | [中文](README-zh-CN.md)
+<sup>**English** | [中文](README-zh-CN.md)</sup>
 
 Paste long text as an attachment.
 

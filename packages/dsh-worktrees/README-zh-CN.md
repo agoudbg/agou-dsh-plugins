@@ -1,6 +1,6 @@
-# ![](icon.svg) 工作树
+# <img src="icon.svg#svgView(viewBox(7.5,7.5,29.5625,26.875))" alt="工作树图标" width="40" height="36" align="absmiddle" /> 工作树
 
-[English](README.md) | **中文**
+<sup>[English](README.md) | **中文**</sup>
 
 为会话选择 Git 分支或新建本地工作树，支持保存快照后自动清理和恢复。
 

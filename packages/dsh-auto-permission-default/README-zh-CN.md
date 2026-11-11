@@ -1,6 +1,6 @@
-# ![](icon.svg) 自动审查默认权限
+# <img src="icon.svg#svgView(viewBox(6.5,6.5,31.625,28.75))" alt="自动审查默认权限图标" width="40" height="36" align="absmiddle" /> 自动审查默认权限
 
-[English](README.md) | **中文**
+<sup>[English](README.md) | **中文**</sup>
 
 让每个新建交互会话默认使用“自动审查”权限预设。
 

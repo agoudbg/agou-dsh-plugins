@@ -1,6 +1,6 @@
-# ![](icon.svg) 会话分组铃铛
+# <img src="icon.svg#svgView(viewBox(7,6.5,33.6875,30.625))" alt="会话分组铃铛图标" width="40" height="36" align="absmiddle" /> 会话分组铃铛
 
-[English](README.md) | **中文**
+<sup>[English](README.md) | **中文**</sup>
 
 快速切换到单列表视图。
 
