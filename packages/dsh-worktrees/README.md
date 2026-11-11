@@ -1,8 +1,10 @@
-![](icon.svg) **Worktrees**
+# ![](icon.svg) Worktrees
 
-Adds a **Local / New local worktree** choice next to the workspace and mode menus when you start a conversation.
+**English** | [中文](README-zh-CN.md)
 
-**Local** opens a branch picker and checks out the chosen branch in the source workspace; uncommitted changes stay in the working directory. **New local worktree** creates an isolated copy from the chosen branch when you send the first message: the copy starts at the branch's latest commit without moving the branch, uncommitted changes are not carried over, and the conversation is nudged to create its own task branch before changing files.
+Choose a Git branch or a new local worktree for each conversation, with recoverable background cleanup.
+
+A **Local / New local worktree** choice appears next to the workspace and mode menus when you start a conversation. **Local** opens a branch picker and checks out the chosen branch in the source workspace; uncommitted changes stay in the working directory. **New local worktree** creates an isolated copy from the chosen branch when you send the first message: the copy starts at the branch's latest commit without moving the branch, uncommitted changes are not carried over, and the conversation is nudged to create its own task branch before changing files.
 
 Your choice is remembered per workspace.
 

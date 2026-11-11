@@ -1,8 +1,10 @@
-![](icon.svg) **Menu Search**
+# ![](icon.svg) Menu Search
 
-Adds a search box at the top of the menus that list many entries: the workspace picker, the work mode picker, and the branch picker added by the Worktrees plugin. Typing filters the entries in place.
+**English** | [中文](README-zh-CN.md)
 
-Press Enter to open the first match. Esc clears the search first and closes the menu only when the box is already empty, and the arrow keys move between the search box and the entries as one list.
+Adds a search field to the workspace, work mode, and branch menus.
+
+Typing filters the entries in place. Press Enter to open the first match. Esc clears the search first and closes the menu only when the box is already empty, and the arrow keys move between the search box and the entries as one list.
 
 ## Install
 

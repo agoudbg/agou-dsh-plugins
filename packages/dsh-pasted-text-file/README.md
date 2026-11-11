@@ -1,8 +1,12 @@
-![](icon.svg) **Pasted Text Attachment**
+# ![](icon.svg) Pasted Text Attachment
 
-Turns long pastes into attachments. Paste more than 5000 characters and the text arrives as a file beside your draft instead of filling the input box, so you can keep editing the message and send everything together. The filename follows the interface language, and later pastes in the same conversation are numbered (1), (2), and so on.
+**English** | [中文](README-zh-CN.md)
 
-Click **Paste into text box** on an attachment to put its text back into the message at the cursor and remove the file. Files and images pasted in the same operation are attached as usual.
+Paste long text as an attachment.
+
+Paste more than 5000 characters and the text arrives as a file beside your draft instead of filling the input box, so you can keep editing the message and send everything together. The filename follows the interface language, and later pastes in the same conversation are numbered (1), (2), and so on.
+
+Click **Paste into text box** on the attachment to insert the original text back at the input box's cursor and drop the attachment. Files and images included in the same paste keep arriving as attachments.
 
 ## Install
 

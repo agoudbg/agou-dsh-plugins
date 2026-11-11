@@ -1,6 +1,10 @@
-![](icon.svg) **Edge-Reachable Scrollbar**
+# ![](icon.svg) Edge-Reachable Scrollbar
 
-Lets you grab the scrollbars of the conversation page and the Files panel with the mouse pressed fully against the right edge of the window. The visible scrollbar looks the same; its draggable area now reaches the edge.
+**English** | [中文](README-zh-CN.md)
+
+Makes the scrollbar usable with the mouse at the screen edge.
+
+Grab the scrollbars of the conversation page and the Files panel with the mouse pressed fully against the right edge of the window. The visible scrollbar looks the same; its draggable area now reaches the edge.
 
 ## Install
 

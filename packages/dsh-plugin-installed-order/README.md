@@ -1,8 +1,10 @@
-![](icon.svg) **Installed Plugins First**
+# ![](icon.svg) Installed Plugins First
 
-On the Plugins page, lists your installed plugins ahead of the built-in experimental plugins. The groups appear as: built-in plugin configuration, Installed plugins, Experimental plugins.
+**English** | [中文](README-zh-CN.md)
 
-Disable the plugin to restore the original order.
+Shows installed plugins before built-in experimental plugins on the Installed tab.
+
+The groups appear in this order: built-in plugin configuration, Installed plugins, Experimental plugins. Disable the plugin to restore the original order.
 
 ## Install
 

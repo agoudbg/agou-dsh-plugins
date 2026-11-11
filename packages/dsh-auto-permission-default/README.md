@@ -1,6 +1,10 @@
-![](icon.svg) **Auto Permission Default**
+# ![](icon.svg) Auto Permission Default
 
-Starts every new conversation on the **Auto review** permission preset, so tools can run without waiting for a manual choice. Conversations where you pick another preset keep your choice, and subagent conversations are not affected. When the preset is unavailable in your DSH, the plugin does nothing.
+**English** | [中文](README-zh-CN.md)
+
+Selects the Auto review permission preset for every new interactive session.
+
+Conversations where you pick another preset keep your choice, and subagent conversations are not affected. When the preset is unavailable in your DSH, the plugin does nothing.
 
 ## Install
 

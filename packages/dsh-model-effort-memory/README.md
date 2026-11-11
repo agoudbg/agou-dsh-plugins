@@ -1,8 +1,10 @@
-![](icon.svg) **Remember Model Effort**
+# ![](icon.svg) Remember Model Effort
 
-Each model remembers the reasoning effort you last used with it. Switch to another model and back, and the effort you chose before is selected again. A model that no longer offers the saved level falls back to its default.
+**English** | [中文](README-zh-CN.md)
 
-The memory is kept per model in this browser and survives page reloads.
+Keeps each model's last selected reasoning effort when switching models.
+
+A model that no longer offers the saved level falls back to its default. The memory is kept per model in this browser and survives page reloads.
 
 ## Install
 

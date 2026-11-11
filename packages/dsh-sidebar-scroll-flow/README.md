@@ -1,6 +1,10 @@
-![](icon.svg) **Sidebar Scroll Flow**
+# ![](icon.svg) Sidebar Scroll Flow
 
-Scrolls the whole expanded sidebar as one column. The global rows above the session list — Temporary tasks, Plugins, Automated tasks, More — now scroll away together with the list, while the brand row, the **New Session** button, and the settings foot stay in place. The collapsed sidebar keeps its own layout.
+**English** | [中文](README-zh-CN.md)
+
+Increases the display area for the conversation list in the sidebar.
+
+The whole expanded sidebar scrolls as one column. The global rows above the session list — Temporary tasks, Plugins, Automated tasks, More — scroll away together with the list, while the brand row, the **New Session** button, and the settings foot stay in place. The collapsed sidebar keeps its own layout.
 
 ## Install
 

@@ -1,6 +1,10 @@
-![](icon.svg) **Session Workspace Labels**
+# ![](icon.svg) Session Workspace Labels
 
-When the sidebar's session list is in **In one list** mode, shows each conversation's workspace name on a second line under its title. Conversations outside every workspace show **Ungrouped**, and renamed workspaces update the labels immediately.
+**English** | [中文](README-zh-CN.md)
+
+Displays workspace names by group in single-list mode.
+
+When the sidebar's session list is in **In one list** mode, each conversation shows its workspace name on a second line under its title. Conversations outside every workspace show **Ungrouped**, and renamed workspaces update the labels immediately.
 
 ## Install
 
