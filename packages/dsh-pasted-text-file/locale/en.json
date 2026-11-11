@@ -2,7 +2,7 @@
   "meta": {
     "title": "Pasted Text Attachment",
     "description": "Paste long text as an attachment.",
-    "detail": "README.md"
+    "detail": "DETAIL.md"
   },
   "fileName": "Pasted text.txt",
   "numberedFileName": "Pasted text ({number}).txt",

@@ -2,7 +2,7 @@
   "meta": {
     "title": "菜单搜索",
     "description": "为工作区、工作模式和分支菜单添加搜索框。",
-    "detail": "README-zh-CN.md"
+    "detail": "DETAIL-zh-CN.md"
   },
   "search": "搜索",
   "empty": "没有匹配项"

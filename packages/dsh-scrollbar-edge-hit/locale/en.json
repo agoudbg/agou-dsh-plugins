@@ -2,6 +2,6 @@
   "meta": {
     "title": "Edge-Reachable Scrollbar",
     "description": "Makes the scrollbar usable with the mouse at the screen edge.",
-    "detail": "README.md"
+    "detail": "DETAIL.md"
   }
 }

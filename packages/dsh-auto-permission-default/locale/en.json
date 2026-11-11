@@ -2,6 +2,6 @@
   "meta": {
     "title": "Auto Permission Default",
     "description": "Selects the Auto review permission preset for every new interactive session.",
-    "detail": "README.md"
+    "detail": "DETAIL.md"
   }
 }

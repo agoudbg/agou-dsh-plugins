@@ -2,7 +2,7 @@
   "meta": {
     "title": "会话分组铃铛",
     "description": "快速切换到单列表视图。",
-    "detail": "README-zh-CN.md"
+    "detail": "DETAIL-zh-CN.md"
   },
   "showFlat": "切换到单列表",
   "showWorkspace": "切换到按工作区分组",

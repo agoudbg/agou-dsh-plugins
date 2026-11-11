@@ -2,7 +2,7 @@
   "meta": {
     "title": "工作树",
     "description": "为会话选择 Git 分支或新建本地工作树，支持保存快照后自动清理和恢复。",
-    "detail": "README-zh-CN.md"
+    "detail": "DETAIL-zh-CN.md"
   },
   "ui": {
     "nav": "工作树",

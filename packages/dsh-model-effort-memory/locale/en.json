@@ -2,6 +2,6 @@
   "meta": {
     "title": "Remember Model Effort",
     "description": "Keeps each model's last selected reasoning effort when switching models.",
-    "detail": "README.md"
+    "detail": "DETAIL.md"
   }
 }

@@ -86,7 +86,7 @@ pnpm install
 
 每个插件都是自包含的纯 ESM JavaScript，无需构建。编辑 `packages/<name>` 下的文件，然后重新安装 bundle，即可在 DSH profile 中试用改动。
 
-每次推送都会运行 `scripts/check-packages.mjs`。该脚本会检查每个包的清单、导出目标、入口语法和 `npm pack` 文件列表。
+每次推送都会运行 `scripts/check-packages.mjs`。该脚本会检查每个包的清单、导出目标、入口语法和 `npm pack` 文件列表。DSH 插件页不渲染原始 HTML，所以每个包还带有 `DETAIL.md` 和 `DETAIL-zh-CN.md`，由 `node scripts/build-plugin-details.mjs` 从 README 生成；副本过期时检查会失败。
 
 ## 发布
 

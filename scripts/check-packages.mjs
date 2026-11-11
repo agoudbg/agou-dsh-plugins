@@ -7,6 +7,7 @@ import { readdirSync, readFileSync, existsSync, statSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { DETAIL_SOURCES, detailBody } from './build-plugin-details.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const packagesDir = path.join(root, 'packages');
@@ -85,6 +86,25 @@ for (const dirName of dirs) {
   }
   if (!Array.isArray(pkg.files) || pkg.files.length === 0) {
     fail(dirName, 'files must be a non-empty array');
+  }
+
+  // Generated detail documents must match the body under their README header.
+  for (const { readme, detail } of DETAIL_SOURCES) {
+    try {
+      const expected = detailBody(
+        readFileSync(path.join(packageDir, readme), 'utf8'),
+        `${dirName}/${readme}`,
+      );
+      const detailPath = path.join(packageDir, detail);
+      const actual = existsSync(detailPath) ? readFileSync(detailPath, 'utf8') : null;
+      if (actual !== expected) {
+        fail(dirName, `${detail} is stale; run node scripts/build-plugin-details.mjs`);
+      } else {
+        say(`detail ${detail}`);
+      }
+    } catch (error) {
+      fail(dirName, error.message);
+    }
   }
 
   const entryExport = pkg.exports?.['.'];

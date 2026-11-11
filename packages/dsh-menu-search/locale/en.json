@@ -2,7 +2,7 @@
   "meta": {
     "title": "Menu Search",
     "description": "Adds a search field to the workspace, work mode, and branch menus.",
-    "detail": "README.md"
+    "detail": "DETAIL.md"
   },
   "search": "Search",
   "empty": "No matching items"

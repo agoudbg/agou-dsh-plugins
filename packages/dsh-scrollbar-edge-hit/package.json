@@ -33,7 +33,9 @@
     "locale/*.json",
     "icon.svg",
     "README.md",
-    "README-zh-CN.md"
+    "README-zh-CN.md",
+    "DETAIL.md",
+    "DETAIL-zh-CN.md"
   ],
   "dsh": {
     "bundle": {

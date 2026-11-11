@@ -2,6 +2,6 @@
   "meta": {
     "title": "自动审查默认权限",
     "description": "让每个新建交互会话默认使用“自动审查”权限预设。",
-    "detail": "README-zh-CN.md"
+    "detail": "DETAIL-zh-CN.md"
   }
 }

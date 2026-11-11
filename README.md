@@ -88,7 +88,7 @@ pnpm install
 
 Each plugin is self-contained plain ESM JavaScript with no build step. Edit the files under `packages/<name>`, then reinstall the bundle to try the change in your DSH profile.
 
-Every push runs `scripts/check-packages.mjs`, which validates manifests, export targets, entry syntax, and the `npm pack` file list of every package.
+Every push runs `scripts/check-packages.mjs`, which validates manifests, export targets, entry syntax, and the `npm pack` file list of every package. The DSH plugin page omits raw HTML, so each package carries `DETAIL.md` and `DETAIL-zh-CN.md`, headerless copies generated from its READMEs by `node scripts/build-plugin-details.mjs`; the check fails while a generated copy is stale.
 
 ## Releasing
 
