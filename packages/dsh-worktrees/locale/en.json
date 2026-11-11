@@ -1,7 +1,8 @@
 {
   "meta": {
     "title": "Worktrees",
-    "description": "Choose a Git branch or a new local worktree for each conversation, with recoverable background cleanup."
+    "description": "Choose a Git branch or a new local worktree for each conversation, with recoverable background cleanup.",
+    "detail": "README.md"
   },
   "ui": {
     "nav": "Worktrees",

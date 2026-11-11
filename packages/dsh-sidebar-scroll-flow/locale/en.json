@@ -1,6 +1,7 @@
 {
   "meta": {
     "title": "Sidebar Scroll Flow",
-    "description": "Increases the display area for the conversation list in the sidebar."
+    "description": "Increases the display area for the conversation list in the sidebar.",
+    "detail": "README.md"
   }
 }

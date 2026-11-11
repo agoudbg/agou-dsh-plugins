@@ -19,7 +19,7 @@
     "./icon": "./icon.svg"
   },
   "scripts": { "test": "node --test" },
-  "files": ["index.js", "client.js", "cordis.patch.yml", "locale/*.json", "icon.svg"],
+  "files": ["index.js", "client.js", "cordis.patch.yml", "locale/*.json", "icon.svg", "README.md", "README-zh-CN.md"],
   "dsh": {
     "bundle": { "patch": "./cordis.patch.yml" },
     "client": {

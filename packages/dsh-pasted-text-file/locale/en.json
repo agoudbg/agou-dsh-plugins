@@ -1,7 +1,8 @@
 {
   "meta": {
     "title": "Pasted Text Attachment",
-    "description": "Paste long text as an attachment."
+    "description": "Paste long text as an attachment.",
+    "detail": "README.md"
   },
   "fileName": "Pasted text.txt",
   "numberedFileName": "Pasted text ({number}).txt",
