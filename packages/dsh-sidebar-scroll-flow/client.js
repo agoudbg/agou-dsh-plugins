@@ -105,12 +105,13 @@ window.__ModuleLoader__.load({
       /* The bottom fade belongs to the inner scroll viewport; hide it. */
       '[class*="regionArea"] [class*="_fade"] { display: none !important; }',
 
-      /* The foot stays pinned at the bottom with a full-width opaque
-         backdrop, so rows slide beneath it unseen. */
+      /* Auto margin fills spare height for short lists; sticky keeps the foot
+         pinned while long lists scroll beneath its full-width backdrop. */
       'div:has(> [class*="panelList"]):has(> [class*="regionArea"]):not([class*="collapsed"]) > [class*="footArea"] {',
       '  position: sticky !important;',
       '  bottom: 0 !important;',
       '  z-index: 3;',
+      '  margin-top: auto !important;',
       '  margin-left: calc(-1 * var(--dsh-sidebar-inline-padding, 12px)) !important;',
       '  margin-right: calc(-1 * var(--dsh-sidebar-inline-padding, 12px)) !important;',
       '  padding-left: var(--dsh-sidebar-inline-padding, 12px) !important;',
