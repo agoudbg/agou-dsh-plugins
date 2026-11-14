@@ -96,12 +96,9 @@
       "versions": [
         {
           "version": "1.0.0",
-          "publishTimestamp": 1794667090,
+          "publishTimestamp": 1794668211,
           "source": {
-            "type": "git",
-            "url": "https://github.com/agoudbg/agou-dsh-plugins",
-            "commit": "017261034ff9096d862a7888e8f189ff41a76e35",
-            "path": "packages/dsh-hide-context-hints"
+            "type": "npm"
           },
           "engines": {
             "dsh": ">=0.2.2-rc.3"

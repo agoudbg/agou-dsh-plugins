@@ -129,6 +129,11 @@
       "name": "dsh-sidebar-scroll-flow",
       "version": "1.0.4",
       "publishTimestamp": 1794634809
+    },
+    {
+      "name": "@agou/dsh-hide-context-hints",
+      "version": "1.0.0",
+      "publishTimestamp": 1794668211
     }
   ]
 }
