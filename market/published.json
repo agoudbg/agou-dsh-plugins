@@ -124,6 +124,11 @@
       "name": "dsh-sidebar-scroll-flow",
       "version": "1.0.3",
       "publishTimestamp": 1794540411
+    },
+    {
+      "name": "dsh-sidebar-scroll-flow",
+      "version": "1.0.4",
+      "publishTimestamp": 1794634809
     }
   ]
 }
