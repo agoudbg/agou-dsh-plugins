@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "侧边栏整体滚动",
-    "description": "增大对话列表在侧边栏的显示区域。",
+    "description": "为 DSH 0.2.2-rc.3 之前的版本增大侧边栏对话列表的显示区域。在 0.2.2-rc.3 或更高版本中不生效。",
     "detail": "DETAIL-zh-CN.md"
   }
 }

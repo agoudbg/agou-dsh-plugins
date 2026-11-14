@@ -1,6 +1,31 @@
 window.__ModuleLoader__.load({
   id: 'dsh-sidebar-scroll-flow',
   factory(require) {
+    /** Compare the Host release with the fixed native-scroll boundary, 0.2.2-rc.3. */
+    function hasNativeSidebarScroll(version) {
+      // Older Hosts do not publish a release identity in the boot graph.
+      if (version === undefined) return false;
+      const match = typeof version === 'string'
+        ? /^v?(\d+)\.(\d+)\.(\d+)(?:-([0-9A-Za-z.-]+))?(?:\+[0-9A-Za-z.-]+)?$/.exec(version)
+        : null;
+      if (match === null) throw new Error('dsh-sidebar-scroll-flow: invalid DSH release version');
+      const core = match.slice(1, 4).map(Number);
+      const boundary = [0, 2, 2];
+      for (let index = 0; index < core.length; index += 1) {
+        if (core[index] !== boundary[index]) return core[index] > boundary[index];
+      }
+      if (match[4] === undefined) return true;
+      const [channel, sequence] = match[4].split('.');
+      // Numeric prerelease identifiers sort before the nonnumeric "rc" identifier.
+      if (channel !== 'rc') return !/^\d+$/.test(channel) && channel > 'rc';
+      if (sequence === undefined) return false;
+      return !/^\d+$/.test(sequence) || Number(sequence) >= 3;
+    }
+
+    if (hasNativeSidebarScroll(window.__DSH_BOOT__?.release?.version)) {
+      return { apply() {} };
+    }
+
     const React = require('react');
     const h = React.createElement;
 

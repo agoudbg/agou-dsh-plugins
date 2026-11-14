@@ -1,7 +1,7 @@
 {
   "name": "dsh-sidebar-scroll-flow",
-  "version": "1.0.3",
-  "description": "Increases the display area for the conversation list in the sidebar.",
+  "version": "1.0.4",
+  "description": "Increases the sidebar conversation list area on DSH before 0.2.2-rc.3. Does nothing on 0.2.2-rc.3 or later.",
   "type": "module",
   "license": "MIT",
   "author": "agoudbg",

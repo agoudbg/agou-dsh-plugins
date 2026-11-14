@@ -25,6 +25,8 @@ jobs:
       # without committing that entry, which also breaks the artwork refresh.
       - name: Check lockfile is committed
         run: git diff --exit-code -- pnpm-lock.yaml
+      - name: Test sidebar scroll version guard
+        run: node --test packages/dsh-sidebar-scroll-flow/test/client.test.js
       - name: Check packages
         run: node scripts/check-packages.mjs
       - name: Check market index
