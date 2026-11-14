@@ -65,6 +65,51 @@
       ]
     },
     {
+      "name": "@agou/dsh-hide-context-hints",
+      "title": {
+        "en": "Hide context hints",
+        "zh": "隐藏上下文提示"
+      },
+      "description": {
+        "en": "Hides context injection hints in conversations.",
+        "zh": "隐藏会话中的“上下文注入”提示。"
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzYiIGhlaWdodD0iMzYiIHZpZXdCb3g9IjAgMCAzNiAzNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iaGlkZS1jb250ZXh0LWhpbnRzLWV5ZSIgeDE9IjciIHkxPSIxMCIgeDI9IjI5IiB5Mj0iMjciIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzZBQjVFNyIgLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNjI2N0NFIiAvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPGcgc3Ryb2tlPSJ1cmwoI2hpZGUtY29udGV4dC1oaW50cy1leWUpIiBzdHJva2Utd2lkdGg9IjIuNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KICAgIDxwYXRoIGQ9Ik0xNCAxMS40QzE1LjIgMTAuOSAxNi42IDEwLjUgMTggMTAuNUMyNCAxMC41IDI4LjUgMTggMjguNSAxOEMyNy42IDE5LjQgMjYuNSAyMC44IDI1LjMgMjIiIC8+CiAgICA8cGF0aCBkPSJNMjEuOSAyNC42QzIwLjcgMjUuMSAxOS40IDI1LjUgMTggMjUuNUMxMiAyNS41IDcuNSAxOCA3LjUgMThDOC40IDE2LjYgOS41IDE1LjIgMTAuNyAxNCIgLz4KICAgIDxwYXRoIGQ9Ik0xNy40IDE0LjVBMy42IDMuNiAwIDAgMSAyMS41IDE4LjZNMTguNiAyMS41QTMuNiAzLjYgMCAwIDEgMTQuNSAxNy40IiAvPgogICAgPHBhdGggZD0iTTggOEwyOCAyOCIgLz4KICA8L2c+Cjwvc3ZnPgo=",
+      "author": "agoudbg",
+      "homepage": "https://github.com/agoudbg/agou-dsh-plugins#readme",
+      "repository": {
+        "url": "https://github.com/agoudbg/agou-dsh-plugins",
+        "directory": "packages/dsh-hide-context-hints"
+      },
+      "metadata": {
+        "keywords": [
+          "dsh",
+          "dsh-plugin",
+          "deepseek-harness",
+          "web-ui",
+          "conversation",
+          "context"
+        ],
+        "labels": [],
+        "sortKeys": {}
+      },
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishTimestamp": 1794667090,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/agoudbg/agou-dsh-plugins",
+            "commit": "017261034ff9096d862a7888e8f189ff41a76e35",
+            "path": "packages/dsh-hide-context-hints"
+          },
+          "engines": {
+            "dsh": ">=0.2.2-rc.3"
+          }
+        }
+      ]
+    },
+    {
       "name": "dsh-menu-search",
       "title": {
         "en": "Menu Search",

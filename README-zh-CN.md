@@ -23,6 +23,9 @@
 <img src="packages/dsh-auto-permission-default/icon.svg#svgView(viewBox(6.5,6.5,31.625,28.75))" alt="自动审查默认权限图标" width="22" height="20" align="absmiddle" />**[自动审查默认权限](packages/dsh-auto-permission-default)**<br>
 <sub>让每个新建交互会话默认使用“自动审查”权限预设。</sub>
 
+<img src="packages/dsh-hide-context-hints/icon.svg#svgView(viewBox(6,6,33,30))" alt="隐藏上下文提示图标" width="22" height="20" align="absmiddle" />**[隐藏上下文提示](packages/dsh-hide-context-hints)**<br>
+<sub>隐藏会话中的“上下文注入”提示。</sub>
+
 <img src="packages/dsh-menu-search/icon.svg#svgView(viewBox(6.4,6.4,30.25,27.5))" alt="菜单搜索图标" width="22" height="20" align="absmiddle" />**[菜单搜索](packages/dsh-menu-search)**<br>
 <sub>为工作区、工作模式和分支菜单添加搜索框。</sub>
 
@@ -45,7 +48,7 @@
 <sub>在单列表模式分组显示工作区名称。</sub>
 
 <img src="packages/dsh-sidebar-scroll-flow/icon.svg#svgView(viewBox(6.5,6.5,32.3125,29.375))" alt="侧边栏整体滚动图标" width="22" height="20" align="absmiddle" />**[侧边栏整体滚动](packages/dsh-sidebar-scroll-flow)**<br>
-<sub>增大对话列表在侧边栏的显示区域。</sub>
+<sub>为 DSH 0.2.2-rc.3 之前的版本增大侧边栏对话列表的显示区域。在 0.2.2-rc.3 或更高版本中不生效。</sub>
 
 <img src="packages/dsh-worktrees/icon.svg#svgView(viewBox(7.5,7.5,29.5625,26.875))" alt="工作树图标" width="22" height="20" align="absmiddle" />**[工作树](packages/dsh-worktrees)**<br>
 <sub>为会话选择 Git 分支或新建本地工作树，支持保存快照后自动清理和恢复。</sub>

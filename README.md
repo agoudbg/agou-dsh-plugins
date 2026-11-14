@@ -23,6 +23,9 @@ DSH (DeepSeek Harness) plugins by [agoudbg](https://github.com/agoudbg).
 <img src="packages/dsh-auto-permission-default/icon.svg#svgView(viewBox(6.5,6.5,31.625,28.75))" alt="Auto Permission Default icon" width="22" height="20" align="absmiddle" />**[Auto Permission Default](packages/dsh-auto-permission-default)**<br>
 <sub>Selects the Auto review permission preset for every new interactive session.</sub>
 
+<img src="packages/dsh-hide-context-hints/icon.svg#svgView(viewBox(6,6,33,30))" alt="Hide context hints icon" width="22" height="20" align="absmiddle" />**[Hide context hints](packages/dsh-hide-context-hints)**<br>
+<sub>Hides context injection hints in conversations.</sub>
+
 <img src="packages/dsh-menu-search/icon.svg#svgView(viewBox(6.4,6.4,30.25,27.5))" alt="Menu Search icon" width="22" height="20" align="absmiddle" />**[Menu Search](packages/dsh-menu-search)**<br>
 <sub>Adds a search field to the workspace, work mode, and branch menus.</sub>
 
@@ -45,7 +48,7 @@ DSH (DeepSeek Harness) plugins by [agoudbg](https://github.com/agoudbg).
 <sub>Displays workspace names by group in single-list mode.</sub>
 
 <img src="packages/dsh-sidebar-scroll-flow/icon.svg#svgView(viewBox(6.5,6.5,32.3125,29.375))" alt="Sidebar Scroll Flow icon" width="22" height="20" align="absmiddle" />**[Sidebar Scroll Flow](packages/dsh-sidebar-scroll-flow)**<br>
-<sub>Increases the display area for the conversation list in the sidebar.</sub>
+<sub>Increases the sidebar conversation list area on DSH before 0.2.2-rc.3. Does nothing on 0.2.2-rc.3 or later.</sub>
 
 <img src="packages/dsh-worktrees/icon.svg#svgView(viewBox(7.5,7.5,29.5625,26.875))" alt="Worktrees icon" width="22" height="20" align="absmiddle" />**[Worktrees](packages/dsh-worktrees)**<br>
 <sub>Choose a Git branch or a new local worktree for each conversation, with recoverable background cleanup.</sub>

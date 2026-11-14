@@ -17,6 +17,7 @@ import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildMarketIndex } from './build-market-index.mjs';
+import { README_SPECS } from './readme-plugins.mjs';
 
 const dryRun = process.argv.includes('--dry-run');
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -188,18 +189,20 @@ async function refreshMarketIndex() {
     if (err instanceof MarketIndexError) throw new Error(`refreshed market index is invalid: ${err.message}`);
     throw err;
   }
-  const status = spawnSync('git', ['status', '--porcelain', 'market'], {
+  // Keep every generated output in the same commit, including README-only changes.
+  const refreshPaths = ['market', ...README_SPECS.map(({ file }) => file)];
+  const status = spawnSync('git', ['status', '--porcelain', '--', ...refreshPaths], {
     cwd: root,
     encoding: 'utf8',
   });
   if (status.status !== 0) throw new Error(`git status failed: ${status.stderr}`);
   if (!status.stdout.trim()) {
-    console.log('market index is up to date.');
+    console.log('market index and README plugin lists are up to date.');
     return;
   }
-  console.log('market index changed; committing it back to main.');
+  console.log('market index or README plugin lists changed; committing them back to main.');
   const git = (args) => run('git', args);
-  git(['add', 'market']);
+  git(['add', '--', ...refreshPaths]);
   git([
     '-c',
     'user.name=github-actions[bot]',
