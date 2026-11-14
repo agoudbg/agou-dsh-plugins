@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "隐藏上下文提示",
+    "description": "隐藏会话中的“上下文注入”提示。",
+    "detail": "DETAIL-zh-CN.md"
+  }
+}

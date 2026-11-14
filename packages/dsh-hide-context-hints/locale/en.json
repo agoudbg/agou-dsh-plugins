@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "Hide context hints",
+    "description": "Hides context injection hints in conversations.",
+    "detail": "DETAIL.md"
+  }
+}

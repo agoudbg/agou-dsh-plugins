@@ -13,6 +13,7 @@ const README_ICON_BOTTOM_PADDING = 4;
 
 const README_ICON_VIEW_BOXES = {
   "packages/dsh-auto-permission-default": "6.5,6.5,23,23",
+  "packages/dsh-hide-context-hints": "6,6,24,24",
   "packages/dsh-menu-search": "6.4,6.4,22,22",
   "packages/dsh-model-effort-memory": "7.5,7.5,22,22",
   "packages/dsh-pasted-text-file": "7.5,6.5,24,24",

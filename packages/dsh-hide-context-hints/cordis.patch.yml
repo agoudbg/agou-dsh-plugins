@@ -1,0 +1,4 @@
+- insert:
+    - id: hide-context-hints
+      name: '@agou/dsh-hide-context-hints'
+      config: {}

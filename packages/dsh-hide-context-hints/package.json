@@ -1,0 +1,54 @@
+{
+  "name": "@agou/dsh-hide-context-hints",
+  "version": "1.0.0",
+  "description": "Hides context injection hints in conversations.",
+  "type": "module",
+  "license": "MIT",
+  "author": "agoudbg",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agoudbg/agou-dsh-plugins.git",
+    "directory": "packages/dsh-hide-context-hints"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "web-ui",
+    "conversation",
+    "context"
+  ],
+  "engines": {
+    "dsh": ">=0.2.2-rc.3"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "README-zh-CN.md",
+    "DETAIL.md",
+    "DETAIL-zh-CN.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": ["@deepseek-ai/dsh-client-ui-chat"]
+    }
+  }
+}
